@@ -51,22 +51,24 @@ chef for your AI subscriptions. The models are the cooks; their limits are their
 
 1. Copy the message below.
 2. Fill in the blanks with what you have.
-3. Paste it into **Codex, Claude Code, OpenCode or Antigravity**. It reads [`INSTALL.md`](INSTALL.md), finds what is
+3. Paste it into the AI app you already use on your computer (**Codex, Claude Code, OpenCode or Antigravity**; the ChatGPT or Claude desktop app with code access works too). It reads [`INSTALL.md`](INSTALL.md), finds what is
    really installed, fixes what is broken, and sets everything up. It asks before anything that costs money or quota.
 
 ```text
-Install Orkestra from https://github.com/yigityildiz0/orkestra
-Read INSTALL.md in that repository and follow it step by step.
+Set up Orkestra for me: https://github.com/yigityildiz0/orkestra
+Read INSTALL.md there and follow it step by step. I am not technical,
+so explain every step in simple words.
 
-My AI platforms (write yes / no / not sure):
-- ChatGPT Plus or Pro, Codex CLI: ____
-- Claude Code (Claude Pro or Max): ____
-- Google Antigravity (Google AI Pro): ____
-- OpenCode (Go plan or other): ____
-- Other CLIs (Kimi, DeepSeek, Qwen, ...): ____
+These are the AI subscriptions I pay for (write yes / no / not sure):
+- ChatGPT Plus or Pro: ____
+- Claude Pro or Max: ____
+- Google AI Pro (Gemini): ____
+- Something else (OpenCode Go, Kimi, DeepSeek, ...): ____
 
-Check what is really installed, fix problems, never use paid extras,
-then show me /orkestra status and explain how to use it.
+For each one I have, check whether its app for the terminal is installed on
+this computer and signed in. If one is missing, ask me, then install it,
+or tell me exactly what to click and type. Never use paid extras or API keys.
+When everything works, show me /orkestra and how to use it.
 ```
 
 <details>
@@ -112,6 +114,8 @@ See Claude work live while it does: [Claude Office](https://github.com/yigityild
 | `ultra` | `/orkestra ultra …` | one tier smarter, verification from another family, up to 6 workers |
 
 You can always just say it: *"run 4 agents"*, *"use Codex for this"*, *"don't touch Claude"*.
+
+**Auto mode:** you don't have to type `/orkestra`. For bigger jobs (subagents, several parts, long writing, images) it switches on by itself and tells you in one line which model it picked and why. It never jumps to the biggest model just because you have quota left, and never drops below what the job needs to save quota.
 
 ### 🔄 It keeps itself up to date
 
@@ -201,22 +205,24 @@ Modeller aşçılar, limitleri de mesai saatleridir.
 
 1. Aşağıdaki mesajı kopyala.
 2. Boşlukları elindekilerle doldur.
-3. **Codex, Claude Code, OpenCode ya da Antigravity**'ye yapıştır. [`INSTALL.md`](INSTALL.md) dosyasını okur, neyin
+3. Bilgisayarında zaten kullandığın yapay zekâ uygulamasına yapıştır (**Codex, Claude Code, OpenCode ya da Antigravity**; kod erişimi olan ChatGPT veya Claude masaüstü uygulaması da olur). [`INSTALL.md`](INSTALL.md) dosyasını okur, neyin
    gerçekten kurulu olduğunu bulur, bozukları düzeltir ve her şeyi ayarlar. Para ya da kota harcayacak her şeyden önce sorar.
 
 ```text
-https://github.com/yigityildiz0/orkestra adresindeki Orkestra'yı kur.
-O depodaki INSTALL.md dosyasını oku ve adım adım uygula.
+Orkestra'yı benim için kur: https://github.com/yigityildiz0/orkestra
+Oradaki INSTALL.md dosyasını oku ve adım adım uygula. Teknik bilgim yok,
+her adımı basit kelimelerle anlat.
 
-Yapay zekâ platformlarım (evet / hayır / emin değilim yaz):
-- ChatGPT Plus veya Pro, Codex CLI: ____
-- Claude Code (Claude Pro veya Max): ____
-- Google Antigravity (Google AI Pro): ____
-- OpenCode (Go planı veya başka): ____
-- Diğer CLI'lar (Kimi, DeepSeek, Qwen, ...): ____
+Para ödediğim yapay zekâ abonelikleri (evet / hayır / emin değilim yaz):
+- ChatGPT Plus veya Pro: ____
+- Claude Pro veya Max: ____
+- Google AI Pro (Gemini): ____
+- Başka bir şey (OpenCode Go, Kimi, DeepSeek, ...): ____
 
-Gerçekte neyin kurulu olduğunu kontrol et, sorunları düzelt, ücretli ek kullanma,
-sonra bana /orkestra durumunu göster ve nasıl kullanacağımı Türkçe anlat.
+Sahip olduklarımın her biri için terminal uygulaması bu bilgisayarda kurulu
+ve giriş yapılmış mı kontrol et. Eksik olan varsa önce bana sor, sonra kur
+ya da tam olarak nereye tıklayıp ne yazacağımı söyle. Ücretli ek ya da API
+anahtarı kullanma. Her şey çalışınca bana /orkestra'yı ve nasıl kullanacağımı göster.
 ```
 
 <details>
@@ -261,6 +267,8 @@ API anahtarı olmadan ulaşabildiğin en yüksek puanlı görsel modeli.
 | `ultra` | `/orkestra ultra …` | bir kademe akıllı, başka aileden doğrulama, en çok 6 işçi |
 
 İstediğin zaman söyleyebilirsin: *"4 ajan çalıştır"*, *"bunu Codex'e yaptır"*, *"Claude'a dokunma"*.
+
+**Otomatik mod:** `/orkestra` yazman gerekmez. Büyük işlerde (alt ajan, birkaç parça, uzun yazı, görsel) kendiliğinden devreye girer ve hangi modeli neden seçtiğini tek satırla söyler. Kota var diye en büyük modele atlamaz, kota azaldı diye işin gerektirdiğinin altına da inmez.
 
 ### 🔄 Kendini güncel tutar
 

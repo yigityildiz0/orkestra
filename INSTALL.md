@@ -40,6 +40,15 @@ installed and signed in. Use the tool's own version or status command; do not gu
 | **OpenCode** (Go plan or its providers) | `opencode --version` | extra workers (for example Kimi, DeepSeek, Qwen, GLM, whatever the person's plan offers) |
 | Other CLIs that can run one prompt headless | the CLI's `--help` | extra workers |
 
+### If something is missing
+
+Many people only know the chat apps. For every subscription the person pays for but whose terminal app is missing:
+1. Say in plain words what it is ("Codex is ChatGPT's app for the terminal; it comes with your Plus plan").
+2. Ask before installing. Use only the official installer from the vendor's own site or package (check its current docs).
+3. If you cannot install it yourself, give click-by-click steps for their operating system.
+4. Let the person sign in themselves in the browser window the tool opens. Never ask for or type their password.
+5. Check again with the tool's version or status command before moving on.
+
 ## 4. Put the skill where each leader can find it
 
 Copy the folder `skills/orkestra` (keep its `references/` and `scripts/`) into the skills folder of every tool
@@ -93,5 +102,6 @@ Tell the person, in plain words and in their language:
 1. Which platforms were found, which are active in Orkestra, and anything they listed that is not installed.
 2. The files you wrote or changed (and backups).
 3. How to use it: `/orkestra` (status), `/orkestra <task>`, `/orkestra light <task>`, `/orkestra ultra <task>`,
-   `/orkestra on` / `off`, `/orkestra update` (monthly or when a new model ships).
+   `/orkestra on` / `off`, `/orkestra update` (monthly or when a new model ships). Mention auto mode: for bigger jobs it
+   switches on by itself and says in one line which model it picked and why.
 4. What you could not verify, and why.

@@ -1,6 +1,6 @@
 ---
 name: orkestra
-description: Routes tasks across available AI models and quota pools by difficulty, remaining capacity, and user preferences, with verification where appropriate.
+description: Routes tasks across available AI models and quota pools by difficulty, remaining capacity, and user preferences, with verification where appropriate. Activates on its own for substantial, multi-step or subagent work (auto mode); obeys any model, tool or worker count the user names.
 ---
 
 # Orkestra
@@ -20,6 +20,16 @@ The leader plans, briefs, delegates and verifies while conserving capacity witho
 | `/orkestra why <model> <class>` or `/orkestra neden <model> <class>` | Explain a selection or rejection. |
 
 These are skill-level commands, not literal Python subcommands. Explicit user instructions about the model, tool, worker count and mode take priority. Respect the atlas default policy unless the user changes it; do not add paid services, API keys or credits without authorization.
+
+## Auto mode (activates on its own)
+
+Apply the Orkestra method without being asked when work will use subagents, has several independent parts, means long reading, writing or translation, or needs an image. Skip it for a one-file fix, a short question or chat: the leader does those itself.
+
+Goal, compared with plain Claude subagents: the same or better quality, fewer Claude tokens, and faster results because independent parts run in parallel.
+- Plenty of quota is never a reason to pick the biggest model or the highest effort: the selector looks for the most economical variant that is smart enough and penalises overkill.
+- Low quota is never a reason to drop below the task's intelligence threshold (Q) in any gear; if nothing qualifies, ask the user.
+- When the pick rests on a single factor, the selector prints `↳ NOT:` (limit forced it, only one candidate left, intelligence overkill). Pass it on in one line, and say "because of limits" when quality was not the reason.
+- Announce once at the start: `orkestra: <class> → <model:effort> (<platform>), ≤N workers`. If the user objects, follow them.
 
 ## Quota and selection
 

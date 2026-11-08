@@ -625,6 +625,30 @@ def cubuk(kalan, taban, n=10):
 
 
 # ---------------------------------------------------------------- komutlar
+def gerekce(s, sonuc, red, kural):
+    """Seçim tek bir etkene dayanıyorsa (tek aday, zekâ fazlası, tabanda kalan havuz) bunu açıkça söyleyen notlar."""
+    if not sonuc:
+        return []
+    q = q_etkin(s, kural)
+    _, m0, e0 = sonuc[0][:3]
+    z0 = MODEL[m0]["z"][e0]
+    yeterli_red = [(m, e, n) for m, e, n in red if MODEL[m]["z"][e] >= q and "zeka yetmez" not in n]
+    out = []
+    if z0 - q >= 8 and s not in ("gorsel",):
+        ucuz = [x for x in yeterli_red if MODEL[x[0]]["z"][x[1]] < z0]
+        out.append(f"zekâ fazlası +{z0 - q}: {m0}:{e0} işin gerektirdiğinden güçlü"
+                   + (f"; daha uygun {ucuz[0][0]}:{ucuz[0][1]} elendi ({ucuz[0][2]})" if ucuz else "; eşiğe daha yakın yeterli aday yok"))
+    if len(sonuc) == 1 and yeterli_red:
+        out.append(f"tek aday kaldı; örn. {yeterli_red[0][0]}:{yeterli_red[0][1]} {yeterli_red[0][2]}")
+    if MODEL[m0]["h"] == "claude":
+        kalan_havuz = {MODEL[x[1]]["h"] for x in sonuc}
+        tabanda = sorted({HAVUZ[MODEL[m]['h']]['ad'] for m, e, n in yeterli_red
+                          if "taban" in n and MODEL[m]["h"] != "claude" and MODEL[m]["h"] not in kalan_havuz})
+        if tabanda:
+            out.append(f"Claude seçildi çünkü {', '.join(tabanda)} tabana yakın (limit zorladı, kalite değil)")
+    return out
+
+
 def sec(a):
     ham, simdi, oran, kural, yol, notlar = hazirla(a)
     dog = model_coz(a.dogrulayici)[0] if a.dogrulayici else None
@@ -665,10 +689,13 @@ def sec(a):
         par = paralel_tavan(sonuc, a.is_, kural)
         print(f"{s:13s} Q{q_etkin(s, kural):<2d} {kural['_mod']:6s}: " + " > ".join(f"{m}:{e} ({p:.3f})" for p, m, e, _, _ in sonuc[:3])
               + f"  | paralel ≤{par}")
+        notlar_s = gerekce(s, sonuc, red, kural)
+        for n in notlar_s:
+            print(f"   ↳ NOT: {n}")
         ilk = sonuc[0]
         json_out[s] = {"model": ilk[1], "efor": ilk[2], "puan": round(ilk[0], 4), "cagri": MODEL[ilk[1]]["cagri"].format(e=ilk[2]),
                        "yedek": [f"{m}:{e}" for _, m, e, _, _ in sonuc[1:3]], "mod": kural["_mod"], "mod_neden": mneden,
-                       "paralel_tavan": par}
+                       "paralel_tavan": par, "gerekce": notlar_s}
         if a.sinif:
             for p, m, e, nt, _ in sonuc:
                 print(f"   {m + ':' + e:30s} {p:7.3f}  {nt}  | {MODEL[m]['cagri'].format(e=e)}")
@@ -840,6 +867,15 @@ def kontrol(_a):
         h_, m_, si_, y_, o_ = yedek
         HAVUZ.clear(); HAVUZ.update(h_); MODEL.clear(); MODEL.update(m_)
         SINIF.clear(); SINIF.update(si_); YASAK.clear(); YASAK.update(y_); OZEL_KOTA.clear(); OZEL_KOTA.update(o_)
+    # gerekçe: limit zorlayınca söyler, bol kotada boş yere söylemez, ucuz yeterliyse zekâ fazlası demez
+    cxt = dict(claude=(100, 95), codex=(100, 29), agy_gemini=(100, 3), agy_argon=(0, 3), agy_tp=(100, 3))
+    son, red = calis(_senaryo(**cxt), "kod")
+    g = gerekce("kod", son, red, {"_mod": "normal"})
+    dogrula("Codex tabanda, kod Claude'a: 'limit zorladı' notu Codex'i anar", any("limit zorladı" in n and "Codex" in n for n in g))
+    son, red = calis(_senaryo(**bol), "kod")
+    dogrula("bol kota, kod: 'limit zorladı' notu yok", not any("limit zorladı" in n for n in gerekce("kod", son, red, {"_mod": "normal"})))
+    son, red = calis(_senaryo(**bol), "mekanik")
+    dogrula("bol kota, mekanik: zekâ fazlası uyarısı yok", not any("zekâ fazlası" in n for n in gerekce("mekanik", son, red, {"_mod": "normal"})))
     gecen = sum(1 for _, ok in sonuc if ok)
     for ad, ok in sonuc:
         print(("PASS " if ok else "FAIL ") + ad)
