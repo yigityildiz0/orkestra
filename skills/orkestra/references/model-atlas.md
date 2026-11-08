@@ -89,6 +89,7 @@ Score per cost usually peaks at low or medium; diminishing returns start around 
 | Difficult architecture, ambiguous bug | Sol high/xhigh or Opus high | Sonnet max |
 | Critical, final verification | Opus xhigh | Sol max second opinion from a different family |
 | Image generation | Codex image_gen (Sol high, by default) | Nano Banana manually |
+| Animation / GIF | Codex image_gen, GPT Image 2.6 (4 Nov 2026): ask for a looping sprite sheet; Codex slices the frames into a GIF/APNG | Frame by frame by hand |
 | Image understanding | Terra/Sol | Opus, Argon |
 | Video understanding/generation | cannot be automated | ffmpeg+Whisper; Gemini app manually |
 
