@@ -1,0 +1,12 @@
+{
+  "_aciklama": "Example only: quota, consumption rates and Z scores are illustrative; configure your available pools and measured values.",
+  "kapali": ["agy_argon"],
+  "havuz": {
+    "opencode_go": {"taban": {"hafta": 10}, "agirlik": 0.6, "ad": "OpenCode Go"}
+  },
+  "model": {
+    "kimi-k2": {"h": "opencode_go", "aile": "kimi", "o": {"hafta": 1.0}, "z": {"medium": 40}, "cagri": "opencode run -m <provider>/<model> \"<brief>\""},
+    "deepseek-v4": {"h": "opencode_go", "aile": "deepseek", "o": {"hafta": 1.0}, "z": {"medium": 42}, "cagri": "opencode run -m <provider>/<model> \"<brief>\""}
+  },
+  "kota": {"opencode_go": {"hafta": [80, null]}}
+}
