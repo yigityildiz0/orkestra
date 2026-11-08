@@ -60,6 +60,12 @@ python -I scripts/kapasite.py kontrol
 
 Claude reset times can be supplied with `--claude-5s-reset` and `--claude-hafta-reset` in ISO format; `--json` requests structured output and `--senaryo` supplies a scenario. Intelligence thresholds Q (same scale as the Artificial Analysis Intelligence Index v5.0.1 per effort): mechanical 16, simple 22, research 38, normal 41, code 45, difficult 50, critical 55. Image generation counts 4x quota; video understanding and generation are reported as not automatable with the manual route. Use the first suitable result or the next if eliminated. Rates are estimates; calibrate using `olc`. If quality is insufficient, increase capability; do not compensate for insufficient model intelligence with effort alone.
 
+## How to show it
+
+- `/orkestra` status: if the host has an in-chat visual tool, draw a small dashboard (a fill bar per pool with the reserve hatched, the pick per task class, the current gear). Otherwise show the selector's bar lines (█ spendable, ▓ reserve, · empty) and a 3–4 line summary table, not the raw dump.
+- After each task, one line: `model:effort → what it did` (for example `gpt-6.1-sol:medium → translation; claude-opus → review`).
+- Docs, README and promo images: ask Codex's image tool for pictures WITHOUT text, then add names, titles and numbers yourself (image models can garble letters). To fix an existing image, pass it with `-i <file>` and close stdin. Open every image and check it: no stray text, no overflow, no imitation of real logos.
+
 ## Leader and workers
 
 A Claude leader can use its Agent tool with model and effort controls when available. A leader cannot assume it can change its own model. If Codex, OpenCode or agy leads, follow the same classify → select → brief → execute → verify flow using its own available subagent or CLI tools. Check actual tool support before delegating. If Claude is unavailable, set `"kapali": ["claude"]` in `platformlar.json`. Never claim a model or effort changed without tool support.

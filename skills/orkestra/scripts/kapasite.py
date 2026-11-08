@@ -111,7 +111,7 @@ SINIF = {
     "kod":       dict(q=45, aciklama="çok dosyalı kod, ajan/terminal işi"),
     "zor":       dict(q=50, hata=3, aciklama="belirsiz hata, mimari, algoritma"),
     "kritik":    dict(q=55, hata=8, sert=True, aciklama="geri alınamaz/yüksek riskli karar, nihai doğrulama"),
-    "gorsel":    dict(q=0, adaylar=["gpt-6.1-terra"], carpan=4,
+    "gorsel":    dict(q=0, adaylar=["gpt-6.1-sol"], efor=["high"], carpan=4,
                       aciklama="görsel üret/düzenle: Codex image_gen (GPT Image, AA ve LMArena'da lider)"),
     "gorsel-anlama": dict(q=41, adaylar=["gemini-4-argon", "agy-claude-opus-5-5", "claude-opus",
                                          "gpt-6.1-sol", "gpt-6.1-terra"], aciklama="görsel/ekran anlama"),
@@ -380,7 +380,7 @@ def model_coz(ad):
 
 def proje_kurali(yol):
     """cwd'den yukarı `.orkestra.json` arar. Okunamazsa Hata (kuralı sessizce düşürmez). Biçim:
-    {"zorunlu": {"gorsel": "terra", "*": "opus:high"}, "yasak": ["luna"], "agirlik": {"codex": 0.8}, "not": "..."}"""
+    {"zorunlu": {"gorsel": "sol:high", "*": "opus:high"}, "yasak": ["luna"], "agirlik": {"codex": 0.8}, "not": "..."}"""
     if not yol:
         return {}, None
     d = os.path.abspath(yol)
@@ -514,6 +514,8 @@ def sirala(sinif, is_, ham, oran, simdi, kural, dogrulayici=None):
     sonuc, red = [], []
     for m in adaylar:
         for e, z in MODEL[m]["z"].items():
+            if SINIF[sinif].get("efor") and e not in SINIF[sinif]["efor"]:
+                continue
             if m in yasak:
                 red.append((m, e, "yasak (kural/proje)"))
                 continue
@@ -569,7 +571,7 @@ def zorunlu_hedef(kural, sinif, zorla):
         return None
     m, e = model_coz(hedef)
     if yildiz and "adaylar" in SINIF[sinif] and m not in SINIF[sinif]["adaylar"]:
-        return None                                   # "*" sabit kuralı (görsel = Terra) delmez
+        return None                                   # "*" sabit kuralı (görsel = Sol high) delmez
     return m, e or next(iter(MODEL[m]["z"]))
 
 
@@ -607,9 +609,18 @@ def kota_satirlari(ham, simdi):
                 continue
             kalan, reset = ham[h][w]
             zr = zaman(reset)
-            parca.append(f"{w} %{kalan:g}" + (f" reset {max((zr - simdi).total_seconds() / 3600, 0):.0f}sa" if zr else "")
+            parca.append(f"{w} {cubuk(kalan, HAVUZ[h]['taban'].get(w, 0))} %{kalan:g}" + (f" reset {max((zr - simdi).total_seconds() / 3600, 0):.0f}sa" if zr else "")
                          + f" taban %{HAVUZ[h]['taban'].get(w, 0)}" + (" (karar dışı)" if w == "5s" and not HAVUZ[h]["w5"] else ""))
         out.append(f"{h:11s} " + " | ".join(parca) + (" [varsayım]" if ham[h].get("_varsayim") else ""))
+    return out
+
+
+def cubuk(kalan, taban, n=10):
+    """Kalan kota çubuğu: █ harcanabilir, ▓ dokunulmayan yedek (taban), · boş. Her hücre %10."""
+    out = ""
+    for i in range(n):
+        alt = i * 100 / n
+        out += ("▓" if alt < taban else "█") if alt < kalan else "·"
     return out
 
 
@@ -768,7 +779,7 @@ def kontrol(_a):
     son, red = calis(_senaryo(**cx5), "normal")
     dogrula("Codex 5s dolu, haftalık bol: başka havuz devralır", son and MODEL[son[0][1]]["h"] != "codex" and any("5s'e sığmaz" in r[2] for r in red))
     son, _ = calis(_senaryo(**bol), "gorsel")
-    dogrula("görsel üretim yalnız Terra", [x[1] for x in son] == ["gpt-6.1-terra"])
+    dogrula("görsel üretim yalnız Sol high (kullanıcı kuralı)", [(x[1], x[2]) for x in son] == [("gpt-6.1-sol", "high")])
     son, _ = calis(_senaryo(**taban), "gorsel")
     dogrula("görsel, Codex tabanda: model yok (kullanıcıya sor)", son == [])
     try:

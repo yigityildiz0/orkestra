@@ -39,6 +39,14 @@ on the platform that can best afford it. A different model family checks the res
 > **Start with just Codex.** If ChatGPT Plus is all you have, Orkestra still picks Sol, Terra or Luna and the
 > right effort for each job, and keeps a weekly reserve. Add Claude, Antigravity, OpenCode or anything else later.
 
+### 🎻 Meet the orchestra
+
+<img src="assets/cast-en.png" alt="The conductor in the middle, wired to the Claude, ChatGPT and Gemini model characters" width="100%">
+
+Think of a restaurant kitchen. The head chef does not cook every dish: easy ones go to a junior cook, hard ones
+to the best cook who is free right now, and someone else tastes the plate before it leaves. Orkestra is that head
+chef for your AI subscriptions. The models are the cooks; their limits are their working hours.
+
 ### ⚡ Install in one minute: let your AI do it
 
 1. Copy the message below.
@@ -91,6 +99,7 @@ The coloured part of each tank is what Orkestra may spend; the hatched part is a
 Antigravity 5%, Codex 30%, Claude 30% weekly). When a Claude model and a GPT model are close in intelligence
 (GPT Sol ≈ Claude Sonnet), the GPT one wins, so your Claude limit lasts. Images go to ChatGPT's image tool whenever Codex has room:
 the best-rated image model you can reach without an API key.
+See Claude work live while it does: [Claude Office](https://github.com/yigityildiz0/claude-pixel-office), the sister project.
 
 ### ⚙️ Three gears
 
@@ -153,6 +162,16 @@ calibrate themselves with <code>olc</code> measurements. <code>/orkestra update<
 The helper scripts are read by your AI, not by you, and Orkestra was born in Turkish. Your AI answers in your language.
 </details>
 
+### 🆓 Free to use, change and share
+
+Orkestra is [MIT licensed](LICENSE): use it at home or at work, change it, ship it in your own project, even
+sell something built on it. Just keep the license file. Found a better routing rule or a new platform?
+[Open an issue or a pull request](CONTRIBUTING.md). If it saves you limits, a ⭐ helps others find it.
+
+<sub>Claude, ChatGPT, Codex, Gemini, Antigravity, OpenCode, Kimi and DeepSeek are trademarks of their owners.
+Orkestra is an independent community project, not made or endorsed by any of them. The model characters in the
+pictures are original illustrations, not official logos.</sub>
+
 ---
 
 ## 🇹🇷 Türkçe
@@ -169,6 +188,14 @@ platformda verir. Sonucu başka bir model ailesi kontrol eder. Limitleri okumak 
 
 > **Sadece Codex ile başla.** Elinde yalnız ChatGPT Plus varsa Orkestra yine her iş için Sol, Terra ya da Luna'yı ve
 > doğru eforu seçer, haftalık yedek bırakır. Claude, Antigravity, OpenCode ya da başka platformları sonra eklersin.
+
+### 🎻 Orkestrayla tanış
+
+<img src="assets/cast-tr.png" alt="Ortada şef; Claude, ChatGPT ve Gemini model karakterlerine bağlı" width="100%">
+
+Bir restoran mutfağı düşün. Şef her yemeği kendisi pişirmez: kolay tabak çırağa, zor tabak o an boşta olan en
+iyi aşçıya gider ve tabak çıkmadan önce başka biri tadına bakar. Orkestra, yapay zekâ aboneliklerinin şefidir.
+Modeller aşçılar, limitleri de mesai saatleridir.
 
 ### ⚡ Bir dakikada kurulum: yapay zekân yapsın
 
@@ -281,5 +308,16 @@ Evet. Söylemen yeterli ya da projeye <code>.orkestra.json</code> kural dosyası
 Zekâ puanları ve fiyatlar herkese açık ölçümlerden gelir (atlasta tarihli). Kota maliyetleri tahminle başlar ve
 <code>olc</code> ölçümleriyle kendini düzeltir. <code>/orkestra güncelle</code> hepsini yeniler.
 </details>
+
+### 🆓 Özgürce kullan, değiştir, paylaş
+
+Orkestra [MIT lisanslıdır](LICENSE): evde ya da işte kullan, değiştir, kendi projene koy, üstüne kurduğun bir
+şeyi sat bile. Yalnız lisans dosyasını koru. Daha iyi bir yönlendirme kuralı ya da yeni bir platform mu buldun?
+[Issue ya da pull request aç](CONTRIBUTING.md). Limitini kurtarıyorsa bir ⭐ başkalarının da bulmasını sağlar.
+Claude'un çalışmasını canlı izlemek için kardeş proje: [Claude Office](https://github.com/yigityildiz0/claude-pixel-office).
+
+<sub>Claude, ChatGPT, Codex, Gemini, Antigravity, OpenCode, Kimi ve DeepSeek sahiplerinin markalarıdır. Orkestra
+bağımsız bir topluluk projesidir; bu şirketlerden hiçbiri yapmamış ya da onaylamamıştır. Görsellerdeki model
+karakterleri özgün çizimlerdir, resmî logo değildir.</sub>
 
 <div align="center"><sub>MIT · <a href="LICENSE">LICENSE</a> · Hero illustration made with ChatGPT image generation · Ana görsel ChatGPT görsel üretimiyle yapıldı</sub></div>

@@ -72,7 +72,7 @@ Score per cost usually peaks at low or medium; diminishing returns start around 
 - **Sonnet 5.5:** assign implementation and review, terminal/code agents, automation. Avoid assuming it is cheap (at max it costs as much as Opus), and open-ended judgment.
 - **Haiku 5.5:** assign codebase search, log/test triage, classification, summaries and formatting (verified read-only). Avoid implementation, factual recall, prompts above 100K, quality-sensitive Turkish.
 - **Sol 6.1:** assign deep code/backend/algorithms, second opinions and cross-checks. Avoid latency-sensitive work (slow start at high/max).
-- **Terra 6.1:** assign medium-difficulty tasks, repetitive code, image generation; better calibrated than Sol (34.5% hallucination). Avoid complex work requiring Sol quality (verify on your own task).
+- **Terra 6.1:** assign medium-difficulty tasks, repetitive code; better calibrated than Sol (34.5% hallucination). Avoid complex work requiring Sol quality (verify on your own task).
 - **Luna 6:** assign formatting, simple transformations and batch light work. Avoid factual knowledge, complex code and agent work (~77% hallucination). Always verify output.
 - **Argon 4:** assign research needing factual accuracy (lowest hallucination, ~4%), code review and third opinions. Avoid urgent work; the weekly counter is tight.
 - **Flash 3.8:** still the newest Flash. Assign video/audio/long-document input, cheap summaries/translations and broad scanning. Avoid long agent loops (loop/503 complaints in agy) and factual questions (55% hallucination).
@@ -88,7 +88,7 @@ Score per cost usually peaks at low or medium; diminishing returns start around 
 | Multi-file code, agent | Sol high | Sonnet xhigh, Opus medium |
 | Difficult architecture, ambiguous bug | Sol high/xhigh or Opus high | Sonnet max |
 | Critical, final verification | Opus xhigh | Sol max second opinion from a different family |
-| Image generation | Codex image_gen (Terra low) | Nano Banana manually |
+| Image generation | Codex image_gen (Sol high, by default) | Nano Banana manually |
 | Image understanding | Terra/Sol | Opus, Argon |
 | Video understanding/generation | cannot be automated | ffmpeg+Whisper; Gemini app manually |
 
