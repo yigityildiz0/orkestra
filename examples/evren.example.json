@@ -1,0 +1,134 @@
+{
+  "_aciklama": "Example free platform: EVREN (Turkish national LLM platform, SSYZ), free until 2026-12-01 03:00 Turkey time. Copy the 'havuz', 'model', 'takma' and 'kota' entries into ~/.orkestra/platformlar.json only if you have an EVREN account. The key is NEVER stored here: set the EVREN_API_KEY user environment variable; without it the pool stays closed. Z scores are Artificial Analysis Intelligence Index v5.0.1 values discounted 1.5-4 points for EVREN constraints; consumption rates (o) are estimates, calibrate with `olc`. Data privacy is off by default: the pool is only used with --veri genel. Models without an AA composite score (qwen3.8-flash-next, qwen3-vl-30b) are deliberately left out.",
+  "havuz": {
+    "evren": {
+      "ad": "EVREN (free until 1 Dec 2026)",
+      "taban": {
+        "gun": 0
+      },
+      "karar": "gun",
+      "agirlik": 0.05,
+      "w5": 0.0,
+      "bedava": true,
+      "harcanabilir": true,
+      "bitis": "2026-12-01T03:00:00+03:00",
+      "gerekli_env": "EVREN_API_KEY",
+      "gizlilik": "kamu",
+      "paralel_ajan": 8,
+      "esz": 24,
+      "suru": true,
+      "z_tavan": 33,
+      "kota_okuyucu": "evren",
+      "olc_esik": 0.2,
+      "yasak_yol": [
+        "Documents/private-notes",
+        "health",
+        "clients",
+        "finance"
+      ]
+    }
+  },
+  "model": {
+    "evren-deepseek-v4.1-flash": {
+      "h": "evren",
+      "aile": "deepseek",
+      "api": "deepseek-v4.1-flash",
+      "o": {
+        "gun": 0.5
+      },
+      "o_kaynak": "tahmin",
+      "ec": {
+        "high": 1.0
+      },
+      "z": {
+        "high": 27
+      },
+      "z_kaynak": "aa-indirimli",
+      "tps": 10,
+      "dk_ib": 10,
+      "bekle_dk": 2,
+      "baglam": 1048576,
+      "cikti": 65536,
+      "cagri": "python -I scripts/evren_suru.py --veri {veri} --model {api}:{e}{yedek} --istem <prompt.txt>",
+      "suru_cagri": "python -I scripts/evren_suru.py --veri {veri} --model {api}:{e} --yontem {y} --n {n} --istem <prompt.txt>",
+      "duzenle": {
+        "o": {
+          "gun": 8.0
+        },
+        "dk_ib": 40,
+        "cagri": "codex exec -p evren -m {api} -c model_reasoning_effort={e} -s workspace-write -C <scanned_clean_copy> --skip-git-repo-check --ephemeral -o <output.txt>"
+      }
+    },
+    "evren-deepseek-v4.1-flash-nr": {
+      "h": "evren",
+      "aile": "deepseek",
+      "api": "deepseek-v4.1-flash",
+      "dusunme": false,
+      "o": {
+        "gun": 0.35
+      },
+      "o_kaynak": "tahmin",
+      "ec": {
+        "low": 1.0
+      },
+      "z": {
+        "low": 17
+      },
+      "z_kaynak": "aa-indirimli",
+      "tps": 10,
+      "dk_ib": 5,
+      "bekle_dk": 2,
+      "baglam": 1048576,
+      "cikti": 65536,
+      "duzenleyemez": true,
+      "cagri": "python -I scripts/evren_suru.py --veri {veri} --model {api}:kapali{yedek} --istem <prompt.txt>",
+      "suru_cagri": "python -I scripts/evren_suru.py --veri {veri} --model {api}:kapali --yontem {y} --n {n} --istem <prompt.txt>"
+    },
+    "evren-glm-5.3": {
+      "h": "evren",
+      "aile": "glm",
+      "api": "glm-5.3",
+      "o": {
+        "gun": 0.5
+      },
+      "o_kaynak": "tahmin",
+      "ec": {
+        "low": 0.6,
+        "high": 1.0
+      },
+      "z": {
+        "low": 21,
+        "high": 28
+      },
+      "z_kaynak": "aa-indirimli",
+      "tps": 8,
+      "dk_ib": 12,
+      "bekle_dk": 2,
+      "baglam": 524288,
+      "cikti": 16384,
+      "cagri": "python -I scripts/evren_suru.py --veri {veri} --model {api}:{e}{yedek} --istem <prompt.txt>",
+      "suru_cagri": "python -I scripts/evren_suru.py --veri {veri} --model {api}:{e} --yontem {y} --n {n} --istem <prompt.txt>",
+      "duzenle": {
+        "o": {
+          "gun": 8.0
+        },
+        "dk_ib": 45,
+        "cagri": "codex exec -p evren -m {api} -c model_reasoning_effort={e} -s workspace-write -C <scanned_clean_copy> --skip-git-repo-check --ephemeral -o <output.txt>"
+      }
+    }
+  },
+  "takma": {
+    "glm": "evren-glm-5.3",
+    "deepseek": "evren-deepseek-v4.1-flash",
+    "ds": "evren-deepseek-v4.1-flash",
+    "ds-nr": "evren-deepseek-v4.1-flash-nr"
+  },
+  "kota": {
+    "evren": {
+      "gun": [
+        80,
+        null
+      ]
+    }
+  }
+}
