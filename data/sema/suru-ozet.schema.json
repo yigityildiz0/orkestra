@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/suru-ozet.schema.json",
+  "title": "ork suru özeti (≤ 4 KB)",
+  "type": "object",
+  "required": [
+    "is_id",
+    "sure_sn",
+    "sayac",
+    "isler",
+    "claude_isleri",
+    "notlar"
+  ],
+  "properties": {
+    "is_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sure_sn": {
+      "type": "number"
+    },
+    "sayac": {
+      "type": "object",
+      "required": [
+        "ok",
+        "kismi",
+        "engel",
+        "hata",
+        "bekle"
+      ]
+    },
+    "isler": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "durum"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "durum": {
+            "enum": [
+              "ok",
+              "kismi",
+              "engel",
+              "hata",
+              "bekle"
+            ]
+          },
+          "ozet": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "cikti": {
+            "type": "string"
+          },
+          "deneme": {
+            "type": "integer"
+          },
+          "dusus": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "claude_isleri": {
+      "type": "array"
+    },
+    "kota_farki_tahmini": {
+      "type": "object"
+    },
+    "claude_tasarruf_usd_e": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "notlar": {
+      "type": "array"
+    },
+    "kirpildi": {
+      "type": "boolean"
+    }
+  }
+}

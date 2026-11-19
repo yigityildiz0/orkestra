@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/agy-toplu.schema.json",
+  "title": "agy toplu mikro öğe yanıtı",
+  "type": "object",
+  "required": [
+    "ogeler"
+  ],
+  "properties": {
+    "ogeler": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "yanit"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "yanit": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

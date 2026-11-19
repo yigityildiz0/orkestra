@@ -1,0 +1,22 @@
+{
+  "sema": 7,
+  "aciklama": "Aileye (hat) özgü brief cümleleri. `ork brief` A/B düzeyli olanları DURMA KURALLARI alanına ekler; C ve DY yalnız --deneme ile. Kaynak: references/aile-promptlama.md bölüm 3 ve references/kaynaklar.md. Cümleler hedef modelin istemine gider; Türkçe çıktı istenmiyorsa dil satırı ayrıca yazılır.",
+  "hatlar": {
+    "sonnet": [
+      {"cumle": "Think the problem through before you answer.", "kanit": "B", "kosul": {"efor": ["low", "medium"]}, "not": "JSON ve düşünmesiz akıl yürütmede"},
+      {"cumle": "Bitti ölçütü sağlanınca dur; ekstra inceleme yapma, alt ajan açma.", "kanit": "B", "kosul": {"efor": ["xhigh", "max"]}, "not": "en yüksek eforda maliyeti düşürür"}
+    ],
+    "haiku": [
+      {"cumle": "Bugünün tarihi: {tarih}. Bilgin eski olabilir: sürüm, fiyat ya da olgu gerekiyorsa ara ya da acik_sorular'a yaz.", "kanit": "B", "not": "arama oranını artırır"}
+    ],
+    "opus": [
+      {"cumle": "Önce geniş keşfet, sonra daralt; uzun işte ara özet yaz.", "kanit": "C", "not": "satıcı tavsiyesi; ölçüm yok"}
+    ],
+    "sol": [
+      {"cumle": "Bitti ölçütü sağlanınca dur. Araç çağrısı bütçesini aşarsan kısmi sonuç dön.", "kanit": "DY", "not": "önceki nesilde sarmal ve kelimesi kelimesine yorum görüldü (B); güncel nesil için doğrulanmadı"}
+    ],
+    "terra": [
+      {"cumle": "Dosya yazma; yalnız önerilen değişikliği diff olarak döndür.", "kanit": "DY", "not": "izinsiz eylem oranı yüksek ölçüldü; yazma izni seçicide erisim_bayraklari ile yönetilir"}
+    ]
+  }
+}

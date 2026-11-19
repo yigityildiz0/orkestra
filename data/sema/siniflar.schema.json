@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/siniflar.schema.json",
+  "title": "Q sınıfları, kademeler, alanlar, efor kuralları",
+  "type": "object",
+  "required": [
+    "sema",
+    "z_olcek",
+    "q",
+    "kademeler",
+    "zorluk_rubrigi",
+    "alanlar",
+    "alan_olcutleri",
+    "efor_kurallari",
+    "delta",
+    "fazla_zeka",
+    "ust_kademe_genisligi",
+    "secici"
+  ],
+  "properties": {
+    "sema": {
+      "const": 7
+    },
+    "z_olcek": {
+      "type": "string"
+    },
+    "q": {
+      "type": "object",
+      "required": [
+        "mekanik",
+        "basit",
+        "arastirma",
+        "normal",
+        "kod",
+        "zor",
+        "kritik"
+      ],
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "kademeler": {
+      "type": "object",
+      "patternProperties": {
+        "^K[1-9]$": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "zorluk_rubrigi": {
+      "type": "object",
+      "required": [
+        "sinyaller",
+        "esikler",
+        "belirsizse"
+      ]
+    },
+    "alanlar": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "alan_olcutleri": {
+      "type": "object"
+    },
+    "efor_kurallari": {
+      "type": "object"
+    },
+    "efor_genel": {
+      "type": "object"
+    },
+    "delta": {
+      "type": "object",
+      "required": [
+        "aa_z",
+        "aa_alt_test",
+        "vals",
+        "scale",
+        "arena",
+        "doymus_yayilim"
+      ]
+    },
+    "azalan_getiri_esigi": {
+      "type": "number"
+    },
+    "fazla_zeka": {
+      "type": "object",
+      "required": [
+        "pay",
+        "genislik",
+        "tavan"
+      ]
+    },
+    "ust_kademe_genisligi": {
+      "type": "number"
+    },
+    "secici": {
+      "type": "object"
+    },
+    "is_birimi": {
+      "type": "object"
+    },
+    "yukseltme_merdiveni": {
+      "type": "object"
+    },
+    "roller_is": {
+      "type": "object"
+    },
+    "kaskad": {
+      "type": "object"
+    },
+    "fan_out": {
+      "type": "object"
+    },
+    "olc": {
+      "type": "object"
+    },
+    "doygunluk": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "kopru": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "kanitli_kaskad": {
+      "type": "object",
+      "required": [
+        "siniflar",
+        "z_acigi",
+        "dis_kanit"
+      ]
+    },
+    "opus_kapisi": {
+      "type": "object",
+      "required": [
+        "siniflar",
+        "sinyaller",
+        "efor_tabani"
+      ]
+    },
+    "geri_bildirim": {
+      "type": "object",
+      "properties": {
+        "en_az_ornek": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "z": {
+          "type": "number"
+        },
+        "fark_esigi": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

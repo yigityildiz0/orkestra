@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/proje-kurali.schema.json",
+  "title": "Proje kuralı (.orkestra.json, proje kökünden yukarı aranır)",
+  "type": "object",
+  "properties": {
+    "zorunlu": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-z0-9_.\\-]+(:[a-z]+)?$"
+      },
+      "description": "alan -> rol[:efor] ya da kimlik[:efor]"
+    },
+    "yasak": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "yasak_havuz": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gizli": {
+      "type": "boolean"
+    },
+    "veri": {
+      "enum": [
+        "genel",
+        "kisisel",
+        "gizli",
+        "saglik",
+        "bilinmiyor"
+      ]
+    },
+    "not": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

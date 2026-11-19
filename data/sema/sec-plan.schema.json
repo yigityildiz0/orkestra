@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/sec-plan.schema.json",
+  "title": "ork sec --plan girdisi (parça listesi)",
+  "type": "object",
+  "required": [
+    "parcalar"
+  ],
+  "properties": {
+    "is_id": {
+      "type": "string"
+    },
+    "sef": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "description": "şef (lider) model:efor tavanı (R16), ör. opus:high"
+    },
+    "tavan_yok": {
+      "type": "boolean",
+      "description": "kullanıcı bu iş için şef tavanını açıkça kaldırdı (uyarıyla)"
+    },
+    "parcalar": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sinif": {
+            "type": "string"
+          },
+          "alan": {
+            "type": "string"
+          },
+          "alt_alan": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "veri": {
+            "enum": [
+              "genel",
+              "kisisel",
+              "gizli",
+              "saglik",
+              "bilinmiyor"
+            ]
+          },
+          "boyut": {
+            "enum": [
+              "mikro",
+              "kucuk",
+              "orta",
+              "buyuk",
+              "cok_buyuk"
+            ]
+          },
+          "duzenleme": {
+            "type": "boolean"
+          },
+          "dis_kanit": {
+            "type": "string"
+          },
+          "kipler": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "brief": {
+            "type": "string"
+          },
+          "cikti": {
+            "type": "string"
+          },
+          "desen": {
+            "enum": [
+              "oy",
+              "aday_yargic",
+              "harita_indirgeme",
+              "toplu"
+            ]
+          },
+          "bagimli": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sinyaller": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

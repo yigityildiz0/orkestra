@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/brief-donus.schema.json",
+  "title": "Alt ajan dönüş sözleşmesi",
+  "type": "object",
+  "required": [
+    "durum",
+    "ozet",
+    "dosyalar",
+    "kanit"
+  ],
+  "properties": {
+    "durum": {
+      "enum": [
+        "ok",
+        "kismi",
+        "bloke",
+        "dogrulanamadi"
+      ]
+    },
+    "ozet": {
+      "type": "string",
+      "maxLength": 12000
+    },
+    "dosyalar": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "kanit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "tur",
+          "ref"
+        ],
+        "properties": {
+          "tur": {
+            "enum": [
+              "test",
+              "komut",
+              "diff",
+              "kaynak",
+              "ekran",
+              "sema",
+              "diger"
+            ]
+          },
+          "ref": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "acik_sorular": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sonraki": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kalan_butce": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

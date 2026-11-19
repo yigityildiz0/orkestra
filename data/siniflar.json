@@ -1,0 +1,1092 @@
+{
+  "sema": 7,
+  "z_olcek": "AA-II-v5.0.1",
+  "aciklama": "Q sınıfları, kademeler, alan taksonomisi, ölçüt eşlemesi, efor kuralları ve seçici parametreleri. Ölçek z_olcek ile kilitlidir; ölçek değişirse q ve kademeler birlikte yeniden ölçeklenir.",
+  "q": {
+    "mekanik": 16,
+    "basit": 22,
+    "arastirma": 38,
+    "normal": 41,
+    "kod": 45,
+    "zor": 50,
+    "kritik": 56
+  },
+  "q_not": "Q taban, tavan değil. Kota baskısı Q'yu düşürmez; işi erteler.",
+  "kademeler": {
+    "K1": [
+      0,
+      28
+    ],
+    "K2": [
+      29,
+      38
+    ],
+    "K3": [
+      39,
+      48
+    ],
+    "K4": [
+      49,
+      54
+    ],
+    "K5": [
+      55,
+      59
+    ],
+    "K6": [
+      60,
+      999
+    ]
+  },
+  "zorluk_rubrigi": {
+    "sinyaller": {
+      "cok_dosya": "3+ dosya ya da modüller arası değişiklik",
+      "belirsiz_hedef": "bitti ölçütü yazılamıyor ya da birden çok yorum var",
+      "geri_alinamaz": "silme, yayın, göç, dış sisteme yazma",
+      "olgu_riski": "olgu, kaynak, sayı, klinik/hukuki iddia",
+      "uzun_otonom": "30+ dk ya da çok adımlı ajan döngüsü",
+      "test_yok": "dış doğrulayıcı (test, şema, sorgu) yok",
+      "alan_uzmanligi": "uzman alan bilgisi gerekiyor"
+    },
+    "esikler": {
+      "0-1": "basit",
+      "2": "normal",
+      "3": "zor",
+      "4+": "kritik"
+    },
+    "tur_ozel": {
+      "kod": "kod sınıfı, zorluk sinyali 2 iken normal yerine kod",
+      "arastirma": "kaynak/sentez işi, sinyal ≤2 iken araştırma"
+    },
+    "mekanik_tanimi": "dönüşüm kuralı tam yazılabiliyor ve çıktı betikle doğrulanıyor",
+    "belirsizse": "bir_ust"
+  },
+  "efor_merdiveni": [
+    "none",
+    "minimal",
+    "low",
+    "medium",
+    "high",
+    "xhigh",
+    "max"
+  ],
+  "modlar": {
+    "ultra": {
+      "tur": "mod",
+      "platform": "codex",
+      "not": "max/xhigh + otomatik delegasyon; efor değil; varsayılan değil"
+    },
+    "ultracode": {
+      "tur": "mod",
+      "platform": "claude",
+      "not": "efor değil; bağımsız denemelerde max'tan iyi değil, delegasyon çoğu koşuda başlamadı (n=1)"
+    }
+  },
+  "alanlar": {
+    "kod": [
+      "zor_ajan",
+      "gunluk",
+      "terminal",
+      "sre",
+      "goc",
+      "refaktor",
+      "ui",
+      "ekran_hata",
+      "algoritma",
+      "otomasyon"
+    ],
+    "arastirma": [
+      "kaynak",
+      "web",
+      "sentez",
+      "akil_yurutme",
+      "olgu_teyit",
+      "klinik",
+      "uzun_belge",
+      "finans_hukuk",
+      "tablo"
+    ],
+    "gorsel_analiz": [
+      "ekran_kod",
+      "ocr_sayma",
+      "grafik",
+      "uzun_pdf",
+      "bilgisayar_kontrol",
+      "tibbi",
+      "toplu_sinif"
+    ],
+    "video_analiz": [
+      "konusmali",
+      "saf_gorsel",
+      "uzun"
+    ],
+    "ses": [
+      "dokum",
+      "tts",
+      "muzik"
+    ],
+    "yazim": [
+      "rapor",
+      "uzun_turkce",
+      "yaratici",
+      "talimat_izleme"
+    ],
+    "gorsel_uretim": [
+      "t2i",
+      "duzenleme"
+    ],
+    "video_uretim": [
+      "t2v",
+      "i2v"
+    ],
+    "mekanik": [
+      "toplu",
+      "nobetci",
+      "dogrulayici"
+    ]
+  },
+  "alan_olcutleri": {
+    "_aciklama": "kapsam=varyant: puan modeller[m].varyantlar[e].alt[anahtar]; kapsam=model: modeller[m].alanlar[alt_alan]. Model düzeyi puanın efor alanı boşsa puan, alan efor tabanını karşılayan varyantlara uygulanır. Ölçüt yoksa q=Z, bayrak alan_olcumu_yok, δ x alan_olcumu_yok_carpani.",
+    "zor_ajan": {
+      "birincil": "aa:coding_agent",
+      "kapsam": "model",
+      "delta": "aa_alt_test",
+      "ikincil": "aa:tb4"
+    },
+    "gunluk": {
+      "birincil": "vals:vibe-code",
+      "kapsam": "model",
+      "delta": "doymus_yayilim"
+    },
+    "terminal": {
+      "birincil": "aa:tb4",
+      "kapsam": "varyant",
+      "anahtar": "tb4",
+      "delta": "aa_alt_test",
+      "ikincil": "vals:terminal-bench"
+    },
+    "sre": {
+      "birincil": "vals:srebench",
+      "kapsam": "model",
+      "delta": "vals"
+    },
+    "goc": {
+      "birincil": "vals:code-migration",
+      "kapsam": "model",
+      "delta": "vals"
+    },
+    "refaktor": {
+      "birincil": "scale:swe-atlas-refactoring",
+      "kapsam": "model",
+      "delta": "scale"
+    },
+    "ui": {
+      "birincil": "arena:webdev",
+      "kapsam": "model",
+      "delta": "arena"
+    },
+    "ekran_hata": {
+      "birincil": "vals:swebench-multimodal",
+      "kapsam": "model",
+      "delta": "vals"
+    },
+    "algoritma": {
+      "birincil": "vals:ioi",
+      "kapsam": "model",
+      "delta": "vals"
+    },
+    "otomasyon": {
+      "birincil": "aa:automationbench",
+      "kapsam": "model",
+      "delta": "aa_alt_test"
+    },
+    "kaynak": {
+      "birincil": "arac",
+      "kapsam": "rota",
+      "delta": null,
+      "not": "model değil araç: PubMed, PEDro, Cochrane, Consensus"
+    },
+    "web": {
+      "birincil": "vals:web_search",
+      "kapsam": "model",
+      "delta": "vals",
+      "gerekli_yetenek": [
+        "web_arama"
+      ],
+      "not": "canlı web araması isteyen iş: yetenekler.web_arama=false olan erişim yolu aday olmaz (ölçüm iyi olsa da araç yoksa çıktı boş döner)"
+    },
+    "sentez": {
+      "birincil": "vals:science_index",
+      "kapsam": "model",
+      "delta": "vals"
+    },
+    "akil_yurutme": {
+      "birincil": "aa:hle-diamond",
+      "kapsam": "model",
+      "delta": "aa_alt_test",
+      "ikincil": "aa:critpt"
+    },
+    "olgu_teyit": {
+      "birincil": "aa:omni",
+      "kapsam": "varyant",
+      "anahtar": "omni",
+      "delta": "aa_alt_test",
+      "zorunlu_dis_kanit": true
+    },
+    "klinik": {
+      "birincil": "aa:omniscience-saglik",
+      "kapsam": "model",
+      "delta": "aa_alt_test"
+    },
+    "uzun_belge": {
+      "birincil": "aa:mlcr",
+      "kapsam": "model",
+      "delta": "aa_alt_test"
+    },
+    "finans_hukuk": {
+      "birincil": "vals:tax_agent_bench",
+      "kapsam": "model",
+      "delta": "vals"
+    },
+    "tablo": {
+      "birincil": "vals:emb",
+      "kapsam": "model",
+      "delta": "vals"
+    },
+    "ekran_kod": {
+      "birincil": "vals:swebench-multimodal",
+      "kapsam": "model",
+      "delta": "vals"
+    },
+    "ocr_sayma": {
+      "birincil": "roboflow:vision",
+      "kapsam": "model",
+      "delta": "diger"
+    },
+    "grafik": {
+      "birincil": "uretici:chartography",
+      "kapsam": "model",
+      "delta": "uretici"
+    },
+    "uzun_pdf": {
+      "birincil": "aa:gdp_pdf",
+      "kapsam": "varyant",
+      "anahtar": "gdp_pdf",
+      "delta": "aa_alt_test"
+    },
+    "bilgisayar_kontrol": {
+      "birincil": "uretici:osworld",
+      "kapsam": "model",
+      "delta": "uretici"
+    },
+    "tibbi": {
+      "birincil": null,
+      "kapsam": "model",
+      "delta": null,
+      "not": "ölçüm yok; insan doğrulaması zorunlu"
+    },
+    "toplu_sinif": {
+      "birincil": null,
+      "kapsam": "z",
+      "delta": "aa_z"
+    },
+    "rapor": {
+      "birincil": "aa:briefcase",
+      "kapsam": "varyant",
+      "anahtar": "briefcase",
+      "delta": "aa_elo"
+    },
+    "uzun_turkce": {
+      "birincil": "arena:creative",
+      "kapsam": "model",
+      "delta": "arena",
+      "vekil": true,
+      "not": "bağımsız Türkçe ölçüm yok"
+    },
+    "yaratici": {
+      "birincil": "arena:creative",
+      "kapsam": "model",
+      "delta": "arena"
+    },
+    "talimat_izleme": {
+      "birincil": "scale:multichallenge",
+      "kapsam": "model",
+      "delta": "scale"
+    },
+    "konusmali": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "saf_gorsel": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "uzun": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "dokum": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "tts": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "muzik": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "t2i": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "duzenleme": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "t2v": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "i2v": {
+      "birincil": null,
+      "kapsam": "rota"
+    },
+    "toplu": {
+      "birincil": null,
+      "kapsam": "z",
+      "delta": "aa_z"
+    },
+    "nobetci": {
+      "birincil": null,
+      "kapsam": "z",
+      "delta": "aa_z"
+    },
+    "dogrulayici": {
+      "birincil": null,
+      "kapsam": "z",
+      "delta": "aa_z"
+    }
+  },
+  "efor_kaydirma": {
+    "_aciklama": "Alan ölçümü tek eforda yapılmışsa (kayıtta efor dolu) diğer eforlara kaydırma: puan(e) = puan(e0) + (Z(e) - Z(e0)) x egim[ölçüt]. egim = 1 Z puanının ölçüt birimindeki karşılığı (tam ölçüt adı > önek > _varsayilan). Aşağı yön tam; yukarı yön (ölçülmemiş üst efor) yukari_tavan_delta x δ ile sınırlı. Efor başına ölçüm (alan kaydında eforlar sözlüğü) varsa kaydırma yapılmaz.",
+    "egim": {
+      "aa": 1.3,
+      "vals": 1.3,
+      "scale": 1.3,
+      "uretici": 1.3,
+      "arena:webdev": 7.0,
+      "arena:creative": 0.0,
+      "arena": 7.0,
+      "roboflow": 0.0,
+      "_varsayilan": 1.0
+    },
+    "egim_not": "0 = efor etkisi için kanıt yok, puan tüm eforlara aynen (yaratıcı yazım Elo'su, görsel algı); kanıt gelince güncellenir",
+    "yukari_tavan_delta": 1.0,
+    "bos_efor_ust": [
+      "vals",
+      "aa:hle-diamond",
+      "aa:mlcr",
+      "aa:omniscience-saglik",
+      "aa:automationbench"
+    ],
+    "bos_efor_not": "kayıtta efor yoksa ve ölçüt bu listedeyse çapa modelin en yüksek Z'li eforudur (kaynağın en üst ayarı ölçtüğü doğrulandı: Vals Hyperparameters paneli; AA değerlendirme sayfalarında Max etiketli satırlar). Listede olmayan ölçütte (AA kod ajanı: en iyi yapılandırma, eforu belirsiz ve tekdüze değil; Scale, Roboflow: etiket yok) puan tüm eforlara aynen uygulanır.",
+    "olcum_eforu": {
+      "vals": {
+        "anthropic": "max",
+        "openai": "max",
+        "deepseek": "max",
+        "gemini-4-hydrogen": "xhigh",
+        "gemini-4-argon": "high"
+      }
+    },
+    "kaynak": "[B] kalibrasyon 2026-11-17: aynı modelin efor basamaklarında AA alt testleri (tb4, fc2) Z başına 0.8-1.5 puan oynuyor (Sol 6.2, Opus 5.5, Sonnet 5.5; medyan ≈ 1.3); Arena WebDev'de Sonnet xhigh 1772 / high 1716 = 56 Elo, ΔZ 8 -> 7 Elo/Z. olcum_eforu: Vals model sayfalarındaki Hyperparameters paneli (Claude: Compute Effort max; OpenAI ve DeepSeek: max; Hydrogen: xhigh; Argon: high)."
+  },
+  "delta": {
+    "aa_z": 2,
+    "aa_alt_test": 3,
+    "aa_elo": 25,
+    "vals": 4,
+    "scale": 3,
+    "arena": "ci_ortusme",
+    "arena_ci_yoksa": 14,
+    "diger": 3,
+    "uretici": 5,
+    "doymus_yayilim": 5,
+    "alan_olcumu_yok_carpani": 1.5,
+    "kaynak": "AA güven aralığı yayımlamıyor: ±2 Z eşdeğer; Vals ±4; arena CI örtüşmesi (WebDev CI ±10-14); doymuş ölçütte tüm adaylar eşit. aa_elo, diger, uretici ve arena_ci_yoksa [T] tasarım parametresi; olc ile ayarlanır"
+  },
+  "efor_kurallari": {
+    "_aciklama": "Alt alan -> rol -> {taban, tavan, kullanma}. Taban altı alt test çöker; tavan üstü verimsiz ya da zararlı. ultra kipinde tavan yok. Kaynak: bilgi tabanı 2c (AA efor bazında alt testler).",
+    "_genel": {
+      "haiku": {
+        "taban": "medium",
+        "not": "low uzun ajan isteminde arama/kontrolü atlar"
+      },
+      "sol": {
+        "taban": "medium",
+        "not": "6.2: low'da uçurum (Z 41, medium 53; hle 34.5/50.7, tbs 37/60) ve medium yalnız 0.41 USD/görev"
+      }
+    },
+    "zor_ajan": {
+      "sol": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "terra": {
+        "taban": "high",
+        "tavan": "max"
+      },
+      "opus": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "sonnet": {
+        "taban": "xhigh",
+        "tavan": "max"
+      },
+      "haiku": {
+        "kullanma": true
+      },
+      "hydrogen": {
+        "taban": "high",
+        "tavan": "high"
+      }
+    },
+    "terminal": {
+      "sol": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "terra": {
+        "taban": "high",
+        "tavan": "max"
+      },
+      "opus": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "sonnet": {
+        "taban": "xhigh",
+        "tavan": "max"
+      },
+      "haiku": {
+        "kullanma": true
+      },
+      "hydrogen": {
+        "taban": "high",
+        "tavan": "high"
+      }
+    },
+    "gunluk": {
+      "sol": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "terra": {
+        "taban": "high",
+        "tavan": "max"
+      },
+      "opus": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "sonnet": {
+        "taban": "high",
+        "tavan": "xhigh"
+      },
+      "haiku": {
+        "taban": "xhigh",
+        "tavan": "max"
+      },
+      "hydrogen": {
+        "taban": "high",
+        "tavan": "xhigh"
+      }
+    },
+    "goc": {
+      "sol": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "opus": {
+        "taban": "high",
+        "tavan": "xhigh"
+      },
+      "sonnet": {
+        "taban": "high",
+        "tavan": "xhigh"
+      },
+      "hydrogen": {
+        "taban": "high",
+        "tavan": "xhigh"
+      }
+    },
+    "refaktor": {
+      "sol": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "opus": {
+        "taban": "high",
+        "tavan": "xhigh"
+      },
+      "sonnet": {
+        "taban": "xhigh",
+        "tavan": "xhigh"
+      }
+    },
+    "ui": {
+      "sol": {
+        "taban": "medium",
+        "tavan": "max"
+      },
+      "opus": {
+        "taban": "high",
+        "tavan": "max"
+      },
+      "sonnet": {
+        "taban": "xhigh",
+        "tavan": "max"
+      },
+      "haiku": {
+        "kullanma": true
+      }
+    },
+    "algoritma": {
+      "sol": {
+        "taban": "medium",
+        "tavan": "xhigh"
+      },
+      "opus": {
+        "taban": "high",
+        "tavan": "xhigh"
+      },
+      "sonnet": {
+        "taban": "xhigh",
+        "tavan": "xhigh"
+      },
+      "haiku": {
+        "taban": "xhigh",
+        "tavan": "max"
+      }
+    },
+    "rapor": {
+      "sol": {
+        "not": "zayıf aile"
+      },
+      "terra": {
+        "not": "zayıf"
+      },
+      "opus": {
+        "taban": "medium",
+        "tavan": "high"
+      },
+      "sonnet": {
+        "taban": "high",
+        "tavan": "xhigh"
+      },
+      "haiku": {
+        "taban": "high",
+        "tavan": "xhigh"
+      },
+      "hydrogen": {
+        "taban": "xhigh",
+        "tavan": "xhigh"
+      }
+    },
+    "olgu_teyit": {
+      "sol": {
+        "taban": "medium",
+        "tavan": "high",
+        "not": "6.2 omni: low 25, medium 34, high 38, max 40"
+      },
+      "terra": {
+        "kullanma": true
+      },
+      "sonnet": {
+        "kullanma": true
+      },
+      "haiku": {
+        "kullanma": true
+      },
+      "luna": {
+        "kullanma": true
+      },
+      "hydrogen": {
+        "taban": "medium",
+        "tavan": "high",
+        "not": "low'da yanlış payı %19"
+      }
+    },
+    "uzun_pdf": {
+      "sol": {
+        "taban": "high",
+        "tavan": "high"
+      },
+      "terra": {
+        "taban": "medium",
+        "tavan": "medium"
+      },
+      "opus": {
+        "taban": "high",
+        "tavan": "high"
+      },
+      "sonnet": {
+        "taban": "high",
+        "tavan": "high"
+      },
+      "haiku": {
+        "kullanma": true
+      },
+      "hydrogen": {
+        "taban": "medium",
+        "tavan": "medium"
+      }
+    },
+    "uzun_belge": {
+      "_tumu": {
+        "tavan": "medium",
+        "not": "belge/PDF çıkarımında yüksek efor 7 modelde zararlı"
+      }
+    },
+    "akil_yurutme": {
+      "sol": {
+        "taban": "high",
+        "tavan": "xhigh",
+        "not": "6.2 hle-diamond: medium 50.7, high 58.3, xhigh 61.8, max 64"
+      },
+      "terra": {
+        "taban": "low",
+        "tavan": "medium"
+      },
+      "opus": {
+        "taban": "xhigh",
+        "tavan": "max"
+      },
+      "sonnet": {
+        "taban": "xhigh",
+        "tavan": "max"
+      },
+      "haiku": {
+        "taban": "xhigh",
+        "tavan": "max"
+      },
+      "hydrogen": {
+        "taban": "xhigh",
+        "tavan": "xhigh"
+      }
+    },
+    "konusmali": {
+      "hydrogen": {
+        "taban": "high",
+        "tavan": "high"
+      }
+    },
+    "saf_gorsel": {
+      "hydrogen": {
+        "taban": "medium",
+        "tavan": "medium",
+        "not": "doğrulanmadı"
+      }
+    },
+    "finans_hukuk": {
+      "hydrogen": {
+        "taban": "high",
+        "tavan": "xhigh",
+        "not": "kritikte xhigh"
+      }
+    }
+  },
+  "efor_genel": {
+    "aday_disi": [
+      "max",
+      "ultra",
+      "ultracode"
+    ],
+    "aday_disi_istisna": "--zorla ya da kritik iş ve tek aday kaldıysa",
+    "xhigh_kosulu": "yalnız 30+ dk ya da çok adımlı ajan işinde ve ölçülmüş kazançta",
+    "zeka_yetmiyorsa": "eforu değil modeli yükselt",
+    "esit_kalitede": "aynı modelin eforları q bakımından ayni_model_efor_bandi içindeyse en ucuz efor",
+    "json_sema": "düşük-orta efor + yerel araç/şema bildirimi",
+    "oturum_ici": "efor oturum içinde sabit; zor parça için yeni alt ajan",
+    "etkilesimli_is": "max yok (ilk yanıt token'ı dakikalar sürer)",
+    "cikti_payi": {
+      "anthropic": [
+        64000,
+        128000
+      ],
+      "openai": 25000,
+      "google": "kesilen düşünme de ücretlenir"
+    },
+    "acik_yaz": "efor her çağrıda açık yazılır; platform varsayılanları tuzaktır"
+  },
+  "azalan_getiri_esigi": 4,
+  "azalan_getiri_katsayilari": {
+    "_aciklama": "ΔZ / log2($_yeni/$_eski), basamak sırası low->medium, medium->high, high->xhigh, xhigh->max; eşik altı basamak verimsiz",
+    "opus": [
+      9.8,
+      8.0,
+      6.2,
+      2.7
+    ],
+    "sonnet": [
+      8.2,
+      10.3,
+      6.1,
+      3.9
+    ],
+    "haiku": [
+      5.6,
+      6.2,
+      7.8,
+      1.4
+    ],
+    "sol": [
+      10.1,
+      4.4,
+      4.7,
+      1.6
+    ],
+    "terra": [
+      7.2,
+      6.5,
+      4.8,
+      4.8
+    ],
+    "luna": [
+      2.6,
+      3.8,
+      4.4,
+      8.5
+    ],
+    "hydrogen": [
+      9.6,
+      8.2,
+      4.0,
+      null
+    ],
+    "argon": [
+      null,
+      9.7,
+      null,
+      null
+    ],
+    "flash": [
+      null,
+      3.2,
+      null,
+      null
+    ],
+    "verimli_tavan": {
+      "opus": "xhigh",
+      "sonnet": "xhigh",
+      "haiku": "xhigh",
+      "sol": "xhigh",
+      "terra": "high",
+      "hydrogen": "high",
+      "argon": "high",
+      "flash": "medium"
+    },
+    "sol_not": "6.2 Sol (AA 2026-11-17): Z 41/53/55/56/57, görev 0.18/0.41/0.56/0.65/1.01 USD; medium sonrası toplam +4 Z"
+  },
+  "fazla_zeka": {
+    "pay": 8,
+    "genislik": 12,
+    "tavan": 1.3,
+    "not": "yalnız eşitlik bozucu; eleme yapmaz"
+  },
+  "ust_kademe_genisligi": 10,
+  "secici": {
+    "elle_ceza": 1.3,
+    "histerezis": 0.85,
+    "esitlik_bandi": 0.1,
+    "ayni_model_efor_bandi": 0.1,
+    "kova_adim": 0.05,
+    "ema_alfa": 0.5,
+    "ema_pencere_dk": 30,
+    "pencere_sinir_dk": 30,
+    "bilinmiyor": {
+      "k": 0.5,
+      "maliyet_carpani": 2
+    },
+    "f_sinir": [
+      0.3,
+      1.0
+    ],
+    "tempo_t_min": 0.05,
+    "sure_cezasi_dk": 120,
+    "tahmin_z_indirimi": 3,
+    "tahmin_yasak_siniflar": [
+      "zor",
+      "kritik"
+    ],
+    "esdeger_yaklasik_z_indirimi": 2,
+    "kanit_birikimi_olcut": 2,
+    "esitlik_bozucu_sira": [
+      "yuksek_q",
+      "dusuk_gecikme",
+      "farkli_aile",
+      "sabit_sira"
+    ],
+    "sabit_sira": [
+      "bedava",
+      "agy",
+      "codex",
+      "claude"
+    ],
+    "kaynak": "[T] tasarım parametresi; olc ile ayarlanır",
+    "kanit_birikimi_z": 1.0,
+    "lider_brief_cikis_tok": 1500,
+    "lider_ozet_giris_tok": 3500
+  },
+  "is_birimi": {
+    "tanim": "bir AA görevi eşdeğeri; lider tahmini, olc P90 ile düzeltilir",
+    "kucuk": 0.3,
+    "orta": 1,
+    "buyuk": 3,
+    "cok_buyuk": 10,
+    "mikro": 0.05
+  },
+  "yukseltme_merdiveni": {
+    "claude": [
+      "haiku@medium",
+      "sonnet@high",
+      "opus@medium",
+      "opus@high",
+      "opus@xhigh",
+      "opus@max"
+    ],
+    "codex": [
+      "terra@medium",
+      "sol@medium",
+      "sol@high",
+      "sol@xhigh"
+    ],
+    "agy": [
+      "hydrogen@medium",
+      "hydrogen@high",
+      "opus@high"
+    ],
+    "en_cok": 2,
+    "kural": "zekâ yetmiyorsa efor değil model yükselir"
+  },
+  "roller_is": {
+    "_aciklama": "Yardımcı rol eşiği: Z >= max(taban, Q_is - fark); ultra kipinde +3. Üretenle aynı aile elenir. İzleyici rollerde büyük modeller yalnız başka aday yoksa.",
+    "nobetci": {
+      "taban": 18,
+      "fark": 25,
+      "bedava_izinli": true,
+      "izleyici": true
+    },
+    "kontrolcu": {
+      "taban": 20,
+      "fark": 20,
+      "bedava_izinli": true,
+      "izleyici": true
+    },
+    "hakem": {
+      "taban": 22,
+      "fark": 6,
+      "bedava_izinli": false,
+      "izleyici": false
+    },
+    "haberci": {
+      "taban": 20,
+      "fark": 22,
+      "bedava_izinli": true,
+      "izleyici": true
+    },
+    "arsivci": {
+      "taban": 16,
+      "fark": 40,
+      "bedava_izinli": true,
+      "izleyici": true
+    },
+    "muhalif": {
+      "taban": 38,
+      "fark": 8,
+      "bedava_izinli": false,
+      "izleyici": false
+    },
+    "kaynak": "v6 kapasite seçicisi (rol tabanları), değişmeden taşındı"
+  },
+  "kaskad": {
+    "orneklem_orani": 0.1,
+    "orneklem_en_az": 3,
+    "best_of_n_tavan": 3,
+    "oy_en_cok": 3,
+    "basabas": "p_yukselt < 1 - (c_ucuz + c_dogrulama) / c_guclu",
+    "kaynak": "Dekoninck 2024, Rajput 2026, Brown 2024 (bilgi tabanı 7c)"
+  },
+  "fan_out": {
+    "baslangic": [
+      3,
+      5
+    ],
+    "sondaj_esigi": 8,
+    "p90_carpani": 1.5,
+    "yeniden_planla": {
+      "ayni_dosya_yeniden_yazma": 3,
+      "butce_ilerlemesiz": 0.7
+    }
+  },
+  "olc": {
+    "kalibrasyon_esigi_pp": 10,
+    "kalibrasyon_ema_alfa": 0.3,
+    "onbellek_isabet_uyari": 0.6
+  },
+  "gime_referans": {
+    "rol": "sol",
+    "efor": "high",
+    "not": "GIME = g(a) / g(referans); yalnız insan okuması, seçici g ile çalışır"
+  },
+  "guncelle": {
+    "_aciklama": "orkestra güncelle (references/guncelle.md) parametreleri; kaynak bilgi tabanı 6b-6c [T]",
+    "halef_sinyalleri": {
+      "S1_resmi_halef": "kesin",
+      "S2_katalog_latest_previous": 3,
+      "S3_line_upgrade_alani": 3,
+      "S4_ayni_havuz": 2,
+      "S5_fiyat_bandi_60": 2,
+      "S6_ad_kalibi_surum_artisi": 2,
+      "S7_ayni_kip_baglam": 1,
+      "S8_basin_successor": 1,
+      "N1_yeni_hat_S1_yok": -3,
+      "N2_yeni_kip_gorev": "yeni_sinif",
+      "N3_yonlendirici": "yonlendirici",
+      "N4_fiyat_2_5x": -2
+    },
+    "halef_esikleri": {
+      "olasi_halef": 6,
+      "soy_yakin": [
+        2,
+        5
+      ],
+      "yeni_sinif": "<2"
+    },
+    "otomatik_halef": "ayni saglayici + ayni hat + nesil artisi + (eskisi previous/deprecated ya da S1)",
+    "tahmin_z_indirimi": [
+      2,
+      3
+    ],
+    "kalkan_ardisik_okuma": 2,
+    "liderlik": {
+      "ci_ayrisik": true,
+      "arena_en_az_oy": 3000,
+      "en_az_bagimsiz_degerlendirme": 2,
+      "ardisik_guncelleme": 2,
+      "en_az_gun_arasi": 7,
+      "olculmemis_lider_olamaz": true,
+      "sabit_kurallu_alanda": "yalniz_oneri"
+    },
+    "emeklilik": {
+      "ceza_gun": 30,
+      "ceza_carpani": 2,
+      "secilemez_gun": 7
+    },
+    "web_not_azami_karakter": 80,
+    "onbellek_dk": 10,
+    "tam_oneri_gun": 7
+  },
+  "doygunluk": {
+    "mekanik": 2,
+    "basit": 6
+  },
+  "kopru": {
+    "gunluk": [
+      "aa:fc2"
+    ],
+    "zor_ajan": [
+      "aa:fc2",
+      "aa:tb4"
+    ],
+    "goc": [
+      "aa:fc2"
+    ],
+    "refaktor": [
+      "aa:fc2"
+    ],
+    "web": [
+      "aa:omni"
+    ],
+    "sentez": [
+      "aa:critpt"
+    ],
+    "uzun_belge": [
+      "aa:gdp_pdf"
+    ],
+    "klinik": [
+      "aa:omni"
+    ],
+    "_varsayilan": []
+  },
+  "kanitli_kaskad": {
+    "siniflar": [
+      "arastirma",
+      "normal"
+    ],
+    "z_acigi": 16,
+    "veri": [
+      "genel"
+    ],
+    "dis_kanit": [
+      "test_tam",
+      "kapali_cevap",
+      "sema_dogrulayici"
+    ],
+    "en_cok_deneme": 2,
+    "_aciklama": "kabul edilen çıktı Q'yu karşılayan modelden ya da tam dış kanıttan geçer"
+  },
+  "opus_kapisi": {
+    "siniflar": [
+      "zor"
+    ],
+    "sinyaller": [
+      "geri_alinamaz",
+      "olgu_riski",
+      "alan_uzmanligi"
+    ],
+    "efor_tabani": "high",
+    "kopru_yasak": true,
+    "rol": "opus",
+    "_aciklama": "ciddi zor işte Opus olmayan aday yalnız doğrudan alan ölçümüyle δ içindeyse"
+  },
+  "geri_bildirim": {
+    "en_az_ornek": 20,
+    "z": 1.64,
+    "fark_esigi": 0.05,
+    "_aciklama": "dış doğrulamalı başarı: en iyi modelin Wilson alt sınırı - fark altı model o sınıfta elenir (durum.basari, ork olc ozet yazar)"
+  },
+  "sef_tavani": {
+    "_aciklama": "R16 şef tavanı: işçi şefin model x eforunu aşmaz. Aynı aile: en çok şef modeli şef eforunda (üst model/efor yok); başka aile: Z <= Z(şef) + bant (gürültü bandı eşit sayılır), alan ölçümü varsa alanda da. Kaldıran: --tavan-yok, --zorla, ultra kipi, SOR T6 yanıtı tavan_yok, sabit kullanıcı kuralı (uyarıyla). Q tavanın üstündeyse SOR T6 (daha zayıf modele düşülmez).",
+    "bant": "aa_z",
+    "ortam_sef": [
+      "ORKESTRA_SEF"
+    ],
+    "ortam_model": [
+      "ORKESTRA_SEF_MODEL",
+      "ANTHROPIC_MODEL"
+    ],
+    "ortam_efor": [
+      "ORKESTRA_SEF_EFOR",
+      "CLAUDE_EFFORT",
+      "CLAUDE_CODE_EFFORT_LEVEL"
+    ],
+    "ayar_dosyalari": [
+      ".claude/settings.local.json",
+      ".claude/settings.json",
+      "~/.claude/settings.json"
+    ],
+    "ayar_model": "model",
+    "ayar_efor": "effortLevel",
+    "oturum_ortam": "CLAUDE_CODE_SESSION_ID",
+    "oturum_saat": 12,
+    "_model_takma": "Algılanan model takma adı -> tavan rolü. opusplan: plan Opus, yürütme (işçi çıkışı) Sonnet; default: hesap varsayılanı, kesin model bilinmez (faz.lider_rol varsayılır).",
+    "model_takma": {
+      "opusplan": "sonnet",
+      "default": null
+    }
+  }
+}

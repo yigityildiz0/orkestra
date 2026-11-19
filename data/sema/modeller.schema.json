@@ -1,0 +1,690 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/modeller.schema.json",
+  "title": "Orkestra kanonik model kaydı",
+  "type": "object",
+  "required": [
+    "sema",
+    "guncelleme",
+    "z_olcek",
+    "roller",
+    "modeller",
+    "liderler"
+  ],
+  "properties": {
+    "sema": {
+      "const": 7
+    },
+    "guncelleme": {
+      "type": "string"
+    },
+    "z_olcek": {
+      "type": "string"
+    },
+    "aciklama": {
+      "type": "string"
+    },
+    "pareto_kapsami": {
+      "type": "string"
+    },
+    "roller": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "saglayici",
+          "hat",
+          "aktif"
+        ],
+        "properties": {
+          "saglayici": {
+            "type": "string"
+          },
+          "hat": {
+            "type": "string"
+          },
+          "boyut": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "aktif": {
+            "type": "string"
+          },
+          "not": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "modeller": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "saglayici",
+          "hat",
+          "rol",
+          "durum",
+          "kipler",
+          "gorev",
+          "varyantlar",
+          "kanit",
+          "gecmis"
+        ],
+        "properties": {
+          "saglayici": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hat": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rol": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "nesil": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "durum": {
+            "enum": [
+              "aktif",
+              "emekli",
+              "eski_nesil",
+              "gozlem",
+              "kapanis_yakin",
+              "kapsam_disi",
+              "onay_bekliyor",
+              "yedek"
+            ]
+          },
+          "soy": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "tur": {
+                "enum": [
+                  "resmi_halef",
+                  "olasi_halef",
+                  "soy_yakin",
+                  "yeni_sinif",
+                  "yonlendirici",
+                  "yeniden_adlandirma"
+                ]
+              },
+              "yuva": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "puan": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "cikis": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "deger",
+              "kaynak",
+              "okuma"
+            ]
+          },
+          "kapanis": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "deger",
+              "kaynak",
+              "okuma"
+            ]
+          },
+          "kipler": {
+            "type": "object",
+            "required": [
+              "girdi",
+              "cikti"
+            ],
+            "properties": {
+              "girdi": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "metin",
+                    "gorsel",
+                    "pdf",
+                    "ses",
+                    "video"
+                  ]
+                }
+              },
+              "cikti": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "baglam": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "baglam_azami": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "cikti_tavan": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "gorev": {
+            "enum": [
+              "chat",
+              "vision_chat",
+              "ocr",
+              "asr",
+              "tts",
+              "embedding",
+              "rerank",
+              "guard",
+              "decision",
+              "image_gen",
+              "video_gen",
+              "muzik"
+            ]
+          },
+          "eforlar": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "none",
+                "minimal",
+                "low",
+                "medium",
+                "high",
+                "xhigh",
+                "max",
+                "varsayilan",
+                "ultra"
+              ]
+            }
+          },
+          "modlar": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "varyantlar": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "z",
+                "z_kaynak",
+                "kaynak",
+                "okuma",
+                "pareto"
+              ],
+              "properties": {
+                "z": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "z_kaynak": {
+                  "enum": [
+                    "aa",
+                    "aa-indirimli",
+                    "olcum",
+                    "tahmin",
+                    "halef_devralinan"
+                  ]
+                },
+                "gorev_usd": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "dk": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "tok_s": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "pareto": {
+                  "enum": [
+                    "aktif",
+                    "baskin"
+                  ]
+                },
+                "pareto_not": {
+                  "type": "string"
+                },
+                "kaynak": {
+                  "type": "string",
+                  "minLength": 2
+                },
+                "okuma": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+                },
+                "alt": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "alt_kaynak": {
+                  "type": "string",
+                  "minLength": 2
+                },
+                "not": {
+                  "type": "string"
+                },
+                "gorev_usd_dy": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "alanlar": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "puan",
+                "olcut",
+                "kaynak",
+                "okuma"
+              ],
+              "properties": {
+                "puan": {
+                  "type": "number"
+                },
+                "olcut": {
+                  "type": "string",
+                  "pattern": "^[a-z]+:"
+                },
+                "efor": {
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "none",
+                        "minimal",
+                        "low",
+                        "medium",
+                        "high",
+                        "xhigh",
+                        "max",
+                        "varsayilan",
+                        "ultra"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "ci": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "kaynak": {
+                  "type": "string",
+                  "minLength": 2
+                },
+                "okuma": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+                },
+                "guven": {
+                  "enum": [
+                    "R",
+                    "B",
+                    "Y",
+                    "Ü",
+                    "İ",
+                    "T",
+                    "DY"
+                  ]
+                },
+                "gorev_usd": {
+                  "type": "number"
+                },
+                "not": {
+                  "type": "string"
+                },
+                "devralinan": {
+                  "type": "string"
+                },
+                "efor_kaynak": {
+                  "type": "string",
+                  "minLength": 2
+                },
+                "eforlar": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "number"
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "nitelik": {
+            "type": "object"
+          },
+          "erisim_bayraklari": {
+            "type": "object",
+            "properties": {
+              "yazma_izinli_ajan": {
+                "type": "boolean"
+              },
+              "olgu_isi": {
+                "type": "boolean"
+              }
+            }
+          },
+          "olaylar": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "tarih",
+                "olay",
+                "kaynak"
+              ]
+            }
+          },
+          "kanit": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "alan",
+                "url",
+                "okuma"
+              ],
+              "properties": {
+                "alan": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "minLength": 2
+                },
+                "okuma": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "gecmis": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "tarih",
+                "olay",
+                "onay"
+              ],
+              "properties": {
+                "olay": {
+                  "enum": [
+                    "eklendi",
+                    "halef",
+                    "emekli",
+                    "z_guncel",
+                    "durum",
+                    "liderlik"
+                  ]
+                },
+                "onay": {
+                  "enum": [
+                    "otomatik",
+                    "kullanici"
+                  ]
+                }
+              }
+            }
+          },
+          "halef": {
+            "type": "string"
+          },
+          "efor_taramasi_gerekli": {
+            "type": "boolean"
+          },
+          "fiyat": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "girdi": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "onbellek": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "cikti": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "birim": {
+                "type": "string"
+              },
+              "tarihli": {
+                "type": "array"
+              }
+            }
+          },
+          "suru_rolleri": {
+            "type": "object",
+            "properties": {
+              "tekil": {
+                "type": "boolean"
+              },
+              "harita": {
+                "type": [
+                  "boolean",
+                  "string"
+                ]
+              },
+              "aday": {
+                "type": [
+                  "boolean",
+                  "string"
+                ]
+              },
+              "oy": {
+                "type": [
+                  "boolean",
+                  "string"
+                ]
+              },
+              "yargic": {
+                "type": [
+                  "boolean",
+                  "string"
+                ]
+              },
+              "turkce_son_metin": {
+                "type": "boolean"
+              },
+              "not": {
+                "type": "string"
+              }
+            }
+          },
+          "z_celiski": {
+            "type": "string"
+          },
+          "gorev_usd_tarihli": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "tekil_secim": {
+            "type": "boolean"
+          },
+          "erisim_notu": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "liderler": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "lider",
+          "sira",
+          "ci_ayrisik",
+          "kaynak",
+          "okuma"
+        ],
+        "properties": {
+          "lider": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sira": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^([a-z0-9.\\-]+@[a-z]+|arac:[a-z]+)$"
+            }
+          },
+          "aday": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ci_ayrisik": {
+            "type": "boolean"
+          },
+          "oy": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ardisik": {
+            "type": "integer"
+          },
+          "kaynak": {
+            "type": "string",
+            "minLength": 2
+          },
+          "okuma": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+          },
+          "not": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "rotalar": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "yol",
+            "ne"
+          ],
+          "properties": {
+            "yol": {
+              "enum": [
+                "otomatik",
+                "agy-elle",
+                "gui-elle",
+                "yerel",
+                "bedava-api",
+                "sabit",
+                "agy-oto"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "gorsel_modeller": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

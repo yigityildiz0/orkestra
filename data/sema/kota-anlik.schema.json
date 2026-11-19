@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/kota-anlik.schema.json",
+  "title": "Birleşik kota anlığı (ork.kota ya da harici servis yazar)",
+  "type": "object",
+  "required": [
+    "sema",
+    "yazan",
+    "zaman",
+    "havuzlar"
+  ],
+  "properties": {
+    "sema": {
+      "const": 1
+    },
+    "yazan": {
+      "type": "string",
+      "pattern": "^(ork\\.kota|rust-servis|[a-z0-9.\\-]+)$"
+    },
+    "zaman": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(:\\d{2})?(\\.\\d+)?Z$"
+    },
+    "havuzlar": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "durum",
+          "pencereler"
+        ],
+        "properties": {
+          "durum": {
+            "enum": [
+              "ok",
+              "bilinmiyor",
+              "kapali",
+              "hata"
+            ]
+          },
+          "pencereler": {
+            "type": "object",
+            "propertyNames": {
+              "enum": [
+                "5dk",
+                "5s",
+                "gun",
+                "hafta"
+              ]
+            },
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "kalan"
+              ],
+              "properties": {
+                "kalan": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "sifirlama": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "kaynak": {
+                  "enum": [
+                    "get_usage",
+                    "app-server",
+                    "agy_usage",
+                    "api_quota",
+                    "onbellek",
+                    "tahmin"
+                  ]
+                },
+                "token_kalan": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "token_tavan": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              }
+            }
+          },
+          "alt_sayaclar": {
+            "type": "object"
+          },
+          "soguma_bitis": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notlar": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ek": {
+            "type": "object",
+            "properties": {
+              "ordinary": {
+                "type": "boolean"
+              },
+              "reset_kredisi": {
+                "type": "object"
+              },
+              "alt_pencereler": {
+                "type": "object"
+              }
+            }
+          },
+          "sinirlar": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "yeni_modeller": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "platform",
+          "slug"
+        ]
+      }
+    },
+    "kalkan_modeller": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "platform",
+          "slug"
+        ]
+      }
+    },
+    "kova": {
+      "type": "object",
+      "description": "ork.kota iç durumu: havuz/pencere başına EMA ve kova değeri"
+    }
+  },
+  "additionalProperties": false
+}

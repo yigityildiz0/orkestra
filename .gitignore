@@ -1,2 +1,10 @@
+# Orkestra: kişisel ve geçici dosyalar depoya girmez
 __pycache__/
 *.pyc
+*.bak-orkestra-*
+data/kullanici-kurallari.json
+data/platformlar.json
+data/*.yerel.json
+.orkestra.json
+.env
+*.local.json

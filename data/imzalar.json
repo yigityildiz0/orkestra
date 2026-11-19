@@ -1,0 +1,557 @@
+{
+  "sema": 7,
+  "aciklama": "Bilinen platform imzaları. Keşif model çağırmaz; yalnız varlık, sürüm, giriş, liste ve kota uçlarını okur. Ortam değişkeninin yalnız ADI sinyaldir; değeri asla okunmaz. Kimlik dosyalarında yalnız varlık kontrolü yapılır.",
+  "platformlar": [
+    {
+      "id": "claude",
+      "ad": "Claude Code",
+      "saglayici": "anthropic",
+      "tur": "cli",
+      "ikili": [
+        "%LOCALAPPDATA%/Claude-Data/*/claude-code/*/*/claude.exe",
+        "~/.local/bin/claude",
+        "PATH:claude"
+      ],
+      "ikili_secim": "surume_gore_en_yeni",
+      "yapilandirma": [
+        "~/.claude/",
+        "~/.claude.json"
+      ],
+      "giris_komutu": {
+        "tur": "mcp",
+        "arac": "mcp__ccd_session_mgmt__get_usage",
+        "basari": "plan.status == ok",
+        "yedek": "claude auth status"
+      },
+      "model_liste": {
+        "tur": "statik+dosya",
+        "takma_adlar": [
+          "opus",
+          "sonnet",
+          "haiku",
+          "fable"
+        ],
+        "dosya": "~/.claude.json#additionalModelOptionsCache",
+        "belge": "https://code.claude.com/docs/en/model-config"
+      },
+      "kota": {
+        "tur": "mcp",
+        "arac": "mcp__ccd_session_mgmt__get_usage"
+      },
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": true,
+      "isci_yolu": "agent-araci",
+      "not": "takma adlar en yeni sürüme kendiliğinden kayar; standalone CLI girişsiz olabilir, işçi = Agent aracı"
+    },
+    {
+      "id": "codex",
+      "ad": "Codex CLI",
+      "saglayici": "openai",
+      "tur": "cli",
+      "ikili": [
+        "%LOCALAPPDATA%/OpenAI/Codex/bin/*/codex.exe",
+        "%PROGRAMFILES%/WindowsApps/OpenAI.Codex_*/app/resources/codex.exe",
+        "PATH:codex"
+      ],
+      "ikili_secim": "surume_gore_en_yeni",
+      "surum_karsilastir": "~/.codex/models_cache.json#client_version",
+      "yapilandirma": [
+        "~/.codex/config.toml",
+        "~/.codex/models_cache.json"
+      ],
+      "giris_komutu": {
+        "tur": "komut",
+        "cmd": [
+          "{ikili}",
+          "login",
+          "status"
+        ],
+        "basari_deseni": "Logged in"
+      },
+      "model_liste": {
+        "tur": "dosya+komut",
+        "dosya": "~/.codex/models_cache.json",
+        "cmd": [
+          "{ikili}",
+          "debug",
+          "models"
+        ],
+        "gizli_alan": "visibility",
+        "gizli_deger": "hide"
+      },
+      "kota": {
+        "tur": "app-server",
+        "cmd": [
+          "{ikili}",
+          "app-server"
+        ],
+        "metot": "account/rateLimits/read"
+      },
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": true,
+      "isci_yolu": "codex-exec"
+    },
+    {
+      "id": "agy",
+      "ad": "Antigravity CLI",
+      "saglayici": "google",
+      "tur": "cli",
+      "ikili": [
+        "%LOCALAPPDATA%/agy/bin/agy.exe",
+        "PATH:agy"
+      ],
+      "ikili_secim": "ilk_bulunan",
+      "yapilandirma": [
+        "~/.gemini/antigravity",
+        "~/.gemini/antigravity-cli",
+        "~/.gemini/config/config.json"
+      ],
+      "giris_komutu": {
+        "tur": "komut",
+        "cmd": [
+          "{ikili}",
+          "models"
+        ],
+        "basari": "cikis_0"
+      },
+      "model_liste": {
+        "tur": "komut",
+        "cmd": [
+          "{ikili}",
+          "models"
+        ],
+        "degisiklik_gunlugu": "~/.gemini/antigravity-cli/cache/CHANGELOG.md"
+      },
+      "kota": {
+        "tur": "komut",
+        "cmd": [
+          "{ikili}",
+          "-p",
+          "/usage",
+          "--output-format",
+          "json"
+        ],
+        "env": {
+          "MSYS_NO_PATHCONV": "1"
+        },
+        "alan": "command.data.groups[].buckets[]"
+      },
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": false,
+      "isci_yolu": "agy-elle",
+      "gerekce": "Antigravity SSS: agy'yi üçüncü taraf ajana sarmak tüketici planında desteklenmez; askıya alma emsali var. Liste/kota komutları bile yalnız güncelleme sırasında ya da kullanıcı isteğiyle, oturum başına en çok bir kez."
+    },
+    {
+      "id": "gemini-cli",
+      "ad": "Gemini CLI",
+      "saglayici": "google",
+      "tur": "cli",
+      "ikili": [
+        "PATH:gemini"
+      ],
+      "yapilandirma": [
+        "~/.gemini/settings.json",
+        "~/.gemini/oauth_creds.json"
+      ],
+      "giris_komutu": {
+        "tur": "varlik",
+        "dosya": "~/.gemini/oauth_creds.json"
+      },
+      "model_liste": {
+        "tur": "belge",
+        "dogrulama": "DY"
+      },
+      "kota": {
+        "tur": "DY"
+      },
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": null
+    },
+    {
+      "id": "opencode",
+      "ad": "OpenCode",
+      "tur": "cli",
+      "ikili": [
+        "PATH:opencode"
+      ],
+      "yapilandirma": [
+        "~/.config/opencode/opencode.json",
+        "~/.local/share/opencode/auth.json"
+      ],
+      "giris_komutu": {
+        "tur": "komut",
+        "cmd": [
+          "opencode",
+          "auth",
+          "list"
+        ]
+      },
+      "model_liste": {
+        "tur": "komut",
+        "cmd": [
+          "opencode",
+          "models"
+        ]
+      },
+      "kota": {
+        "tur": "saglayiciya_bagli"
+      },
+      "ucret": "ucretli-api",
+      "otomatik_cagri_izni": null
+    },
+    {
+      "id": "ollama",
+      "ad": "Ollama",
+      "tur": "yerel",
+      "ikili": [
+        "PATH:ollama",
+        "%LOCALAPPDATA%/Programs/Ollama"
+      ],
+      "yapilandirma": [
+        "~/.ollama/models"
+      ],
+      "giris_komutu": {
+        "tur": "uc",
+        "url": "http://127.0.0.1:11434/api/version"
+      },
+      "model_liste": {
+        "tur": "uc",
+        "url": "http://127.0.0.1:11434/api/tags"
+      },
+      "kota": {
+        "tur": "yok"
+      },
+      "ucret": "yerel",
+      "otomatik_cagri_izni": true,
+      "not": "*:cloud modelleri hesap ister: ayrı say"
+    },
+    {
+      "id": "lmstudio",
+      "ad": "LM Studio",
+      "tur": "yerel",
+      "ikili": [
+        "PATH:lms"
+      ],
+      "yapilandirma": [
+        "~/.lmstudio/models"
+      ],
+      "giris_komutu": {
+        "tur": "komut",
+        "cmd": [
+          "lms",
+          "status"
+        ]
+      },
+      "model_liste": {
+        "tur": "uc",
+        "url": "http://127.0.0.1:1234/v1/models"
+      },
+      "kota": {
+        "tur": "yok"
+      },
+      "ucret": "yerel",
+      "otomatik_cagri_izni": true
+    },
+    {
+      "id": "aider",
+      "ad": "Aider",
+      "tur": "cli",
+      "ikili": [
+        "PATH:aider"
+      ],
+      "yapilandirma": [
+        "~/.aider.conf.yml"
+      ],
+      "ucret": "ucretli-api",
+      "otomatik_cagri_izni": null
+    },
+    {
+      "id": "cursor-agent",
+      "ad": "Cursor Agent",
+      "tur": "cli",
+      "ikili": [
+        "PATH:cursor-agent"
+      ],
+      "yapilandirma": [
+        "~/.cursor"
+      ],
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": null
+    },
+    {
+      "id": "windsurf",
+      "ad": "Windsurf",
+      "tur": "ide",
+      "ikili": [
+        "PATH:windsurf"
+      ],
+      "yapilandirma": [
+        "~/.codeium"
+      ],
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": null
+    },
+    {
+      "id": "copilot",
+      "ad": "GitHub Copilot CLI",
+      "tur": "cli",
+      "ikili": [
+        "PATH:copilot",
+        "%LOCALAPPDATA%/GitHub CLI/extensions/gh-copilot/*",
+        "~/.local/share/gh/extensions/gh-copilot/*"
+      ],
+      "giris_komutu": {
+        "tur": "komut",
+        "cmd": [
+          "gh",
+          "copilot",
+          "--version"
+        ]
+      },
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": null,
+      "not": "gh tek başına Copilot kanıtı değildir: bağımsız copilot ikilisi ya da gh-copilot eklentisi aranır"
+    },
+    {
+      "id": "deepseek-cli",
+      "ad": "DeepSeek / harness CLI",
+      "tur": "cli",
+      "ikili": [
+        "PATH:deepseek",
+        "PATH:harness"
+      ],
+      "yapilandirma": [
+        "~/.deepseek"
+      ],
+      "ucret": "ucretli-api",
+      "otomatik_cagri_izni": null
+    },
+    {
+      "id": "openai-uyumlu",
+      "ad": "OpenAI uyumlu genel uç",
+      "tur": "api",
+      "yapilandirma": [
+        "~/.codex/*.config.toml#model_providers.*.base_url"
+      ],
+      "ortam_adlari": [
+        "*_API_KEY",
+        "*_BASE_URL",
+        "OPENAI_*"
+      ],
+      "giris_komutu": {
+        "tur": "uc",
+        "yol": "/models",
+        "basari": "200"
+      },
+      "model_liste": {
+        "tur": "uc",
+        "yol": "/models",
+        "alanlar": [
+          "id",
+          "task",
+          "modalities",
+          "context_length",
+          "capabilities.reasoning_effort_aliases",
+          "free_until"
+        ]
+      },
+      "kota": {
+        "tur": "uc",
+        "yol": "/quota",
+        "istege_bagli": true
+      },
+      "ucret": "yanit_pricing_alanina_gore",
+      "otomatik_cagri_izni": null,
+      "varsayilan_gizlilik": "kamu"
+    },
+    {
+      "id": "anthropic-uyumlu",
+      "ad": "Anthropic uyumlu genel uç",
+      "tur": "api",
+      "ortam_adlari": [
+        "ANTHROPIC_BASE_URL"
+      ],
+      "giris_komutu": {
+        "tur": "uc",
+        "yol": "/v1/models",
+        "baslik": "anthropic-version"
+      },
+      "ucret": "belirsiz",
+      "otomatik_cagri_izni": null,
+      "varsayilan_gizlilik": "kamu"
+    },
+    {
+      "id": "comfyui",
+      "ad": "ComfyUI",
+      "tur": "yerel",
+      "ikili": [
+        "*/ComfyUI/main.py",
+        "~/ComfyUI/main.py"
+      ],
+      "yapilandirma": [
+        "extra_model_paths.yaml"
+      ],
+      "giris_komutu": {
+        "tur": "varlik"
+      },
+      "model_liste": {
+        "tur": "dizin",
+        "dizinler": [
+          "models/diffusion_models",
+          "models/loras",
+          "models/vae",
+          "models/text_encoders"
+        ],
+        "uc": "http://127.0.0.1:8188/object_info"
+      },
+      "kota": {
+        "tur": "vram"
+      },
+      "ucret": "yerel",
+      "otomatik_cagri_izni": true
+    },
+    {
+      "id": "hf-yerel",
+      "ad": "Hugging Face yerel önbellek",
+      "tur": "yerel",
+      "yapilandirma": [
+        "~/.cache/huggingface/hub/models--*"
+      ],
+      "model_liste": {
+        "tur": "dizin"
+      },
+      "kota": {
+        "tur": "vram"
+      },
+      "ucret": "yerel",
+      "otomatik_cagri_izni": true,
+      "not": "yalnız ağırlığı inmiş ve çalıştırıcısı olan model sayılır"
+    },
+    {
+      "id": "chatgpt-masaustu",
+      "ad": "ChatGPT masaüstü",
+      "tur": "gui",
+      "ikili": [
+        "%PROGRAMFILES%/WindowsApps/OpenAI.ChatGPT-Desktop_*"
+      ],
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": false,
+      "isci_yolu": "gui-elle"
+    },
+    {
+      "id": "gemini-uygulamasi",
+      "ad": "Gemini uygulaması / Flow",
+      "tur": "gui",
+      "ucret": "abonelik",
+      "otomatik_cagri_izni": false,
+      "isci_yolu": "gui-elle"
+    },
+    {
+      "id": "gcloud",
+      "ad": "Google Cloud (Vertex)",
+      "tur": "cli",
+      "ikili": [
+        "PATH:gcloud"
+      ],
+      "yapilandirma": [
+        "%APPDATA%/gcloud/configurations"
+      ],
+      "ucret": "ucretli-api",
+      "otomatik_cagri_izni": false
+    }
+  ],
+  "sezgiler": {
+    "path_ad_sozlugu": [
+      "*-cli",
+      "*agent*",
+      "ai",
+      "llm",
+      "code",
+      "chat",
+      "claude",
+      "codex",
+      "gemini",
+      "qwen",
+      "kimi",
+      "goose",
+      "crush",
+      "droid",
+      "jules"
+    ],
+    "klasorler": [
+      "~/.<ad>",
+      "%APPDATA%/<ad>",
+      "%LOCALAPPDATA%/Programs/<ad>"
+    ],
+    "klasor_icerik_sinyali": [
+      "config.json",
+      "config.toml",
+      "config.yaml",
+      "auth*",
+      "models*",
+      "*.gguf",
+      "*.safetensors"
+    ],
+    "ortam_adlari": [
+      "*_API_KEY",
+      "*_BASE_URL",
+      "OPENAI_*",
+      "ANTHROPIC_*"
+    ],
+    "portlar": [
+      11434,
+      1234,
+      8080,
+      8000,
+      5000,
+      7860,
+      8188
+    ],
+    "port_uclari": [
+      "/v1/models",
+      "/api/tags",
+      "/object_info"
+    ],
+    "mcp_dosyalari": [
+      "~/.claude.json",
+      "~/.codex/config.toml",
+      "~/.gemini/config/mcp_config.json"
+    ],
+    "mcp_arac_sinyali": [
+      "generate",
+      "model",
+      "image",
+      "video",
+      "llm"
+    ],
+    "ide_eklenti_dizinleri": [
+      "~/.antigravity/extensions",
+      "~/.vscode/extensions"
+    ],
+    "ide_eklenti_sinyali": [
+      "copilot",
+      "continue",
+      "cline",
+      "kilo",
+      "roo"
+    ]
+  },
+  "kurallar": {
+    "bilinmeyen_platform": "aday-platform",
+    "otomatik_aktif_ucret": [
+      "abonelik",
+      "bedava",
+      "yerel"
+    ],
+    "otomatik_aktif_kosul": "giris == var ve otomatik_cagri_izni != false",
+    "asla_otomatik": [
+      "ucretli-api",
+      "kredi",
+      "giris_yok",
+      "hesap_acma"
+    ],
+    "yeni_api_gizlilik": "kamu",
+    "kayip": "ikili/dizin yok -> durum kayip, havuz devre dışı",
+    "kalkti": "iki ardışık okumada listede yok -> kalkti; ilk okumada yalnız uyarı"
+  }
+}

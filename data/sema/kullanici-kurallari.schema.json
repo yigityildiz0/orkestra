@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/kullanici-kurallari.schema.json",
+  "title": "Kullanıcı kuralları (kişisel katman)",
+  "type": "object",
+  "required": [
+    "sema",
+    "katman",
+    "abonelikler",
+    "ek_ucret",
+    "yasak",
+    "tabanlar",
+    "faz",
+    "sabit_kurallar",
+    "bedava_istisna",
+    "agy_otomatik",
+    "gizlilik"
+  ],
+  "properties": {
+    "sema": {
+      "const": 7
+    },
+    "katman": {
+      "enum": [
+        "kisisel",
+        "ornek"
+      ]
+    },
+    "abonelikler": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ek_ucret": {
+      "type": "boolean"
+    },
+    "yasak": {
+      "type": "object",
+      "required": [
+        "saglayici_hat",
+        "takma_ad"
+      ],
+      "properties": {
+        "saglayici_hat": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9\\-]+/[a-z0-9\\-]+$"
+          }
+        },
+        "takma_ad": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tabanlar": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        ]
+      }
+    },
+    "rezervler": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "tur",
+          "deger",
+          "kime"
+        ],
+        "properties": {
+          "tur": {
+            "enum": [
+              "kullanilabilir_payin",
+              "mutlak"
+            ]
+          },
+          "deger": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "azalan": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "faz": {
+      "type": "object",
+      "required": [
+        "ana_havuz",
+        "claude_esik_u",
+        "lider_tampon_5s"
+      ],
+      "properties": {
+        "tempo_agirlik": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "dis_sira": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tempo_bant": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rezerv_azalma_saat": {
+          "type": "number",
+          "minimum": 0
+        },
+        "bekle_esik_dk": {
+          "type": "number",
+          "minimum": 0
+        },
+        "lider_rol": {
+          "type": "string"
+        },
+        "uyarlanir_agirlik": {
+          "type": "object",
+          "properties": {
+            "acik": {
+              "type": "boolean"
+            },
+            "alt": {
+              "type": "number"
+            },
+            "ust": {
+              "type": "number"
+            },
+            "adim": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "sabit_kurallar": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "rol",
+          "efor",
+          "yol"
+        ]
+      }
+    },
+    "bedava_istisna": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "platform",
+          "bitis",
+          "anahtar_env",
+          "veri"
+        ],
+        "properties": {
+          "anahtar_env": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$"
+          },
+          "veri": {
+            "enum": [
+              "yalniz_genel",
+              "kisisel"
+            ]
+          }
+        }
+      }
+    },
+    "agy_otomatik": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "required": [
+            "acik"
+          ],
+          "properties": {
+            "acik": {
+              "type": "boolean"
+            },
+            "karar": {
+              "type": "object",
+              "properties": {
+                "tarih": {
+                  "type": "string"
+                },
+                "kaynak": {
+                  "type": "string"
+                },
+                "risk": {
+                  "type": "string"
+                },
+                "ek_risk": {
+                  "type": "string"
+                },
+                "teyit_edildi": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "guvenceler": {
+              "type": "object",
+              "properties": {
+                "eszamanli": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "baslatma_araligi_sn": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "saatlik_cagri_tavani": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "gunluk_cagri_tavani": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "teyitsiz_profil": {
+                  "type": "object"
+                },
+                "ilk_403_kapat": {
+                  "type": "boolean"
+                },
+                "degismemis_ikili": {
+                  "type": "boolean"
+                },
+                "token_okuma_yok": {
+                  "type": "boolean"
+                },
+                "kayit": {
+                  "type": "string"
+                }
+              }
+            },
+            "isci_profili": {
+              "type": "object",
+              "properties": {
+                "settings": {
+                  "type": "string"
+                },
+                "calisma_dizini": {
+                  "type": "string"
+                },
+                "dogrulandi": {
+                  "type": "boolean"
+                },
+                "kisisel_baglam_kabul": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "gizlilik": {
+      "type": "object",
+      "required": [
+        "varsayilan_veri",
+        "yasak_yol"
+      ],
+      "properties": {
+        "varsayilan_veri": {
+          "enum": [
+            "bilinmiyor",
+            "genel",
+            "kisisel",
+            "gizli",
+            "saglik"
+          ]
+        }
+      }
+    },
+    "ajan_dosyalari": {
+      "type": "object"
+    },
+    "kapanis_kancasi": {
+      "type": "object"
+    },
+    "yayin": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "sor": {
+      "type": "object",
+      "properties": {
+        "karar_suresi_saat": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

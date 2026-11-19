@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/imzalar.schema.json",
+  "title": "Bilinen platform imzaları",
+  "type": "object",
+  "required": [
+    "sema",
+    "platformlar",
+    "sezgiler",
+    "kurallar"
+  ],
+  "properties": {
+    "sema": {
+      "const": 7
+    },
+    "aciklama": {
+      "type": "string"
+    },
+    "platformlar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "ad",
+          "tur",
+          "ucret"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9\\-]+$"
+          },
+          "tur": {
+            "enum": [
+              "cli",
+              "api",
+              "yerel",
+              "gui",
+              "mcp",
+              "ide"
+            ]
+          },
+          "ikili": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ikili_secim": {
+            "enum": [
+              "surume_gore_en_yeni",
+              "ilk_bulunan"
+            ]
+          },
+          "yapilandirma": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "otomatik_cagri_izni": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "ucret": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sezgiler": {
+      "type": "object"
+    },
+    "kurallar": {
+      "type": "object"
+    }
+  }
+}

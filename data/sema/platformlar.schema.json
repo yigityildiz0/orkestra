@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/platformlar.schema.json",
+  "title": "Orkestra platform ve havuz kaydı (kişisel)",
+  "type": "object",
+  "required": [
+    "sema",
+    "platformlar",
+    "havuzlar"
+  ],
+  "properties": {
+    "sema": {
+      "const": 7
+    },
+    "dogrulama": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "katman": {
+      "enum": [
+        "kisisel",
+        "ornek"
+      ]
+    },
+    "aciklama": {
+      "type": "string"
+    },
+    "host_varsayilan": {
+      "type": "string"
+    },
+    "platformlar": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "ad",
+          "tur",
+          "ucret",
+          "durum"
+        ],
+        "properties": {
+          "ad": {
+            "type": "string"
+          },
+          "tur": {
+            "enum": [
+              "cli",
+              "api",
+              "yerel",
+              "gui",
+              "mcp",
+              "ide"
+            ]
+          },
+          "ucret": {
+            "enum": [
+              "abonelik",
+              "bedava",
+              "yerel",
+              "ucretli-api",
+              "kredi",
+              "bilinmiyor"
+            ]
+          },
+          "durum": {
+            "enum": [
+              "aktif",
+              "aday-platform",
+              "kapali",
+              "ucretli-kapali",
+              "kayip"
+            ]
+          },
+          "giris": {
+            "enum": [
+              "var",
+              "yok",
+              "bilinmiyor"
+            ]
+          },
+          "host": {
+            "type": "boolean"
+          },
+          "isci_yolu": {
+            "enum": [
+              "agent-araci",
+              "codex-exec",
+              "agy-elle",
+              "bedava-api",
+              "yerel",
+              "gui-elle",
+              "arac",
+              "agy-oto"
+            ]
+          },
+          "anahtar_env": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$"
+          },
+          "taban_url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "havuzlar": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "erisim": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "slug",
+                "eforlar",
+                "havuz",
+                "esdeger"
+              ],
+              "properties": {
+                "slug": {
+                  "type": "string"
+                },
+                "eforlar": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "none",
+                      "minimal",
+                      "low",
+                      "medium",
+                      "high",
+                      "xhigh",
+                      "max",
+                      "varsayilan",
+                      "ultra"
+                    ]
+                  }
+                },
+                "havuz": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "esdeger": {
+                  "enum": [
+                    "tam",
+                    "yaklasik"
+                  ]
+                },
+                "takma": {
+                  "type": "string"
+                },
+                "z_duzeltme": {
+                  "type": "number",
+                  "maximum": 0
+                },
+                "efor_takma": {
+                  "type": "object"
+                },
+                "kredi_carpani": {
+                  "type": [
+                    "number",
+                    "array"
+                  ]
+                },
+                "kapanis": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "gizlilik": {
+            "enum": [
+              "ozel",
+              "dis",
+              "kamu"
+            ]
+          },
+          "otomatik_cagri": {
+            "type": "boolean"
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "anahtar"
+              ]
+            },
+            {
+              "required": [
+                "api_key"
+              ]
+            },
+            {
+              "required": [
+                "token"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "havuzlar": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "platform",
+          "pencereler",
+          "karar",
+          "bedava",
+          "gizlilik"
+        ],
+        "properties": {
+          "platform": {
+            "type": "string"
+          },
+          "pencereler": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "ad",
+                "tur"
+              ],
+              "properties": {
+                "ad": {
+                  "enum": [
+                    "5dk",
+                    "5s",
+                    "gun",
+                    "hafta"
+                  ]
+                },
+                "tur": {
+                  "enum": [
+                    "sabit",
+                    "yuvarlanan"
+                  ]
+                },
+                "uzunluk_dk": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "karar": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "5dk",
+                "5s",
+                "gun",
+                "hafta"
+              ]
+            }
+          },
+          "K_p": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "oncul": {
+                "type": "object"
+              },
+              "kalibre": {
+                "type": [
+                  "object",
+                  "number",
+                  "null"
+                ]
+              },
+              "kaynak": {
+                "type": "string"
+              },
+              "guven": {
+                "type": "string"
+              },
+              "birim": {
+                "enum": [
+                  "USD-e",
+                  "token"
+                ]
+              }
+            }
+          },
+          "s_p": {
+            "type": "object"
+          },
+          "bedava": {
+            "type": "boolean"
+          },
+          "harcanabilir": {
+            "type": "boolean"
+          },
+          "gizlilik": {
+            "enum": [
+              "ozel",
+              "dis",
+              "kamu"
+            ]
+          },
+          "okuyucu": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "otomatik_okuma": {
+            "type": "boolean"
+          },
+          "bitis": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "paylasan": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "v71_notu": {
+      "description": "v7.1 alanları: platform.suru, cagri.argv/argv_oto/sablon_oto/auth_yedek_cikar, uclar, konusma_dizini; erisim.efor_bayragi/tekil_secim/durum/eforlar_dogrulanacak/kapasite/turkce_son_metin/thinking; havuz.agy_kovalar/limitler/cagri_sabit_yuk_token/eszamanli_kullan"
+    }
+  }
+}

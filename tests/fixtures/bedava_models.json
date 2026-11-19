@@ -1,0 +1,167 @@
+{
+ "object": "list",
+ "data": [
+  {
+   "id": "ornek-sohbet",
+   "object": "model",
+   "created": 1700000000,
+   "owned_by": "ornek",
+   "task": "chat",
+   "modalities": [
+    "text"
+   ],
+   "pricing": {
+    "prompt_token_price": 0.0,
+    "completion_token_price": 0.0,
+    "currency": "USD",
+    "free_until": "2099-12-31"
+   },
+   "context_length": 131072,
+   "default_max_output_tokens": null,
+   "capabilities": {
+    "tools": false,
+    "thinking": false,
+    "reasoning_effort": false,
+    "reasoning_effort_values": null,
+    "reasoning_effort_aliases": null,
+    "vision": false,
+    "max_images_per_request": null,
+    "response_format": true,
+    "seed": false,
+    "top_k": false,
+    "stop": false
+   },
+   "precision": null
+  },
+  {
+   "id": "ornek-ocr",
+   "object": "model",
+   "created": 1700000001,
+   "owned_by": "ornek",
+   "task": "ocr",
+   "modalities": [
+    "image",
+    "text"
+   ],
+   "pricing": {
+    "prompt_token_price": 0.0,
+    "completion_token_price": 0.0,
+    "currency": "USD",
+    "free_until": "2099-12-31"
+   },
+   "context_length": 131072,
+   "default_max_output_tokens": null,
+   "capabilities": {
+    "tools": false,
+    "thinking": false,
+    "reasoning_effort": false,
+    "reasoning_effort_values": null,
+    "reasoning_effort_aliases": null,
+    "vision": false,
+    "max_images_per_request": null,
+    "response_format": true,
+    "seed": false,
+    "top_k": false,
+    "stop": false
+   },
+   "precision": null
+  },
+  {
+   "id": "ornek-ses",
+   "object": "model",
+   "created": 1700000002,
+   "owned_by": "ornek",
+   "task": "tts",
+   "modalities": [
+    "text",
+    "audio"
+   ],
+   "pricing": {
+    "prompt_token_price": 0.0,
+    "completion_token_price": 0.0,
+    "currency": "USD",
+    "free_until": "2099-12-31"
+   },
+   "context_length": 131072,
+   "default_max_output_tokens": null,
+   "capabilities": {
+    "tools": false,
+    "thinking": false,
+    "reasoning_effort": false,
+    "reasoning_effort_values": null,
+    "reasoning_effort_aliases": null,
+    "vision": false,
+    "max_images_per_request": null,
+    "response_format": true,
+    "seed": false,
+    "top_k": false,
+    "stop": false
+   },
+   "precision": null
+  },
+  {
+   "id": "ornek-gomme",
+   "object": "model",
+   "created": 1700000003,
+   "owned_by": "ornek",
+   "task": "embedding",
+   "modalities": [
+    "text"
+   ],
+   "pricing": {
+    "prompt_token_price": 0.0,
+    "completion_token_price": 0.0,
+    "currency": "USD",
+    "free_until": "2099-12-31"
+   },
+   "context_length": 131072,
+   "default_max_output_tokens": null,
+   "capabilities": {
+    "tools": false,
+    "thinking": false,
+    "reasoning_effort": false,
+    "reasoning_effort_values": null,
+    "reasoning_effort_aliases": null,
+    "vision": false,
+    "max_images_per_request": null,
+    "response_format": true,
+    "seed": false,
+    "top_k": false,
+    "stop": false
+   },
+   "precision": null
+  },
+  {
+   "id": "ornek-sirala",
+   "object": "model",
+   "created": 1700000004,
+   "owned_by": "ornek",
+   "task": "rerank",
+   "modalities": [
+    "text"
+   ],
+   "pricing": {
+    "prompt_token_price": 0.0,
+    "completion_token_price": 0.0,
+    "currency": "USD",
+    "free_until": "2099-12-31"
+   },
+   "context_length": 131072,
+   "default_max_output_tokens": null,
+   "capabilities": {
+    "tools": false,
+    "thinking": false,
+    "reasoning_effort": false,
+    "reasoning_effort_values": null,
+    "reasoning_effort_aliases": null,
+    "vision": false,
+    "max_images_per_request": null,
+    "response_format": true,
+    "seed": false,
+    "top_k": false,
+    "stop": false
+   },
+   "precision": null
+  }
+ ]
+}

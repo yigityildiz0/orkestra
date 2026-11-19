@@ -1,0 +1,25 @@
+{
+  "sema": 1,
+  "yazan": "rust-servis",
+  "zaman": "2026-11-16T09:01:51Z",
+  "havuzlar": {
+    "codex_plus": {
+      "durum": "ok",
+      "etkin_kalan": 1.0,
+      "baglayici_pencere": "hafta",
+      "kullanilabilir": true,
+      "pencereler": {
+        "5s": {
+          "kalan": 1.0,
+          "kaynak": "app-server"
+        },
+        "hafta": {
+          "kalan": 1.0,
+          "kaynak": "app-server"
+        }
+      },
+      "alt_sayaclar": {},
+      "notlar": []
+    }
+  }
+}

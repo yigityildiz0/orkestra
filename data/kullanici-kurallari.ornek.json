@@ -1,0 +1,140 @@
+{
+  "sema": 7,
+  "guncelleme": "2026-11-15",
+  "katman": "ornek",
+  "aciklama": "Örnek kullanıcı kuralları. `ork kur` bunu ~/.orkestra/kullanici-kurallari.json olarak kopyalar; kendi planına göre düzenle. Bu dosyada kişisel veri yoktur.",
+  "dil": "tr",
+  "saat_dilimi": "UTC",
+  "abonelikler": [
+    "claude_abonelik_ornek",
+    "chatgpt_abonelik_ornek"
+  ],
+  "ek_ucret": false,
+  "yasak": {
+    "saglayici_hat": [],
+    "takma_ad": [],
+    "kapsam": "tüm sürümler",
+    "gerekce": "örnek: kullanmak istemediğiniz aileleri 'saglayici/hat' biçiminde yazın"
+  },
+  "once_sor": {
+    "saglayici_hat": [],
+    "kosul": {
+      "siniflar": [
+        "zor",
+        "kritik"
+      ],
+      "ustunluk_delta": 2.0
+    },
+    "gerekce": "yasak değil ama otomatik seçilmeyen hatlar (ör. pahalı üst kademe): yalnız açık öndeyse sorulur (SOR T7), karar kullanıcıda"
+  },
+  "tabanlar": {
+    "_aciklama": "Kalan oran tabanları; hiçbir modda delinmez.",
+    "claude_max": {
+      "hafta": 0.2,
+      "5s": 0.1
+    },
+    "codex_plus": {
+      "hafta": 0.2
+    }
+  },
+  "rezervler": {
+    "claude_max": {
+      "tur": "kullanilabilir_payin",
+      "deger": 0.25,
+      "kime": [
+        "claude_ustun",
+        "kritik"
+      ]
+    },
+    "codex_plus": {
+      "tur": "mutlak",
+      "deger": 0.1,
+      "kime": [
+        "gorsel_uretim"
+      ],
+      "azalan": true
+    }
+  },
+  "faz": {
+    "ana_havuz": "claude_max",
+    "claude_esik_u": 0.25,
+    "lider_tampon_5s": 0.1,
+    "tempo_agirlik": {
+      "codex_plus": 1.5,
+      "agy_gemini": 2.0
+    },
+    "dis_sira": [
+      "agy_gemini",
+      "codex_plus"
+    ],
+    "tempo_bant": 0.1,
+    "rezerv_azalma_saat": 24,
+    "bekle_esik_dk": 45,
+    "uyarlanir_agirlik": {
+      "acik": false,
+      "alt": 1.0,
+      "ust": 3.0,
+      "adim": 1.25
+    },
+    "claude_kullan_kaybet_rho": 1.5
+  },
+  "kapasite_ilkesi": {
+    "ana_platform": "claude",
+    "buyukluk_sirasi": [
+      "claude_max",
+      "codex_plus"
+    ],
+    "kalite_once": "eşit kalitede kapasite ağırlıklı",
+    "karsilastirma_birimi": "yüzde değil iş birimi payı"
+  },
+  "sabit_kurallar": {},
+  "bedava_istisna": [],
+  "agy_otomatik": {
+    "acik": false,
+    "guvenceler": {
+      "saatlik_okuma_tavani": 6
+    }
+  },
+  "kota_okuma": {
+    "model_cagirmaz": true,
+    "onbellek_dk": 10,
+    "yalniz_lider": true,
+    "olcum_dosyasi": "~/.orkestra/kapasite_olcum.json"
+  },
+  "gizlilik": {
+    "varsayilan_veri": "bilinmiyor",
+    "yasak_yol": [
+      "~/.ssh",
+      "~/Documents/Ozel"
+    ],
+    "dis_havuza_gitmez": [
+      "kişisel veri",
+      "sağlık verisi",
+      "sırlar"
+    ],
+    "ek_sozluk": [],
+    "guvenli_projeler": []
+  },
+  "ajan_dosyalari": {
+    "claude": {},
+    "codex": {},
+    "explore": "haiku:medium"
+  },
+  "kapanis_kancasi": {
+    "checkpoint": {
+      "proje_koku": "CHECKPOINT.md",
+      "proje_yoksa": [
+        "~/Documents"
+      ],
+      "alt_ajan_yazmaz": true
+    },
+    "gorev_sonu_ozeti": "sonuç -> etkilenen dosya -> doğrulama -> risk"
+  },
+  "yayin": null,
+  "platform_notlari": [],
+  "senkron": null,
+  "kararlar": [],
+  "sor": {
+    "karar_suresi_saat": 5
+  }
+}

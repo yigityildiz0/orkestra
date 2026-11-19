@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/olc-kayit.schema.json",
+  "title": "olc.jsonl satırı (her çağrı, otomatik)",
+  "type": "object",
+  "required": [
+    "zaman",
+    "is_id",
+    "sinif",
+    "alan",
+    "model",
+    "efor",
+    "havuz",
+    "aile",
+    "durum"
+  ],
+  "properties": {
+    "zaman": {
+      "type": "string"
+    },
+    "is_id": {
+      "type": "string"
+    },
+    "parca_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sinif": {
+      "enum": [
+        "mekanik",
+        "basit",
+        "arastirma",
+        "normal",
+        "kod",
+        "zor",
+        "kritik"
+      ]
+    },
+    "alan": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "efor": {
+      "enum": [
+        "none",
+        "minimal",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "varsayilan"
+      ]
+    },
+    "havuz": {
+      "type": "string"
+    },
+    "aile": {
+      "type": "string"
+    },
+    "yol": {
+      "type": "string"
+    },
+    "brief_hash_A": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "brief_hash_B": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "giris_tok": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "cikis_tok": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "dusunme_tok": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "onbellek_okuma": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "onbellek_yazma_5m": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "onbellek_yazma_1h": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "sure_sn": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "durum": {
+      "enum": [
+        "ok",
+        "kismi",
+        "bloke",
+        "dogrulanamadi",
+        "hata"
+      ]
+    },
+    "hata_sinifi": {
+      "enum": [
+        "gecici",
+        "kapasite",
+        "kota",
+        "kalici",
+        "bilinmiyor",
+        null
+      ]
+    },
+    "yeniden_deneme": {
+      "type": "integer"
+    },
+    "yukseltme": {
+      "type": "object",
+      "properties": {
+        "var": {
+          "type": "boolean"
+        },
+        "neden": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "dogrulayici": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "tur": {
+          "type": "string"
+        },
+        "sonuc": {
+          "enum": [
+            "dogrulandi",
+            "curutuldu",
+            "dogrulanamadi"
+          ]
+        },
+        "aile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "kota_delta_yuzde": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "bagimsiz_ornek_sonucu": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_birimi": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "pay_tahmin": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "maliyet_usd_e": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "token × liste fiyatı (USD-e); kota.kalibre K_p ölçümünün girdisi"
+    }
+  }
+}

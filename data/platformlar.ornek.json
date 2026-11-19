@@ -1,0 +1,373 @@
+{
+  "sema": 7,
+  "dogrulama": null,
+  "katman": "ornek",
+  "aciklama": "Örnek platform kaydı. `ork kur` bunu ~/.orkestra/platformlar.json olarak kopyalar; kendi makinene göre düzenle (ork kesif yardımcı olur). Host dışındaki platformlar kapalı başlar. Anahtar değeri asla yazılmaz.",
+  "host_varsayilan": "claude",
+  "platformlar": {
+    "claude": {
+      "ad": "Claude Code",
+      "tur": "cli",
+      "imza": "claude",
+      "surum": null,
+      "giris": "bilinmiyor",
+      "abonelik": "Claude abonelik planı (örnek)",
+      "ucret": "abonelik",
+      "durum": "aktif",
+      "host": true,
+      "isci_yolu": "agent-araci",
+      "yetenekler": {"web_arama": true},
+      "kota": {
+        "tur": "mcp",
+        "arac": "mcp__ccd_session_mgmt__get_usage"
+      },
+      "havuzlar": [
+        "claude_max"
+      ],
+      "varsayilan_efor": "medium",
+      "erisim": {
+        "claude-opus-5-5": {
+          "slug": "claude-opus-5-5",
+          "eforlar": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "havuz": "claude_max",
+          "esdeger": "tam",
+          "takma": "opus"
+        },
+        "claude-sonnet-5-5": {
+          "slug": "claude-sonnet-5-5",
+          "eforlar": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "havuz": "claude_max",
+          "esdeger": "tam",
+          "takma": "sonnet"
+        },
+        "claude-haiku-5-5": {
+          "slug": "claude-haiku-5-5",
+          "eforlar": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "havuz": "claude_max",
+          "esdeger": "tam",
+          "takma": "haiku"
+        }
+      },
+      "cagri": {
+        "tur": "agent-araci",
+        "sablon": "Agent(subagent_type=\"general-purpose\", model={takma}, effort={efor}, description={aciklama}, prompt={brief})",
+        "efor": "Agent aracının effort parametresi (low|medium|high|xhigh|max); kurulu sürümde doğrulandı (2.1.325)",
+        "model_not": "Agent yalnız takma ad alır (opus|sonnet|haiku): takma ad ailenin en son sürümüne çözülür; kesin kimlik olc kaydına yazılır"
+      }
+    },
+    "codex": {
+      "ad": "Codex CLI",
+      "tur": "cli",
+      "imza": "codex",
+      "surum": null,
+      "giris": "bilinmiyor",
+      "abonelik": "ChatGPT abonelik planı (örnek)",
+      "ucret": "abonelik",
+      "durum": "kapali",
+      "host": true,
+      "isci_yolu": "codex-exec",
+      "cagri": {
+        "tur": "komut",
+        "sablon": "{ikili} exec -m {kimlik} -c model_reasoning_effort=\"{efor}\" -s {sandbox} --skip-git-repo-check --ephemeral --json -o {cikti} - < {brief_dosyasi}",
+        "sandbox_varsayilan": "read-only",
+        "sandbox_duzenleme": "workspace-write",
+        "argv": [
+          "{ikili}",
+          "exec",
+          "-m",
+          "{kimlik}",
+          "-c",
+          "model_reasoning_effort=\"{efor}\"",
+          "-c",
+          "service_tier=\"default\"",
+          "-s",
+          "{sandbox}",
+          "--skip-git-repo-check",
+          "--ephemeral",
+          "--ignore-user-config",
+          "--json",
+          "-o",
+          "{cikti}",
+          "-"
+        ],
+        "auth_yedek_cikar": [
+          "--ignore-user-config"
+        ]
+      },
+      "kota": {
+        "tur": "app-server",
+        "metot": "account/rateLimits/read"
+      },
+      "havuzlar": [
+        "codex_plus"
+      ],
+      "varsayilan_efor": "low",
+      "erisim": {
+        "gpt-6.1-sol": {
+          "slug": "gpt-6.1-sol",
+          "eforlar": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "havuz": "codex_plus",
+          "esdeger": "tam",
+          "kredi_carpani": 1.0
+        },
+        "gpt-6.1-terra": {
+          "slug": "gpt-6.1-terra",
+          "eforlar": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "havuz": "codex_plus",
+          "esdeger": "tam",
+          "kredi_carpani": 0.5
+        }
+      },
+      "durum_not": "örnek: platformu kendi makinende doğrulayıp açtığında aktif yap (ork kesif)"
+    },
+    "agy": {
+      "ad": "Antigravity CLI",
+      "tur": "cli",
+      "imza": "agy",
+      "surum": null,
+      "giris": "bilinmiyor",
+      "abonelik": "Google AI abonelik planı (örnek)",
+      "ucret": "abonelik",
+      "durum": "kapali",
+      "host": false,
+      "isci_yolu": "agy-elle",
+      "yetenekler": {"web_arama": false, "web_arama_kanit": "2026-11-17: başsız -p çağrısında web aracı onay isteyip sessizce reddedildi; 9/9 araştırma işçisi kaynaksız/boş döndü"},
+      "otomatik_cagri": false,
+      "havuzlar": [
+        "agy_gemini"
+      ],
+      "erisim": {
+        "gemini-4-hydrogen": {
+          "slug": "gemini-4-hydrogen",
+          "eforlar": [
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ],
+          "havuz": "agy_gemini",
+          "esdeger": "tam",
+          "efor_bayragi": true
+        }
+      },
+      "gizlilik": "dis",
+      "durum_not": "örnek: platformu kendi makinende doğrulayıp açtığında aktif yap (ork kesif)",
+      "cagri": {
+        "argv_oto": [
+          "{ikili}",
+          "-p",
+          "{istem}",
+          "--model",
+          "{taban}",
+          "--effort",
+          "{efor}",
+          "--mode",
+          "{kip}",
+          "--output-format",
+          "json",
+          "--print-timeout",
+          "{sure}"
+        ]
+      }
+    },
+    "bedava_ornek": {
+      "ad": "Örnek bedava OpenAI uyumlu API",
+      "tur": "api",
+      "imza": "openai-uyumlu",
+      "giris": "bilinmiyor",
+      "ucret": "bedava",
+      "durum": "kapali",
+      "isci_yolu": "bedava-api",
+      "taban_url": "https://ornek.invalid/v1",
+      "anahtar_env": "ORNEK_API_KEY",
+      "yonlendirme_izle": false,
+      "model_liste": {
+        "tur": "uc",
+        "yol": "/models"
+      },
+      "kota": {
+        "tur": "uc",
+        "yol": "/quota"
+      },
+      "havuzlar": [
+        "bedava_ornek"
+      ],
+      "bitis": null,
+      "gizlilik": "kamu",
+      "erisim": {},
+      "durum_not": "örnek: platformu kendi makinende doğrulayıp açtığında aktif yap (ork kesif)"
+    }
+  },
+  "havuzlar": {
+    "claude_max": {
+      "platform": "claude",
+      "pencereler": [
+        {
+          "ad": "5s",
+          "tur": "yuvarlanan",
+          "uzunluk_dk": 300
+        },
+        {
+          "ad": "hafta",
+          "tur": "sabit",
+          "uzunluk_dk": 10080
+        }
+      ],
+      "karar": [
+        "5s",
+        "hafta"
+      ],
+      "K_p": {
+        "oncul": {
+          "hafta": 600,
+          "5s": 75
+        },
+        "kalibre": null,
+        "kaynak": "öncül; olc ile kalibre edilir",
+        "guven": "dusuk",
+        "birim": "USD-e"
+      },
+      "s_p": {
+        "varsayilan": 1.0
+      },
+      "bedava": false,
+      "harcanabilir": false,
+      "gizlilik": "ozel",
+      "okuyucu": "claude_get_usage",
+      "paylasan": [],
+      "bitis": null
+    },
+    "codex_plus": {
+      "platform": "codex",
+      "pencereler": [
+        {
+          "ad": "5s",
+          "tur": "yuvarlanan",
+          "uzunluk_dk": 300
+        },
+        {
+          "ad": "hafta",
+          "tur": "sabit",
+          "uzunluk_dk": 10080
+        }
+      ],
+      "karar": [
+        "hafta"
+      ],
+      "K_p": {
+        "oncul": {
+          "hafta": 35,
+          "5s": 5.5
+        },
+        "kalibre": null,
+        "kaynak": "öncül",
+        "guven": "orta",
+        "birim": "USD-e"
+      },
+      "s_p": {
+        "varsayilan": 1.0
+      },
+      "bedava": false,
+      "harcanabilir": true,
+      "gizlilik": "ozel",
+      "okuyucu": "codex_app_server",
+      "paylasan": [],
+      "bitis": null
+    },
+    "agy_gemini": {
+      "platform": "agy",
+      "pencereler": [
+        {
+          "ad": "hafta",
+          "tur": "yuvarlanan",
+          "uzunluk_dk": 10080
+        }
+      ],
+      "karar": [
+        "hafta"
+      ],
+      "K_p": {
+        "oncul": {
+          "hafta": 4
+        },
+        "kalibre": null,
+        "kaynak": "öncül",
+        "guven": "dusuk",
+        "birim": "USD-e"
+      },
+      "s_p": {
+        "varsayilan": 1.0
+      },
+      "bedava": false,
+      "harcanabilir": true,
+      "gizlilik": "dis",
+      "okuyucu": "agy_usage",
+      "otomatik_okuma": false,
+      "paylasan": [],
+      "bitis": null,
+      "agy_kovalar": {
+        "hafta": "<haftalik-kova-id>",
+        "5s": "<5s-kova-id>"
+      },
+      "cagri_sabit_yuk_token": 26000
+    },
+    "bedava_ornek": {
+      "platform": "bedava_ornek",
+      "pencereler": [
+        {
+          "ad": "gun",
+          "tur": "sabit",
+          "uzunluk_dk": 1440
+        }
+      ],
+      "karar": [
+        "gun"
+      ],
+      "K_p": {
+        "oncul": {
+          "gun_token": 1000000
+        },
+        "kalibre": null,
+        "kaynak": "örnek",
+        "guven": "dusuk",
+        "birim": "token"
+      },
+      "bedava": true,
+      "harcanabilir": true,
+      "gizlilik": "kamu",
+      "okuyucu": "bedava_api_quota",
+      "paylasan": [],
+      "bitis": null
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/devir.schema.json",
+  "title": "Uzun iş devir dosyası (devir.json)",
+  "type": "object",
+  "required": [
+    "hedef",
+    "bitti_olcutu",
+    "ozellikler"
+  ],
+  "properties": {
+    "hedef": {
+      "type": "string"
+    },
+    "bitti_olcutu": {
+      "type": "string"
+    },
+    "ozellikler": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kabul_komutu",
+          "durum",
+          "sahip"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kabul_komutu": {
+            "type": "string"
+          },
+          "durum": {
+            "enum": [
+              "bekliyor",
+              "suruyor",
+              "gecti",
+              "kaldi",
+              "bloke"
+            ]
+          },
+          "sahip": {
+            "type": "string"
+          },
+          "son_commit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "kararlar": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bilinen_sorunlar": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "butce": {
+      "type": "object"
+    },
+    "kota": {
+      "type": "object"
+    },
+    "sahiplik": {
+      "type": "object",
+      "description": "parça -> {yazilabilir[], okunur[], yasak[]} glob"
+    }
+  }
+}

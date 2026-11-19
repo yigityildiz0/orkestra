@@ -1,0 +1,4740 @@
+{
+  "sema": 7,
+  "guncelleme": "2026-11-15T12:00:00Z",
+  "z_olcek": "AA-II-v5.0.1",
+  "aciklama": "Kanonik model kaydı. Skill metni yalnız rol adı kullanır; kesin kimlik roller[rol].aktif alanından çözülür. Kişisel erişim ve havuzlar platformlar.json'dadır.",
+  "pareto_kapsami": "Varyant 'pareto' alanı aynı sağlayıcı ana havuzunda Z/$ referansıdır (kümeler: anthropic-ana, openai-ana, google-hizli, google-argon). Yasak ya da erişimi kısıtlı olabilen hatlar (fable, astra, carbon, mythos) kümeye katılmadı. Açık ağırlıklı modeller bedava platformda token kotasıyla çalıştığı için $ Pareto'su uygulanmadı. Seçici çalışma anında aday kümesinde ve alt alan puanıyla yeniden hesaplar.",
+  "roller": {
+    "opus": {
+      "saglayici": "anthropic",
+      "hat": "opus",
+      "boyut": "L",
+      "aktif": "claude-opus-5-5"
+    },
+    "sonnet": {
+      "saglayici": "anthropic",
+      "hat": "sonnet",
+      "boyut": "M",
+      "aktif": "claude-sonnet-5-5"
+    },
+    "haiku": {
+      "saglayici": "anthropic",
+      "hat": "haiku",
+      "boyut": "S",
+      "aktif": "claude-haiku-5-5"
+    },
+    "fable": {
+      "saglayici": "anthropic",
+      "hat": "fable",
+      "boyut": "XL",
+      "aktif": "claude-fable-5-2"
+    },
+    "mythos": {
+      "saglayici": "anthropic",
+      "hat": "mythos",
+      "boyut": null,
+      "aktif": "claude-mythos-5-2",
+      "not": "yeni hat, onay bekliyor"
+    },
+    "sol": {
+      "saglayici": "openai",
+      "hat": "sol",
+      "boyut": "M",
+      "aktif": "gpt-6.1-sol"
+    },
+    "terra": {
+      "saglayici": "openai",
+      "hat": "terra",
+      "boyut": "M-",
+      "aktif": "gpt-6.1-terra"
+    },
+    "luna": {
+      "saglayici": "openai",
+      "hat": "luna",
+      "boyut": "S",
+      "aktif": "gpt-6-luna"
+    },
+    "astra": {
+      "saglayici": "openai",
+      "hat": "astra",
+      "boyut": "L",
+      "aktif": "gpt-6-astra"
+    },
+    "hydrogen": {
+      "saglayici": "google",
+      "hat": "hydrogen",
+      "boyut": "S/M",
+      "aktif": "gemini-4-hydrogen"
+    },
+    "argon": {
+      "saglayici": "google",
+      "hat": "argon",
+      "boyut": "L",
+      "aktif": "gemini-4-argon"
+    },
+    "carbon": {
+      "saglayici": "google",
+      "hat": "carbon",
+      "boyut": "L",
+      "aktif": "gemini-4-carbon"
+    },
+    "flash": {
+      "saglayici": "google",
+      "hat": "flash",
+      "boyut": "S",
+      "aktif": "gemini-3.8-flash",
+      "not": "yedek; işlevsel halefi hydrogen"
+    },
+    "deepseek_flash": {
+      "saglayici": "deepseek",
+      "hat": "deepseek-flash",
+      "boyut": "S",
+      "aktif": "deepseek-v4.1-flash"
+    },
+    "glm": {
+      "saglayici": "zhipu",
+      "hat": "glm",
+      "boyut": "M",
+      "aktif": "glm-5.3"
+    },
+    "qwen_flash": {
+      "saglayici": "qwen",
+      "hat": "qwen-flash",
+      "boyut": "S",
+      "aktif": "qwen3.8-flash-next"
+    }
+  },
+  "modeller": {
+    "claude-opus-5-5": {
+      "saglayici": "anthropic",
+      "hat": "opus",
+      "rol": "opus",
+      "nesil": "5.5",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel",
+          "pdf"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 1000000,
+      "cikti_tavan": 128000,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "modlar": [
+        "ultracode"
+      ],
+      "varyantlar": {
+        "low": {
+          "z": 35,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.98,
+          "dk": 3.1,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 31.3,
+            "fc2": 15.8,
+            "briefcase": 1278,
+            "omni": 39,
+            "gdp_pdf": 25.6,
+            "critpt": 36.0,
+            "tbs": 24.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "pareto_not": "baskın: claude-haiku-5-5@xhigh"
+        },
+        "medium": {
+          "z": 48,
+          "z_kaynak": "aa",
+          "gorev_usd": 2.45,
+          "dk": 6.9,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 52.5,
+            "fc2": 33.1,
+            "briefcase": 1617,
+            "omni": 40,
+            "gdp_pdf": 25.6,
+            "critpt": 54.0,
+            "tbs": 43.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        },
+        "high": {
+          "z": 52,
+          "z_kaynak": "aa",
+          "gorev_usd": 3.46,
+          "dk": 9.4,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 56.6,
+            "fc2": 35.9,
+            "briefcase": 1682,
+            "omni": 42,
+            "gdp_pdf": 28.8,
+            "critpt": 59.5,
+            "tbs": 49.0
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        },
+        "xhigh": {
+          "z": 57,
+          "z_kaynak": "aa",
+          "gorev_usd": 6.05,
+          "dk": 15.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 59.6,
+            "fc2": 43.8,
+            "briefcase": 1761,
+            "omni": 43,
+            "gdp_pdf": 26.6,
+            "critpt": 67.5,
+            "tbs": 61.9
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        },
+        "max": {
+          "z": 59,
+          "z_kaynak": "aa",
+          "gorev_usd": 10.04,
+          "dk": 25.4,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 59.6,
+            "fc2": 46.4,
+            "briefcase": 1801,
+            "omni": 48,
+            "gdp_pdf": 26.2,
+            "critpt": 68.0,
+            "tbs": 59.0
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        }
+      },
+      "alanlar": {
+        "zor_ajan": {
+          "puan": 58.2,
+          "olcut": "aa:coding_agent",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/agents/coding-agents",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "harness: Claude Code"
+        },
+        "gunluk": {
+          "puan": 90.3,
+          "olcut": "vals:vibe-code",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/vibe-code",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "terminal": {
+          "puan": 65.2,
+          "olcut": "vals:terminal-bench",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "sre": {
+          "puan": 33.6,
+          "olcut": "vals:srebench",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/srebench",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "gorev_usd": 26.48,
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "goc": {
+          "puan": 81.0,
+          "olcut": "vals:code-migration",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "en pahalı ($72.40/test)",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "refaktor": {
+          "puan": 77.1,
+          "olcut": "scale:swe-atlas-refactoring",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://labs.scale.com/leaderboard/swe-atlas",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ui": {
+          "puan": 1815,
+          "olcut": "arena:webdev",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ekran_hata": {
+          "puan": 70.2,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "ekran_kod": {
+          "puan": 70.2,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "algoritma": {
+          "puan": 95.1,
+          "olcut": "vals:ioi",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/ioi",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "otomasyon": {
+          "puan": 69.5,
+          "olcut": "aa:automationbench",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "web": {
+          "puan": 57.5,
+          "olcut": "vals:web_search",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/web_search",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "Vals'ta yalnız Opus ölçülü",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "sentez": {
+          "puan": 58.7,
+          "olcut": "vals:science_index",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/science_index",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "gorev_usd": 8.71,
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "akil_yurutme": {
+          "puan": 67.9,
+          "olcut": "aa:hle-diamond",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/hle-diamond",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "klinik": {
+          "puan": 36.2,
+          "olcut": "aa:omniscience-saglik",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/omniscience",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "uzun_belge": {
+          "puan": 27.8,
+          "olcut": "aa:mlcr",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "finans_hukuk": {
+          "puan": 44.5,
+          "olcut": "vals:tax_agent_bench",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "Legal Index 72.4",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "tablo": {
+          "puan": 75.8,
+          "olcut": "vals:emb",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "ocr_sayma": {
+          "puan": 82.0,
+          "olcut": "roboflow:vision",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://playground.roboflow.com/leaderboard",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "grafik": {
+          "puan": 66.3,
+          "olcut": "uretici:chartography",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "okuma": "2026-11-15",
+          "guven": "Ü",
+          "not": "Anthropic beyanı 64.4"
+        },
+        "yaratici": {
+          "puan": 1517,
+          "olcut": "arena:creative",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "uzun_turkce": {
+          "puan": 1517,
+          "olcut": "arena:creative",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+          "okuma": "2026-11-15",
+          "guven": "DY",
+          "not": "vekil ölçüt; bağımsız Türkçe ölçüm yok"
+        }
+      },
+      "nitelik": {
+        "yanlis_payi": {
+          "max": 0.503,
+          "diger": [
+            0.64,
+            0.67
+          ]
+        },
+        "izinsiz_eylem": null,
+        "ilk_token_sn": {
+          "max": 405
+        },
+        "token_verimi": "en yüksek (eşit Z'de en az çıktı token)"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15"
+        },
+        {
+          "alan": "baglam",
+          "url": "https://code.claude.com/docs/en/model-config",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 4,
+        "onbellek": 0.2,
+        "cikti": 20,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)"
+      }
+    },
+    "claude-sonnet-5-5": {
+      "saglayici": "anthropic",
+      "hat": "sonnet",
+      "rol": "sonnet",
+      "nesil": "5.5",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel",
+          "pdf"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 1000000,
+      "cikti_tavan": 128000,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "modlar": [
+        "ultracode"
+      ],
+      "varyantlar": {
+        "low": {
+          "z": 26,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.51,
+          "dk": 2.6,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 20.7,
+            "fc2": 7.1,
+            "briefcase": 1268,
+            "omni": 20,
+            "gdp_pdf": 16.0,
+            "critpt": 26.0,
+            "tbs": 10.5
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "pareto_not": "baskın: claude-haiku-5-5@high"
+        },
+        "medium": {
+          "z": 31,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.78,
+          "dk": 4.1,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 29.8,
+            "fc2": 11.0,
+            "briefcase": 1437,
+            "omni": 19,
+            "gdp_pdf": 20.2,
+            "critpt": 33.5,
+            "tbs": 16.2
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "pareto_not": "baskın: claude-haiku-5-5@xhigh"
+        },
+        "high": {
+          "z": 42,
+          "z_kaynak": "aa",
+          "gorev_usd": 1.64,
+          "dk": 6.9,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 43.9,
+            "fc2": 25.7,
+            "briefcase": 1634,
+            "omni": 19,
+            "gdp_pdf": 25.2,
+            "critpt": 51.5,
+            "tbs": 34.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen"
+        },
+        "xhigh": {
+          "z": 50,
+          "z_kaynak": "aa",
+          "gorev_usd": 4.09,
+          "dk": 14.5,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 57.1,
+            "fc2": 35.6,
+            "briefcase": 1740,
+            "omni": 21,
+            "gdp_pdf": 24.6,
+            "critpt": 57.5,
+            "tbs": 52.4
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "pareto_not": "baskın: claude-opus-5-5@high"
+        },
+        "max": {
+          "z": 55,
+          "z_kaynak": "aa",
+          "gorev_usd": 10.02,
+          "dk": 33.3,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 63.6,
+            "fc2": 41.7,
+            "briefcase": 1816,
+            "omni": 30,
+            "gdp_pdf": 25.8,
+            "critpt": 59.0,
+            "tbs": 53.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "pareto_not": "baskın: claude-opus-5-5@xhigh"
+        }
+      },
+      "alanlar": {
+        "zor_ajan": {
+          "puan": 56.3,
+          "olcut": "aa:coding_agent",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/agents/coding-agents",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "harness: Claude Code; Opus ile fark 1.9 (eşit)"
+        },
+        "gunluk": {
+          "puan": 92.4,
+          "olcut": "vals:vibe-code",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/vibe-code",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "terminal": {
+          "puan": 64.1,
+          "olcut": "vals:terminal-bench",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "goc": {
+          "puan": 86.9,
+          "olcut": "vals:code-migration",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "refaktor": {
+          "puan": 62.9,
+          "olcut": "scale:swe-atlas-refactoring",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://labs.scale.com/leaderboard/swe-atlas",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ui": {
+          "puan": 1772,
+          "olcut": "arena:webdev",
+          "efor": "xhigh",
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ekran_hata": {
+          "puan": 58.3,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "ekran_kod": {
+          "puan": 58.3,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "algoritma": {
+          "puan": 83.1,
+          "olcut": "vals:ioi",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/ioi",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "otomasyon": {
+          "puan": 71.8,
+          "olcut": "aa:automationbench",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "sentez": {
+          "puan": 59.1,
+          "olcut": "vals:science_index",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/science_index",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "gorev_usd": 8.5,
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "klinik": {
+          "puan": 8.9,
+          "olcut": "aa:omniscience-saglik",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/omniscience",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "HealthBench 62.1 (sohbet kalitesi)"
+        },
+        "uzun_belge": {
+          "puan": 41.7,
+          "olcut": "aa:mlcr",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "finans_hukuk": {
+          "puan": 42.0,
+          "olcut": "vals:tax_agent_bench",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "tablo": {
+          "puan": 75.9,
+          "olcut": "vals:emb",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "ocr_sayma": {
+          "puan": 77.6,
+          "olcut": "roboflow:vision",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://playground.roboflow.com/leaderboard",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "grafik": {
+          "puan": 61.6,
+          "olcut": "uretici:chartography",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "okuma": "2026-11-15",
+          "guven": "Ü"
+        },
+        "bilgisayar_kontrol": {
+          "puan": 83.9,
+          "olcut": "uretici:osworld",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://www.anthropic.com/news/claude-sonnet-5-5",
+          "okuma": "2026-11-15",
+          "guven": "Ü",
+          "not": "alt kümeler farklı"
+        },
+        "yaratici": {
+          "puan": 1464,
+          "olcut": "arena:creative",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        }
+      },
+      "nitelik": {
+        "yanlis_payi": null,
+        "izinsiz_eylem": null,
+        "ilk_token_sn": {
+          "high": 9.8,
+          "max": 297
+        },
+        "token_verimi": "en uzun yazan (max'ta en çok çıktı token)",
+        "kisit": "thinking: disabled 400 döndürür"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 2,
+        "onbellek": 0.1,
+        "cikti": 10,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)"
+      }
+    },
+    "claude-haiku-5-5": {
+      "saglayici": "anthropic",
+      "hat": "haiku",
+      "rol": "haiku",
+      "nesil": "5.5",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 1000000,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "low": {
+          "z": 19,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.044,
+          "dk": 2.3,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 12.6,
+            "fc2": 8.0,
+            "briefcase": 1113,
+            "omni": 2,
+            "gdp_pdf": 11.2,
+            "critpt": 21.5,
+            "tbs": 1.9
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        },
+        "medium": {
+          "z": 25,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.092,
+          "dk": 4.1,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 15.2,
+            "fc2": 16.1,
+            "briefcase": 1366,
+            "omni": 4,
+            "gdp_pdf": 15.2,
+            "critpt": 30.5,
+            "tbs": 7.1
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        },
+        "high": {
+          "z": 30,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.16,
+          "dk": 6.6,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 21.7,
+            "fc2": 23.2,
+            "briefcase": 1441,
+            "omni": 5,
+            "gdp_pdf": 17.2,
+            "critpt": 45.0,
+            "tbs": 10.0
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        },
+        "xhigh": {
+          "z": 35,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.25,
+          "dk": 9.9,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 29.3,
+            "fc2": 29.9,
+            "briefcase": 1523,
+            "omni": 8,
+            "gdp_pdf": 18.2,
+            "critpt": 47.5,
+            "tbs": 18.1
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        },
+        "max": {
+          "z": 36,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.41,
+          "dk": 14.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 32.8,
+            "fc2": 34.9,
+            "briefcase": 1573,
+            "omni": 12,
+            "gdp_pdf": 20.8,
+            "critpt": 43.5,
+            "tbs": 20.0
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        }
+      },
+      "alanlar": {
+        "gunluk": {
+          "puan": 90.4,
+          "olcut": "vals:vibe-code",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/vibe-code",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "ui": {
+          "puan": 1593,
+          "olcut": "arena:webdev",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "UI işi verme"
+        },
+        "ekran_hata": {
+          "puan": 44.0,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "ekran_kod": {
+          "puan": 44.0,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        },
+        "uzun_belge": {
+          "puan": 35.0,
+          "olcut": "aa:mlcr",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ocr_sayma": {
+          "puan": 69.6,
+          "olcut": "roboflow:vision",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://playground.roboflow.com/leaderboard",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "grafik": {
+          "puan": 46.4,
+          "olcut": "uretici:chartography",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "okuma": "2026-11-15",
+          "guven": "Ü"
+        },
+        "talimat_izleme": {
+          "puan": 67.7,
+          "olcut": "scale:multichallenge",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://labs.scale.com/leaderboard/multichallenge",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        }
+      },
+      "nitelik": {
+        "yanlis_payi": null,
+        "izinsiz_eylem": null,
+        "ilk_token_sn": {},
+        "kisit": "uzun ajan isteminde low eforda arama/kontrol atlar; en az medium"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 0.1,
+        "onbellek": 0.01,
+        "cikti": 0.5,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)"
+      }
+    },
+    "claude-fable-5-2": {
+      "saglayici": "anthropic",
+      "hat": "fable",
+      "rol": "fable",
+      "nesil": "5.2",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel",
+          "pdf"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 1000000,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "low": {
+          "z": 54,
+          "z_kaynak": "aa",
+          "gorev_usd": 3.1,
+          "dk": 5.6,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 54.5,
+            "fc2": 38.4,
+            "briefcase": 1563,
+            "omni": 63,
+            "gdp_pdf": 26.8,
+            "critpt": 60.0,
+            "tbs": 53.8
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        },
+        "medium": {
+          "z": 56,
+          "z_kaynak": "aa",
+          "gorev_usd": 3.8,
+          "dk": 7.4,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 55.1,
+            "fc2": 41.3,
+            "briefcase": 1622,
+            "omni": 64,
+            "gdp_pdf": 23.8,
+            "critpt": 61.5,
+            "tbs": 60.5
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        },
+        "high": {
+          "z": 62,
+          "z_kaynak": "aa",
+          "gorev_usd": 9.08,
+          "dk": 15.5,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 59.6,
+            "fc2": 49.1,
+            "briefcase": 1677,
+            "omni": 64,
+            "gdp_pdf": 21.8,
+            "critpt": 73.0,
+            "tbs": 70.0
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        },
+        "xhigh": {
+          "z": 62,
+          "z_kaynak": "aa",
+          "gorev_usd": 14.83,
+          "dk": 27.3,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 61.6,
+            "fc2": 47.6,
+            "briefcase": 1737,
+            "omni": 65,
+            "gdp_pdf": 21.4,
+            "critpt": 73.5,
+            "tbs": 67.6
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        },
+        "max": {
+          "z": 65,
+          "z_kaynak": "aa",
+          "gorev_usd": 26.54,
+          "dk": 44.5,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 59.6,
+            "fc2": 48.8,
+            "briefcase": 1785,
+            "omni": 67,
+            "gdp_pdf": 24.2,
+            "critpt": 76.5,
+            "tbs": 73.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5"
+        }
+      },
+      "alanlar": {
+        "ui": {
+          "puan": 1838,
+          "olcut": "arena:webdev",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        }
+      },
+      "nitelik": {
+        "kisit": "Max planında ayrı haftalık sayaç (havuzun en çok yarısı)"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/claude-fable-5-2-vs-claude-haiku-5-5",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ]
+    },
+    "claude-fable-5-1": {
+      "saglayici": "anthropic",
+      "hat": "fable",
+      "rol": null,
+      "nesil": "5.1",
+      "durum": "eski_nesil",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "varyantlar": {},
+      "alanlar": {},
+      "kanit": [
+        {
+          "alan": "durum",
+          "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "claude-mythos-5-2": {
+      "saglayici": "anthropic",
+      "hat": "mythos",
+      "rol": "mythos",
+      "nesil": "5.2",
+      "durum": "onay_bekliyor",
+      "soy": {
+        "tur": "yeni_sinif",
+        "yuva": null,
+        "puan": -3
+      },
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "kisit": "yalnız doğrulanmış kuruluşlara açık; yeni hat, onaysız seçilemez"
+      },
+      "kanit": [
+        {
+          "alan": "durum",
+          "url": "https://code.claude.com/docs/en/model-config",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "gpt-6.1-sol": {
+      "saglayici": "openai",
+      "hat": "sol",
+      "rol": "sol",
+      "nesil": "6.1",
+      "durum": "aktif",
+      "soy": {
+        "tur": "resmi_halef",
+        "yuva": "sol",
+        "puan": null
+      },
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 500000,
+      "baglam_azami": 872000,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "modlar": [
+        "ultra"
+      ],
+      "varyantlar": {
+        "low": {
+          "z": 35,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.16,
+          "dk": 2.0,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 30.8,
+            "fc2": 20.2,
+            "briefcase": 1115,
+            "omni": 38,
+            "gdp_pdf": 27.0,
+            "critpt": 62.5,
+            "tbs": 11.0
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        },
+        "medium": {
+          "z": 46,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.36,
+          "dk": 4.5,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 48.0,
+            "fc2": 33.4,
+            "briefcase": 1361,
+            "omni": 40,
+            "gdp_pdf": 30.0,
+            "critpt": 67.0,
+            "tbs": 37.1
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        },
+        "high": {
+          "z": 50,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.59,
+          "dk": 7.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 51.5,
+            "fc2": 36.7,
+            "briefcase": 1469,
+            "omni": 41,
+            "gdp_pdf": 32.0,
+            "critpt": 68.5,
+            "tbs": 46.2
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        },
+        "xhigh": {
+          "z": 52,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.76,
+          "dk": 10.0,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 54.0,
+            "fc2": 38.5,
+            "briefcase": 1504,
+            "omni": 42,
+            "gdp_pdf": 31.8,
+            "critpt": 69.5,
+            "tbs": 50.5
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        },
+        "max": {
+          "z": 55,
+          "z_kaynak": "aa",
+          "gorev_usd": 1.27,
+          "dk": 22.9,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 56.1,
+            "fc2": 40.6,
+            "briefcase": 1555,
+            "omni": 42,
+            "gdp_pdf": 31.0,
+            "critpt": 69.5,
+            "tbs": 58.1
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol"
+        }
+      },
+      "alanlar": {
+        "zor_ajan": {
+          "puan": 52.2,
+          "olcut": "aa:coding_agent",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/agents/coding-agents",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "harness: Codex"
+        },
+        "gunluk": {
+          "puan": 88.9,
+          "olcut": "vals:vibe-code",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/vibe-code",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "terminal": {
+          "puan": 55.1,
+          "olcut": "vals:terminal-bench",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "sre": {
+          "puan": 50.8,
+          "olcut": "vals:srebench",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/srebench",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "gorev_usd": 2.69,
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "goc": {
+          "puan": 77.3,
+          "olcut": "vals:code-migration",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "Sonnet'ten 4.6x ucuz",
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "refaktor": {
+          "puan": 60.0,
+          "olcut": "scale:swe-atlas-refactoring",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://labs.scale.com/leaderboard/swe-atlas",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ui": {
+          "puan": 1743,
+          "olcut": "arena:webdev",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ekran_hata": {
+          "puan": 43.5,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "ekran_kod": {
+          "puan": 43.5,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "algoritma": {
+          "puan": 96.9,
+          "olcut": "vals:ioi",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/ioi",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "sentez": {
+          "puan": 59.6,
+          "olcut": "vals:science_index",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/science_index",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "gorev_usd": 1.36,
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "akil_yurutme": {
+          "puan": 58.8,
+          "olcut": "aa:hle-diamond",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/hle-diamond",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "klinik": {
+          "puan": 18.7,
+          "olcut": "aa:omniscience-saglik",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/omniscience",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "HealthBench Professional 65.1"
+        },
+        "uzun_belge": {
+          "puan": 38.3,
+          "olcut": "aa:mlcr",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "tamlığı denetle"
+        },
+        "finans_hukuk": {
+          "puan": 21.8,
+          "olcut": "vals:tax_agent_bench",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "bu işte dip",
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "tablo": {
+          "puan": 71.1,
+          "olcut": "vals:emb",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/openai_gpt-6.1-sol"
+        },
+        "ocr_sayma": {
+          "puan": 81.7,
+          "olcut": "roboflow:vision",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://playground.roboflow.com/leaderboard",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "talimat_izleme": {
+          "puan": 82.0,
+          "olcut": "scale:multichallenge",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://labs.scale.com/leaderboard/multichallenge",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "yaratici": {
+          "puan": 1449,
+          "olcut": "arena:creative",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        }
+      },
+      "nitelik": {
+        "yanlis_payi": [
+          0.48,
+          0.52
+        ],
+        "izinsiz_eylem": 0.0125,
+        "ilk_token_sn": {
+          "max": 191
+        },
+        "kisit": "katalog varsayılan eforu low: eforu her çağrıda açık yaz"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-vs-gpt-6-1-sol",
+          "okuma": "2026-11-15"
+        },
+        {
+          "alan": "kimlik",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol.md",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 2,
+        "onbellek": 0.1,
+        "cikti": 10,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)"
+      }
+    },
+    "gpt-6.1-terra": {
+      "saglayici": "openai",
+      "hat": "terra",
+      "rol": "terra",
+      "nesil": "6.1",
+      "durum": "aktif",
+      "soy": {
+        "tur": "resmi_halef",
+        "yuva": "terra",
+        "puan": null
+      },
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 500000,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "modlar": [
+        "ultra"
+      ],
+      "varyantlar": {
+        "none": {
+          "z": 31,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.23,
+          "dk": 2.4,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 26.8,
+            "fc2": 33.4,
+            "briefcase": 1226,
+            "omni": -5,
+            "gdp_pdf": 23.2,
+            "critpt": 33.5,
+            "tbs": 24.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "not": "düşünmesiz",
+          "pareto_not": "baskın: gpt-6.1-sol@low"
+        },
+        "low": {
+          "z": 29,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.071,
+          "dk": 1.2,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 15.2,
+            "fc2": 24.5,
+            "briefcase": 1032,
+            "omni": 23,
+            "gdp_pdf": 25.6,
+            "critpt": 50.5,
+            "tbs": 7.6
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra"
+        },
+        "medium": {
+          "z": 38,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.17,
+          "dk": 2.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 32.3,
+            "fc2": 34.5,
+            "briefcase": 1191,
+            "omni": 27,
+            "gdp_pdf": 28.4,
+            "critpt": 56.5,
+            "tbs": 24.8
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra"
+        },
+        "high": {
+          "z": 42,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.26,
+          "dk": 4.3,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 41.9,
+            "fc2": 37.5,
+            "briefcase": 1265,
+            "omni": 28,
+            "gdp_pdf": 28.0,
+            "critpt": 61.5,
+            "tbs": 33.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra"
+        },
+        "xhigh": {
+          "z": 45,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.4,
+          "dk": 6.4,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 46.5,
+            "fc2": 36.9,
+            "briefcase": 1334,
+            "omni": 29,
+            "gdp_pdf": 26.6,
+            "critpt": 60.5,
+            "tbs": 41.9
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "pareto_not": "baskın: gpt-6.1-sol@medium"
+        },
+        "max": {
+          "z": 51,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.96,
+          "dk": 14.1,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 55.6,
+            "fc2": 42.3,
+            "briefcase": 1401,
+            "omni": 30,
+            "gdp_pdf": 28.6,
+            "critpt": 68.0,
+            "tbs": 57.6
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "pareto_not": "baskın: gpt-6.1-sol@xhigh"
+        }
+      },
+      "alanlar": {
+        "zor_ajan": {
+          "puan": 48.6,
+          "olcut": "aa:coding_agent",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/agents/coding-agents",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "harness: Codex"
+        },
+        "ocr_sayma": {
+          "puan": 85.8,
+          "olcut": "roboflow:vision",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://playground.roboflow.com/leaderboard",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "nesne tespitinde 1. (84.7); otomatik yolun 1.'si"
+        },
+        "grafik": {
+          "puan": 63.2,
+          "olcut": "uretici:chartography",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "okuma": "2026-11-15",
+          "guven": "Ü"
+        },
+        "tablo": {
+          "puan": 73.3,
+          "olcut": "vals:emb",
+          "efor": "medium",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "gorev_usd": 0.56
+        },
+        "talimat_izleme": {
+          "puan": 74.2,
+          "olcut": "scale:multichallenge",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://labs.scale.com/leaderboard/multichallenge",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        }
+      },
+      "nitelik": {
+        "yanlis_payi": null,
+        "izinsiz_eylem": 0.1375,
+        "ilk_token_sn": {},
+        "kisit": "izinsiz eylem oranı yüksek: yazma izinli ajan yapma"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": false,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 1,
+        "onbellek": 0.05,
+        "cikti": 5,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)"
+      }
+    },
+    "gpt-6-luna": {
+      "saglayici": "openai",
+      "hat": "luna",
+      "rol": "luna",
+      "nesil": "6",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 272000,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "low": {
+          "z": 10,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.005,
+          "dk": 0.6,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 0.0,
+            "fc2": 2.2,
+            "briefcase": 740,
+            "omni": -18,
+            "gdp_pdf": 9.0,
+            "critpt": 9.5,
+            "tbs": 1.0
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon"
+        },
+        "medium": {
+          "z": 18,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.042,
+          "dk": 3.6,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 2.5,
+            "fc2": 12.8,
+            "briefcase": 1096,
+            "omni": -14,
+            "gdp_pdf": 13.8,
+            "critpt": 27.5,
+            "tbs": 1.4
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon"
+        },
+        "high": {
+          "z": 21,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.073,
+          "dk": 5.8,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 4.5,
+            "fc2": 18.6,
+            "briefcase": 1186,
+            "omni": -13,
+            "gdp_pdf": 18.2,
+            "critpt": 31.0,
+            "tbs": 2.9
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "pareto_not": "baskın: gpt-6.1-terra@low"
+        },
+        "xhigh": {
+          "z": 23,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.1,
+          "dk": 7.5,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 8.1,
+            "fc2": 18.4,
+            "briefcase": 1235,
+            "omni": -13,
+            "gdp_pdf": 18.6,
+            "critpt": 37.0,
+            "tbs": 5.2
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "pareto_not": "baskın: gpt-6.1-terra@low"
+        },
+        "max": {
+          "z": 28,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.15,
+          "dk": 12.2,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 12.6,
+            "fc2": 25.2,
+            "briefcase": 1337,
+            "omni": -8,
+            "gdp_pdf": 22.8,
+            "critpt": 42.5,
+            "tbs": 8.6
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "pareto_not": "baskın: gpt-6.1-terra@low"
+        }
+      },
+      "alanlar": {},
+      "nitelik": {
+        "yanlis_payi": 0.79,
+        "izinsiz_eylem": null,
+        "ilk_token_sn": {},
+        "kisit": "olgusal doğruluk endeksi negatif: olgu işinde asla; çıktısı mutlaka doğrulanır; Haiku ile yalnız mekanik/sınıflamada eşdeğer"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": false,
+        "olgu_isi": false
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 0.1,
+        "onbellek": 0.01,
+        "cikti": 0.5,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)"
+      }
+    },
+    "gpt-6-astra": {
+      "saglayici": "openai",
+      "hat": "astra",
+      "rol": "astra",
+      "nesil": "6",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 272000,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "modlar": [
+        "ultra"
+      ],
+      "varyantlar": {
+        "low": {
+          "z": 43,
+          "z_kaynak": "aa",
+          "gorev_usd": 1.42,
+          "dk": 3.5,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 41.9,
+            "fc2": 26.2,
+            "briefcase": 1256,
+            "omni": 40,
+            "gdp_pdf": 30.4,
+            "critpt": 63.0,
+            "tbs": 37.1
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra"
+        },
+        "medium": {
+          "z": 52,
+          "z_kaynak": "aa",
+          "gorev_usd": 2.73,
+          "dk": 7.3,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 49.5,
+            "fc2": 36.6,
+            "briefcase": 1462,
+            "omni": 41,
+            "gdp_pdf": 30.4,
+            "critpt": 72.0,
+            "tbs": 53.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra"
+        },
+        "high": {
+          "z": 55,
+          "z_kaynak": "aa",
+          "gorev_usd": 3.24,
+          "dk": 9.2,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 54.0,
+            "fc2": 40.1,
+            "briefcase": 1503,
+            "omni": 45,
+            "gdp_pdf": 31.0,
+            "critpt": 71.5,
+            "tbs": 59.5
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra"
+        },
+        "xhigh": {
+          "z": 55,
+          "z_kaynak": "aa",
+          "gorev_usd": 3.66,
+          "dk": 11.7,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 59.6,
+            "fc2": 41.4,
+            "briefcase": 1543,
+            "omni": 44,
+            "gdp_pdf": 32.2,
+            "critpt": 71.0,
+            "tbs": 54.8
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra"
+        },
+        "max": {
+          "z": 57,
+          "z_kaynak": "aa",
+          "gorev_usd": 6.24,
+          "dk": 21.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 59.1,
+            "fc2": 42.4,
+            "briefcase": 1569,
+            "omni": 42,
+            "gdp_pdf": 31.0,
+            "critpt": 70.5,
+            "tbs": 63.3
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra"
+        }
+      },
+      "alanlar": {
+        "ui": {
+          "puan": 1764,
+          "olcut": "arena:webdev",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        }
+      },
+      "nitelik": {
+        "kisit": "Codex kredi çarpanı yaklaşık 7x"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/gpt-6-1-terra-vs-gpt-6-astra",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ]
+    },
+    "gpt-6-sol": {
+      "saglayici": "openai",
+      "hat": "sol",
+      "rol": null,
+      "nesil": "6",
+      "durum": "eski_nesil",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 272000,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "kisit": "katalogda Previous/Older generation; kota çarpanı 1.4-2.8x; seçilmez"
+      },
+      "kanit": [
+        {
+          "alan": "durum",
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "gpt-5.6-sol": {
+      "saglayici": "openai",
+      "hat": "sol",
+      "rol": null,
+      "nesil": "5.6",
+      "durum": "eski_nesil",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "kisit": "katalogda Previous/Older generation; kota çarpanı 1.4-2.8x; seçilmez"
+      },
+      "kanit": [
+        {
+          "alan": "durum",
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "gpt-5.6-terra": {
+      "saglayici": "openai",
+      "hat": "terra",
+      "rol": null,
+      "nesil": "5.6",
+      "durum": "eski_nesil",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "kisit": "katalogda Previous/Older generation; kota çarpanı 1.4-2.8x; seçilmez"
+      },
+      "kanit": [
+        {
+          "alan": "durum",
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "gpt-5.6-luna": {
+      "saglayici": "openai",
+      "hat": "luna",
+      "rol": null,
+      "nesil": "5.6",
+      "durum": "eski_nesil",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "kisit": "katalogda Previous/Older generation; kota çarpanı 1.4-2.8x; seçilmez"
+      },
+      "kanit": [
+        {
+          "alan": "durum",
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "gemini-4-hydrogen": {
+      "saglayici": "google",
+      "hat": "hydrogen",
+      "rol": "hydrogen",
+      "nesil": "4",
+      "durum": "aktif",
+      "soy": {
+        "tur": "soy_yakin",
+        "yuva": "flash",
+        "puan": 2
+      },
+      "cikis": {
+        "deger": "2026-11-12",
+        "kaynak": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/",
+        "okuma": "2026-11-15"
+      },
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel",
+          "ses",
+          "video",
+          "pdf"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 1000000,
+      "cikti_tavan": 64000,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "low": {
+          "z": 27,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.29,
+          "dk": 1.4,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 6.6,
+            "fc2": 9.3,
+            "briefcase": 947,
+            "omni": 36,
+            "gdp_pdf": 28.2,
+            "critpt": 48.0,
+            "tbs": 2.4
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen"
+        },
+        "medium": {
+          "z": 41,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.8,
+          "dk": 3.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 29.3,
+            "fc2": 31.5,
+            "briefcase": 1296,
+            "omni": 42,
+            "gdp_pdf": 32.8,
+            "critpt": 61.0,
+            "tbs": 15.2
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen"
+        },
+        "high": {
+          "z": 51,
+          "z_kaynak": "aa",
+          "gorev_usd": 1.87,
+          "dk": 8.4,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 54.0,
+            "fc2": 36.3,
+            "briefcase": 1497,
+            "omni": 44,
+            "gdp_pdf": 30.0,
+            "critpt": 61.5,
+            "tbs": 41.4
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen"
+        },
+        "xhigh": {
+          "z": 54,
+          "z_kaynak": "aa",
+          "gorev_usd": 3.16,
+          "dk": 14.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 53.5,
+            "fc2": 39.0,
+            "briefcase": 1568,
+            "omni": 46,
+            "gdp_pdf": 27.6,
+            "critpt": 66.0,
+            "tbs": 49.5
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen"
+        }
+      },
+      "alanlar": {
+        "terminal": {
+          "puan": 54.0,
+          "olcut": "vals:terminal-bench",
+          "efor": "xhigh",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "uzun otonom terminalde yetmez",
+          "efor_kaynak": "https://www.vals.ai/models/google_gemini-4-hydrogen"
+        },
+        "ui": {
+          "puan": 1704,
+          "olcut": "arena:webdev",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "ön sonuç (preliminary)"
+        },
+        "otomasyon": {
+          "puan": 76.1,
+          "olcut": "aa:automationbench",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "akil_yurutme": {
+          "puan": 58.8,
+          "olcut": "aa:hle-diamond",
+          "efor": "xhigh",
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/hle-diamond",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "klinik": {
+          "puan": 32.9,
+          "olcut": "aa:omniscience-saglik",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/omniscience",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "finans_hukuk": {
+          "puan": 52.3,
+          "olcut": "vals:tax_agent_bench",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "Tax 1.; Legal Index 73.6"
+        },
+        "tablo": {
+          "puan": 75.8,
+          "olcut": "vals:emb",
+          "efor": "xhigh",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/google_gemini-4-hydrogen"
+        },
+        "ocr_sayma": {
+          "puan": 87.3,
+          "olcut": "roboflow:vision",
+          "efor": "medium",
+          "ci": null,
+          "kaynak": "https://playground.roboflow.com/leaderboard",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "grafik": {
+          "puan": 66.6,
+          "olcut": "uretici:chartography",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/",
+          "okuma": "2026-11-15",
+          "guven": "Ü"
+        },
+        "bilgisayar_kontrol": {
+          "puan": 77.6,
+          "olcut": "uretici:osworld",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/",
+          "okuma": "2026-11-15",
+          "guven": "Ü"
+        },
+        "yaratici": {
+          "puan": 1492,
+          "olcut": "arena:creative",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "ön sonuç"
+        },
+        "gunluk": {
+          "puan": 87.8,
+          "olcut": "vals:vibe-code",
+          "efor": "xhigh",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/vibe-code",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "doymuş ölçüt: efor farkı puana kaydırılmaz (doymus_yayilim)"
+        }
+      },
+      "nitelik": {
+        "yanlis_payi": 0.085,
+        "izinsiz_eylem": null,
+        "ilk_token_sn": {
+          "high": 16.8
+        },
+        "tok_s": [
+          167,
+          174
+        ],
+        "token_verimi": "eşit Z'de Sonnet kadar token; ucuzluk fiyattan; xhigh'ta aşırı token"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-5-vs-gemini-4-hydrogen",
+          "okuma": "2026-11-15"
+        },
+        {
+          "alan": "kipler",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/",
+          "okuma": "2026-11-15"
+        },
+        {
+          "alan": "soy",
+          "url": "https://aistudio.google.com/docs/deprecations",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 1.5,
+        "onbellek": 0.075,
+        "cikti": 7.5,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)"
+      }
+    },
+    "gemini-4-argon": {
+      "saglayici": "google",
+      "hat": "argon",
+      "rol": "argon",
+      "nesil": "4",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel",
+          "ses",
+          "video"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 1000000,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "medium": {
+          "z": 48,
+          "z_kaynak": "aa",
+          "gorev_usd": 4.31,
+          "dk": 28.5,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 55.1,
+            "fc2": 25.0,
+            "briefcase": 1467,
+            "omni": 41,
+            "gdp_pdf": 25.6,
+            "critpt": 53.5,
+            "tbs": 48.6
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon"
+        },
+        "high": {
+          "z": 50,
+          "z_kaynak": "aa",
+          "gorev_usd": 4.97,
+          "dk": 30.9,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 57.1,
+            "fc2": 25.7,
+            "briefcase": 1485,
+            "omni": 46,
+            "gdp_pdf": 21.8,
+            "critpt": 52.5,
+            "tbs": 52.9
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon"
+        }
+      },
+      "alanlar": {
+        "zor_ajan": {
+          "puan": 45.5,
+          "olcut": "aa:coding_agent",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/agents/coding-agents",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "harness: agy; kod ajanı verme"
+        },
+        "terminal": {
+          "puan": 57.6,
+          "olcut": "vals:terminal-bench",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/google_gemini-4-argon"
+        },
+        "sre": {
+          "puan": 44.3,
+          "olcut": "vals:srebench",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/srebench",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/google_gemini-4-argon"
+        },
+        "refaktor": {
+          "puan": 67.1,
+          "olcut": "scale:swe-atlas-refactoring",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://labs.scale.com/leaderboard/swe-atlas",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ui": {
+          "puan": 1681,
+          "olcut": "arena:webdev",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "ekran_hata": {
+          "puan": 56.0,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/google_gemini-4-argon"
+        },
+        "ekran_kod": {
+          "puan": 56.0,
+          "olcut": "vals:swebench-multimodal",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/google_gemini-4-argon"
+        },
+        "algoritma": {
+          "puan": 100.0,
+          "olcut": "vals:ioi",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/ioi",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "otomasyon": {
+          "puan": 77.5,
+          "olcut": "aa:automationbench",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "Scale MCP Atlas 90.7"
+        },
+        "akil_yurutme": {
+          "puan": 56.7,
+          "olcut": "aa:hle-diamond",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/hle-diamond",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "klinik": {
+          "puan": 34.2,
+          "olcut": "aa:omniscience-saglik",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/omniscience",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "uzun_belge": {
+          "puan": 13.9,
+          "olcut": "aa:mlcr",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "finans_hukuk": {
+          "puan": 49.2,
+          "olcut": "vals:tax_agent_bench",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "Legal Index 76.8 (1.)",
+          "efor_kaynak": "https://www.vals.ai/models/google_gemini-4-argon"
+        },
+        "ocr_sayma": {
+          "puan": 87.5,
+          "olcut": "roboflow:vision",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://playground.roboflow.com/leaderboard",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "grafik": {
+          "puan": 71.6,
+          "olcut": "uretici:chartography",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "okuma": "2026-11-15",
+          "guven": "Ü"
+        },
+        "yaratici": {
+          "puan": 1523,
+          "olcut": "arena:creative",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "uzun_turkce": {
+          "puan": 1523,
+          "olcut": "arena:creative",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+          "okuma": "2026-11-15",
+          "guven": "DY",
+          "not": "vekil; arena dil panolarında 1.-3."
+        },
+        "talimat_izleme": {
+          "puan": 78.7,
+          "olcut": "scale:multichallenge",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://labs.scale.com/leaderboard/multichallenge",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "arena IF 1."
+        },
+        "goc": {
+          "puan": 70.8,
+          "olcut": "vals:code-migration",
+          "efor": "high",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "okuma": "2026-11-19",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/google_gemini-4-argon"
+        }
+      },
+      "nitelik": {
+        "yanlis_payi": 0.043,
+        "izinsiz_eylem": null,
+        "ilk_token_sn": {},
+        "kisit": "low efor AA'da ölçülmedi; görev başı ~30 dk"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "olaylar": [
+        {
+          "tarih": "2026-12-01",
+          "olay": "fiyat_x2",
+          "kaynak": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/gpt-6-luna-vs-gemini-4-argon",
+          "okuma": "2026-11-15"
+        },
+        {
+          "alan": "kipler",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 2,
+        "onbellek": 0.2,
+        "cikti": 10,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)",
+        "tarihli": [
+          {
+            "tarih": "2026-12-01",
+            "girdi": 4,
+            "onbellek": 0.4,
+            "cikti": 20
+          }
+        ]
+      }
+    },
+    "gemini-4-carbon": {
+      "saglayici": "google",
+      "hat": "carbon",
+      "rol": "carbon",
+      "nesil": "4",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel",
+          "ses",
+          "video"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "low": {
+          "z": 54,
+          "z_kaynak": "aa",
+          "gorev_usd": 5.22,
+          "dk": 28.1,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 62.6,
+            "fc2": 29.6,
+            "briefcase": 1567,
+            "omni": 39,
+            "gdp_pdf": 28.6,
+            "critpt": 65.0,
+            "tbs": 61.9
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash"
+        },
+        "medium": {
+          "z": 58,
+          "z_kaynak": "aa",
+          "gorev_usd": 4.68,
+          "dk": 28.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 60.6,
+            "fc2": 39.5,
+            "briefcase": 1602,
+            "omni": 47,
+            "gdp_pdf": 29.6,
+            "critpt": 69.0,
+            "tbs": 62.4
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash"
+        },
+        "high": {
+          "z": 60,
+          "z_kaynak": "aa",
+          "gorev_usd": 5.48,
+          "dk": 33.8,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 65.2,
+            "fc2": 40.6,
+            "briefcase": 1611,
+            "omni": 54,
+            "gdp_pdf": 28.4,
+            "critpt": 69.0,
+            "tbs": 64.8
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash"
+        }
+      },
+      "alanlar": {
+        "ui": {
+          "puan": 1768,
+          "olcut": "arena:webdev",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/webdev",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        }
+      },
+      "nitelik": {
+        "kisit": "üst abonelik kademesinde; çıkış tarihi kaynaklar arasında çelişkili"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ],
+      "erisim_notu": "Pro'da yok (Ultra); agy'de yönlendirilmez"
+    },
+    "gemini-3.8-flash": {
+      "saglayici": "google",
+      "hat": "flash",
+      "rol": "flash",
+      "nesil": "3.8",
+      "durum": "yedek",
+      "soy": null,
+      "cikis": null,
+      "kapanis": {
+        "deger": "2027-09-02",
+        "kapsam": "api",
+        "tur": "en_erken",
+        "kaynak": "https://aistudio.google.com/docs/deprecations",
+        "okuma": "2026-11-15"
+      },
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel",
+          "ses",
+          "video"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "low": {
+          "z": 23,
+          "z_kaynak": "aa",
+          "gorev_usd": null,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 10.1,
+            "fc2": 8.1,
+            "briefcase": 1062,
+            "omni": 13,
+            "gdp_pdf": 18.6,
+            "critpt": 33.5,
+            "tbs": 8.1
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "pareto_not": "Hydrogen low daha yüksek Z ve daha az token (bilgi tabanı 4b)"
+        },
+        "medium": {
+          "z": 30,
+          "z_kaynak": "aa",
+          "gorev_usd": 6.26,
+          "dk": 12.2,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 19.7,
+            "fc2": 16.5,
+            "briefcase": 1183,
+            "omni": 24,
+            "gdp_pdf": 22.8,
+            "critpt": 45.0,
+            "tbs": 10.5
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "pareto_not": "baskın: gemini-4-hydrogen@medium",
+          "gorev_usd_dy": true,
+          "not": "görev $ değeri şüpheli (AA'da başka modelle birebir aynı; Pro'dan pahalı): doğrulanana kadar seçici temkinli maliyet kullanır"
+        },
+        "high": {
+          "z": 31,
+          "z_kaynak": "aa",
+          "gorev_usd": 7.77,
+          "dk": 14.9,
+          "tok_s": null,
+          "pareto": "baskin",
+          "kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "okuma": "2026-11-15",
+          "alt": {
+            "tb4": 19.7,
+            "fc2": 18.7,
+            "briefcase": 1204,
+            "omni": 23,
+            "gdp_pdf": 21.0,
+            "critpt": 46.5,
+            "tbs": 10.0
+          },
+          "alt_kaynak": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "not": "görev $ değeri şüpheli (AA'da başka modelle birebir aynı; Pro'dan pahalı): doğrulanana kadar seçici temkinli maliyet kullanır",
+          "pareto_not": "baskın: gemini-4-hydrogen@medium",
+          "gorev_usd_dy": true
+        }
+      },
+      "alanlar": {
+        "ocr_sayma": {
+          "puan": 79.8,
+          "olcut": "roboflow:vision",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://playground.roboflow.com/leaderboard",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        },
+        "yaratici": {
+          "puan": 1488,
+          "olcut": "arena:creative",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "ön sonuç"
+        }
+      },
+      "nitelik": {
+        "kisit": "yalnız Hydrogen erişilemezse ya da tekrarlayan MALFORMED_FUNCTION_CALL/ret görülürse; aynı havuz"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "olaylar": [
+        {
+          "tarih": "2026-12-31",
+          "olay": "indirim_biter",
+          "kaynak": "https://aistudio.google.com/docs/models",
+          "okuma": "2026-11-15"
+        },
+        {
+          "tarih": "2027-01-01",
+          "olay": "fiyat_hydrogen_ile_esit",
+          "kaynak": "https://aistudio.google.com/docs/models",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-carbon-vs-gemini-3-8-flash",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 0.75,
+        "onbellek": null,
+        "cikti": 3.75,
+        "birim": "USD/1M",
+        "kaynak": "[R] liste fiyatı, okuma 2026-11-15 (araştırma §1c)"
+      }
+    },
+    "deepseek-v4.1-flash": {
+      "saglayici": "deepseek",
+      "hat": "deepseek-flash",
+      "rol": "deepseek_flash",
+      "nesil": "4.1",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 1000000,
+      "cikti_tavan": 65000,
+      "gorev": "chat",
+      "eforlar": [
+        "none",
+        "low",
+        "high",
+        "max"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "none": {
+          "z": 19,
+          "z_kaynak": "aa",
+          "gorev_usd": null,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        },
+        "high": {
+          "z": 29,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.46,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        },
+        "max": {
+          "z": 33,
+          "z_kaynak": "aa",
+          "gorev_usd": 0.6,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15",
+          "not": "max efor kabulü platforma göre doğrulanmadı"
+        }
+      },
+      "alanlar": {
+        "gunluk": {
+          "puan": 87.7,
+          "olcut": "vals:vibe-code",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/vibe-code",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "efor_kaynak": "https://www.vals.ai/models/deepseek_deepseek-v4.1-flash"
+        },
+        "goc": {
+          "puan": 67.5,
+          "olcut": "vals:code-migration",
+          "efor": "max",
+          "ci": null,
+          "kaynak": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "okuma": "2026-11-15",
+          "guven": "B",
+          "not": "testli mekanik parça",
+          "efor_kaynak": "https://www.vals.ai/models/deepseek_deepseek-v4.1-flash"
+        },
+        "otomasyon": {
+          "puan": 68.5,
+          "olcut": "aa:automationbench",
+          "efor": null,
+          "ci": null,
+          "kaynak": "https://artificialanalysis.ai/evaluations",
+          "okuma": "2026-11-15",
+          "guven": "B"
+        }
+      },
+      "nitelik": {
+        "yanlis_payi": 0.641,
+        "kisit": "snapshot belirsiz"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        },
+        {
+          "alan": "yanlis_payi",
+          "url": "https://artificialanalysis.ai/evaluations/omniscience",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 0,
+        "onbellek": 0,
+        "cikti": 0,
+        "birim": "USD/1M",
+        "kaynak": "bedava havuz: kota token birimiyle sayılır"
+      },
+      "suru_rolleri": {
+        "tekil": true,
+        "harita": "uzun/Türkçe",
+        "aday": true,
+        "oy": true,
+        "yargic": "bedava çıktılar arasında",
+        "turkce_son_metin": true,
+        "not": "mekanikte none; kod (kamu, sırsız), kapalı cevap, uzun belge"
+      }
+    },
+    "glm-5.3": {
+      "saglayici": "zhipu",
+      "hat": "glm",
+      "rol": "glm",
+      "nesil": "5.3",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 512000,
+      "cikti_tavan": 16000,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "high",
+        "max"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "low": {
+          "z": 23,
+          "z_kaynak": "aa",
+          "gorev_usd": null,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        },
+        "high": {
+          "z": 28,
+          "z_kaynak": "tahmin",
+          "gorev_usd": null,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15",
+          "not": "low ile max arası interpolasyon"
+        },
+        "max": {
+          "z": 32,
+          "z_kaynak": "aa",
+          "gorev_usd": 5.01,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        }
+      },
+      "alanlar": {},
+      "nitelik": {
+        "kisit": "düşünme kapatılamaz"
+      },
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "kullanici"
+        }
+      ],
+      "fiyat": {
+        "girdi": 0,
+        "onbellek": 0,
+        "cikti": 0,
+        "birim": "USD/1M",
+        "kaynak": "bedava havuz: kota token birimiyle sayılır"
+      },
+      "suru_rolleri": {
+        "tekil": false,
+        "harita": false,
+        "aday": "boşta",
+        "oy": true,
+        "yargic": "boşta çapraz",
+        "turkce_son_metin": true,
+        "not": "kapasite kırılgan"
+      }
+    },
+    "qwen3.8-flash-next": {
+      "saglayici": "qwen",
+      "hat": "qwen-flash",
+      "rol": "qwen_flash",
+      "nesil": "3.8",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": 256000,
+      "cikti_tavan": 16000,
+      "gorev": "chat",
+      "eforlar": [
+        "low",
+        "medium",
+        "xhigh"
+      ],
+      "modlar": [],
+      "varyantlar": {
+        "xhigh": {
+          "z": 29,
+          "z_kaynak": "tahmin",
+          "gorev_usd": 0.57,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15",
+          "not": "AA tek puan; efor eşlemesi doğrulanmadı"
+        },
+        "low": {
+          "z": 26,
+          "z_kaynak": "tahmin",
+          "gorev_usd": null,
+          "dk": 1.0,
+          "kaynak": "[Y] 10/10 yoklama, AA yok",
+          "okuma": "2026-11-15",
+          "pareto": "aktif"
+        },
+        "medium": {
+          "z": 27,
+          "z_kaynak": "tahmin",
+          "gorev_usd": null,
+          "dk": 1.5,
+          "kaynak": "[T] low ile xhigh arası",
+          "okuma": "2026-11-15",
+          "pareto": "aktif"
+        }
+      },
+      "alanlar": {},
+      "nitelik": {},
+      "erisim_bayraklari": {
+        "yazma_izinli_ajan": true,
+        "olgu_isi": true
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ],
+      "fiyat": {
+        "girdi": 0,
+        "onbellek": 0,
+        "cikti": 0,
+        "birim": "USD/1M",
+        "kaynak": "bedava havuz: kota token birimiyle sayılır"
+      },
+      "suru_rolleri": {
+        "tekil": true,
+        "harita": true,
+        "aday": true,
+        "oy": true,
+        "yargic": "ikinci",
+        "turkce_son_metin": true,
+        "not": "efor daima açık (varsayılan xhigh tuzağı)"
+      }
+    },
+    "gemma-4-31b": {
+      "saglayici": "google",
+      "hat": "gemma",
+      "rol": null,
+      "nesil": "4",
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin",
+          "gorsel"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "chat",
+      "eforlar": [],
+      "varyantlar": {
+        "varsayilan": {
+          "z": 4,
+          "z_kaynak": "aa",
+          "gorev_usd": null,
+          "dk": null,
+          "tok_s": null,
+          "pareto": "aktif",
+          "kaynak": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        }
+      },
+      "alanlar": {},
+      "nitelik": {
+        "kisit": "uygun değil (Z mekanik eşiğin altında)"
+      },
+      "kanit": [
+        {
+          "alan": "z",
+          "url": "https://artificialanalysis.ai/leaderboards/models",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ],
+      "fiyat": {
+        "girdi": 0,
+        "onbellek": 0,
+        "cikti": 0,
+        "birim": "USD/1M",
+        "kaynak": "bedava havuz: kota token birimiyle sayılır"
+      },
+      "z_celiski": "AA 4 ↔ yerel yoklama 20/22: yalnız sürü içinde (tekil_secim=false)",
+      "tekil_secim": false,
+      "suru_rolleri": {
+        "tekil": false,
+        "harita": "İngilizce",
+        "aday": true,
+        "oy": "kapalı cevap",
+        "yargic": false,
+        "turkce_son_metin": false
+      }
+    },
+    "faster-whisper-large-v3": {
+      "saglayici": "systran",
+      "hat": null,
+      "rol": null,
+      "nesil": null,
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "ses",
+          "video"
+        ],
+        "cikti": [
+          "metin"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "asr",
+      "eforlar": [],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "not": "yerel GPU fp16; 0 kota; gizlilik dostu; otomatik ses yolunun varsayılanı"
+      },
+      "kanit": [
+        {
+          "alan": "gorev",
+          "url": "https://huggingface.co/Systran/faster-whisper-large-v3",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "kokoro": {
+      "saglayici": "hexgrad",
+      "hat": null,
+      "rol": null,
+      "nesil": null,
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin"
+        ],
+        "cikti": [
+          "ses"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "tts",
+      "eforlar": [],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "not": "yerel, İngilizce"
+      },
+      "kanit": [
+        {
+          "alan": "gorev",
+          "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "chatterbox": {
+      "saglayici": "resemble-ai",
+      "hat": null,
+      "rol": null,
+      "nesil": null,
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin"
+        ],
+        "cikti": [
+          "ses"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "tts",
+      "eforlar": [],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "not": "yerel, Türkçe"
+      },
+      "kanit": [
+        {
+          "alan": "gorev",
+          "url": "https://github.com/resemble-ai/chatterbox",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    },
+    "ace-step": {
+      "saglayici": "ace-step",
+      "hat": null,
+      "rol": null,
+      "nesil": null,
+      "durum": "aktif",
+      "soy": null,
+      "cikis": null,
+      "kapanis": null,
+      "kipler": {
+        "girdi": [
+          "metin"
+        ],
+        "cikti": [
+          "ses"
+        ]
+      },
+      "baglam": null,
+      "cikti_tavan": null,
+      "gorev": "muzik",
+      "eforlar": [],
+      "varyantlar": {},
+      "alanlar": {},
+      "nitelik": {
+        "not": "yerel müzik üretimi"
+      },
+      "kanit": [
+        {
+          "alan": "gorev",
+          "url": "https://github.com/ace-step/ACE-Step",
+          "okuma": "2026-11-15"
+        }
+      ],
+      "gecmis": [
+        {
+          "tarih": "2026-11-15",
+          "olay": "eklendi",
+          "onay": "otomatik"
+        }
+      ]
+    }
+  },
+  "liderler": {
+    "zor_ajan": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@high",
+        "claude-sonnet-5-5@xhigh",
+        "gpt-6.1-sol@xhigh",
+        "gemini-4-hydrogen@high",
+        "gpt-6.1-terra@max"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://artificialanalysis.ai/agents/coding-agents",
+      "okuma": "2026-11-15",
+      "not": "Opus/Sonnet farkı eşit; Sol'a fark 6 puan, Sol 8.4x ucuz; Argon'a kod ajanı verme"
+    },
+    "gunluk": {
+      "lider": "gpt-6.1-sol",
+      "sira": [
+        "gpt-6.1-sol@high",
+        "claude-sonnet-5-5@high",
+        "claude-opus-5-5@medium",
+        "claude-haiku-5-5@xhigh",
+        "deepseek-v4.1-flash@high",
+        "gpt-6.1-terra@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/vibe-code",
+      "okuma": "2026-11-15",
+      "not": "ölçüt doymuş: eşit kalite kümesi, kapasiteye göre dağıt"
+    },
+    "terminal": {
+      "lider": "claude-sonnet-5-5",
+      "sira": [
+        "claude-sonnet-5-5@max",
+        "claude-opus-5-5@xhigh",
+        "gpt-6.1-sol@max",
+        "gpt-6.1-terra@max"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/terminal-bench-4",
+      "okuma": "2026-11-15",
+      "not": "Hydrogen bu işte yetmez"
+    },
+    "sre": {
+      "lider": "gpt-6.1-sol",
+      "sira": [
+        "gpt-6.1-sol@high",
+        "gemini-4-argon@high",
+        "claude-opus-5-5@high",
+        "claude-sonnet-5-5@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/srebench",
+      "okuma": "2026-11-15",
+      "not": "Sol açık önde"
+    },
+    "goc": {
+      "lider": "claude-sonnet-5-5",
+      "sira": [
+        "claude-sonnet-5-5@high",
+        "claude-opus-5-5@high",
+        "gpt-6.1-sol@high",
+        "deepseek-v4.1-flash@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+      "okuma": "2026-11-19",
+      "not": "Hydrogen bu tabloda yok (eski 82.7 kaydı doğrulanamadı, 2026-11-19'da kaldırıldı); Argon 70.8"
+    },
+    "refaktor": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@high",
+        "gemini-4-argon@high",
+        "claude-sonnet-5-5@high",
+        "gpt-6.1-sol@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://labs.scale.com/leaderboard/swe-atlas",
+      "okuma": "2026-11-15",
+      "not": null
+    },
+    "ui": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@high",
+        "claude-sonnet-5-5@xhigh",
+        "gpt-6.1-sol@max",
+        "gemini-4-hydrogen@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://arena.ai/leaderboard/webdev",
+      "okuma": "2026-11-15",
+      "not": "Haiku verme"
+    },
+    "ekran_hata": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@medium",
+        "claude-sonnet-5-5@high",
+        "gemini-4-argon@high",
+        "claude-haiku-5-5@xhigh",
+        "gpt-6.1-sol@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+      "okuma": "2026-11-15",
+      "not": "Opus farkı +11.9"
+    },
+    "algoritma": {
+      "lider": "gemini-4-argon",
+      "sira": [
+        "gemini-4-argon@high",
+        "gpt-6.1-sol@high",
+        "claude-opus-5-5@high",
+        "claude-sonnet-5-5@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/ioi",
+      "okuma": "2026-11-15",
+      "not": null
+    },
+    "otomasyon": {
+      "lider": "gemini-4-argon",
+      "sira": [
+        "gemini-4-argon@high",
+        "gemini-4-hydrogen@high",
+        "claude-sonnet-5-5@high",
+        "claude-opus-5-5@high",
+        "deepseek-v4.1-flash@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://artificialanalysis.ai/evaluations",
+      "okuma": "2026-11-15",
+      "not": "otomatik yolda Sonnet/Opus"
+    },
+    "kaynak": {
+      "lider": null,
+      "sira": [
+        "arac:pubmed",
+        "arac:cochrane",
+        "arac:consensus"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "yerleşik ilke: model belleği olgu kaynağı değil; birincil veri tabanı ve sistematik derleme",
+      "okuma": "2026-11-15",
+      "not": "DOI/PMID doğrula; alana özgü sıra kişisel yama katmanında"
+    },
+    "web": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@high",
+        "gpt-6.1-sol@high",
+        "claude-sonnet-5-5@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/web_search",
+      "okuma": "2026-11-15",
+      "not": "Gemini 4 için ölçüm yok"
+    },
+    "sentez": {
+      "lider": "gpt-6.1-sol",
+      "sira": [
+        "gpt-6.1-sol@high",
+        "claude-sonnet-5-5@high",
+        "claude-opus-5-5@high",
+        "gemini-4-hydrogen@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/science_index",
+      "okuma": "2026-11-15",
+      "not": "ilk üç eşit: kapasiteye göre dağıt"
+    },
+    "akil_yurutme": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@xhigh",
+        "gpt-6.1-sol@xhigh",
+        "gemini-4-hydrogen@xhigh",
+        "gemini-4-argon@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://artificialanalysis.ai/evaluations/hle-diamond",
+      "okuma": "2026-11-15",
+      "not": "Opus +9.1"
+    },
+    "olgu_teyit": {
+      "lider": "gemini-4-argon",
+      "sira": [
+        "gemini-4-argon@high",
+        "gemini-4-hydrogen@high",
+        "claude-opus-5-5@max",
+        "gpt-6.1-sol@xhigh"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://artificialanalysis.ai/evaluations/omniscience",
+      "okuma": "2026-11-15",
+      "not": "otomatik yolda Opus/Sol + dış kanıt şart"
+    },
+    "klinik": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@high",
+        "gemini-4-argon@high",
+        "claude-sonnet-5-5@high",
+        "gpt-6.1-sol@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://artificialanalysis.ai/evaluations/omniscience",
+      "okuma": "2026-11-15",
+      "not": "Opus + Argon çapraz; kaynak PubMed; hasta verisi buluta gitmez"
+    },
+    "uzun_belge": {
+      "lider": "claude-sonnet-5-5",
+      "sira": [
+        "claude-sonnet-5-5@high",
+        "gpt-6.1-sol@high",
+        "claude-haiku-5-5@xhigh"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+      "okuma": "2026-11-15",
+      "not": null
+    },
+    "finans_hukuk": {
+      "lider": "gemini-4-hydrogen",
+      "sira": [
+        "gemini-4-hydrogen@high",
+        "gemini-4-argon@high",
+        "claude-opus-5-5@high",
+        "claude-sonnet-5-5@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/tax_agent_bench",
+      "okuma": "2026-11-15",
+      "not": "Sol/Terra/Luna bu işte dip; kritikte Hydrogen xhigh"
+    },
+    "tablo": {
+      "lider": "claude-sonnet-5-5",
+      "sira": [
+        "claude-sonnet-5-5@high",
+        "gemini-4-hydrogen@high",
+        "claude-opus-5-5@high",
+        "gpt-6.1-terra@medium",
+        "gpt-6.1-sol@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/emb-v1-1",
+      "okuma": "2026-11-15",
+      "not": "12x maliyet farkı: eşit kalite kümesi"
+    },
+    "ekran_kod": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@medium",
+        "claude-sonnet-5-5@high",
+        "gemini-4-argon@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.vals.ai/benchmarks/swebench-multimodal",
+      "okuma": "2026-11-15",
+      "not": null
+    },
+    "ocr_sayma": {
+      "lider": "gemini-4-hydrogen",
+      "sira": [
+        "gemini-4-hydrogen@medium",
+        "gemini-4-argon@high",
+        "gpt-6.1-terra@high",
+        "claude-opus-5-5@high",
+        "gpt-6.1-sol@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://playground.roboflow.com/leaderboard",
+      "okuma": "2026-11-15",
+      "not": "Hydrogen ≈ Argon; otomatik yolda Terra 1."
+    },
+    "grafik": {
+      "lider": "gemini-4-argon",
+      "sira": [
+        "gemini-4-argon@high",
+        "gemini-4-hydrogen@high",
+        "claude-opus-5-5@high",
+        "gpt-6.1-terra@high",
+        "claude-sonnet-5-5@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+      "okuma": "2026-11-15",
+      "not": "satıcı beyanı"
+    },
+    "uzun_pdf": {
+      "lider": "gemini-4-hydrogen",
+      "sira": [
+        "gemini-4-hydrogen@medium",
+        "gpt-6.1-sol@high",
+        "claude-opus-5-5@high",
+        "claude-sonnet-5-5@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://artificialanalysis.ai/evaluations/gdp-pdf",
+      "okuma": "2026-11-15",
+      "not": "yüksek efor zararlı: medium"
+    },
+    "bilgisayar_kontrol": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@high",
+        "claude-sonnet-5-5@high",
+        "gpt-6.1-sol@high",
+        "gemini-4-hydrogen@high",
+        "gpt-6.1-terra@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://www.anthropic.com/news/claude-sonnet-5-5",
+      "okuma": "2026-11-15",
+      "not": "satıcı beyanları, alt kümeler farklı"
+    },
+    "tibbi": {
+      "lider": "gemini-4-hydrogen",
+      "sira": [
+        "gemini-4-hydrogen@high",
+        "gpt-6.1-terra@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "DY",
+      "okuma": "2026-11-15",
+      "not": "güncel nesil ölçüm yok; insan doğrulaması şart; yalnız anonim görsel"
+    },
+    "toplu_sinif": {
+      "lider": "claude-haiku-5-5",
+      "sira": [
+        "claude-haiku-5-5@medium"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "DY",
+      "okuma": "2026-11-15",
+      "not": "doğrulanan iş; bedava platformda görsel model (istek başı görsel sınırı platform kataloğundan)"
+    },
+    "rapor": {
+      "lider": "claude-sonnet-5-5",
+      "sira": [
+        "claude-sonnet-5-5@xhigh",
+        "claude-opus-5-5@xhigh",
+        "claude-opus-5-5@high",
+        "gemini-4-hydrogen@xhigh"
+      ],
+      "aday": null,
+      "ci_ayrisik": true,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://artificialanalysis.ai/evaluations/aa-briefcase",
+      "okuma": "2026-11-15",
+      "not": "Claude açık önde: kalite önce kuralı Claude seçer"
+    },
+    "uzun_turkce": {
+      "lider": "claude-opus-5-5",
+      "sira": [
+        "claude-opus-5-5@high",
+        "gemini-4-argon@high",
+        "claude-sonnet-5-5@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+      "okuma": "2026-11-15",
+      "not": "bağımsız Türkçe ölçüm yok; kendi A/B; küçük modellere uzun Türkçe verme; Claude tokenizer'ı aynı metne ~%30 fazla token"
+    },
+    "yaratici": {
+      "lider": "gemini-4-argon",
+      "sira": [
+        "gemini-4-argon@high",
+        "claude-opus-5-5@high",
+        "gemini-4-hydrogen@high",
+        "gemini-3.8-flash@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://arena.ai/leaderboard/text/creative-writing",
+      "okuma": "2026-11-15",
+      "not": "CI örtüşür"
+    },
+    "talimat_izleme": {
+      "lider": "gpt-6.1-sol",
+      "sira": [
+        "gpt-6.1-sol@high",
+        "gemini-4-argon@high",
+        "claude-opus-5-5@high"
+      ],
+      "aday": null,
+      "ci_ayrisik": false,
+      "oy": null,
+      "ardisik": 1,
+      "kaynak": "https://labs.scale.com/leaderboard/multichallenge",
+      "okuma": "2026-11-15",
+      "not": "ölçütler çelişiyor"
+    }
+  },
+  "rotalar": {
+    "video_analiz.konusmali": [
+      {
+        "yol": "agy-elle",
+        "rol": "hydrogen",
+        "efor": "high",
+        "ne": "video+ses analizi",
+        "kisit": "accept-edits kipi şart; çalışma klasöründe yalnız okunacak dosya; >45 dk parçala"
+      },
+      {
+        "yol": "agy-elle",
+        "rol": "argon",
+        "efor": "high",
+        "ne": "çok uzun/zor video, ikinci görüş",
+        "kosul": "Hydrogen havuzu doluysa"
+      },
+      {
+        "yol": "gui-elle",
+        "arac": "gemini-uygulamasi",
+        "ne": "tek seferlik uzun video",
+        "kisit": "abonelik sınırı: süre ve dosya boyutu",
+        "gizlilik": "dis"
+      },
+      {
+        "yol": "otomatik",
+        "rol": "opus",
+        "arac": "ffmpeg+faster-whisper-large-v3",
+        "ne": "kare + döküm + metin modeli",
+        "kosul": "Gemini yolu yoksa, gizli içerik ya da kullanıcı yoksa",
+        "kisit": "kare başına ~300-2.700 token"
+      }
+    ],
+    "video_analiz.saf_gorsel": [
+      {
+        "yol": "agy-elle",
+        "rol": "hydrogen",
+        "efor": "medium",
+        "ne": "görsel video analizi",
+        "kisit": "efor doğrulanmadı"
+      },
+      {
+        "yol": "otomatik",
+        "rol": "terra",
+        "arac": "ffmpeg",
+        "ne": "kare çıkar + görsel okuma",
+        "kosul": "ucuz kare okuma"
+      },
+      {
+        "yol": "otomatik",
+        "rol": "opus",
+        "arac": "ffmpeg",
+        "ne": "kare çıkar + ayrıntılı okuma"
+      }
+    ],
+    "video_analiz.uzun": [
+      {
+        "yol": "agy-elle",
+        "rol": "argon",
+        "efor": "high",
+        "ne": "uzun video"
+      },
+      {
+        "yol": "gui-elle",
+        "arac": "gemini-uygulamasi",
+        "ne": "uzun video",
+        "gizlilik": "dis"
+      },
+      {
+        "yol": "otomatik",
+        "rol": "sonnet",
+        "efor": "high",
+        "arac": "ffmpeg+faster-whisper-large-v3",
+        "ne": "parçala + kare + döküm"
+      }
+    ],
+    "ses.dokum": [
+      {
+        "yol": "yerel",
+        "arac": "faster-whisper-large-v3",
+        "ne": "konuşma dökümü (otomatik varsayılan)"
+      },
+      {
+        "yol": "agy-elle",
+        "rol": "hydrogen",
+        "efor": "low",
+        "ne": "konuşma anlama"
+      },
+      {
+        "yol": "bedava-api",
+        "gorev": "asr",
+        "ne": "konuşma dökümü",
+        "kosul": "veri genel"
+      }
+    ],
+    "ses.tts": [
+      {
+        "yol": "yerel",
+        "arac": "chatterbox",
+        "ne": "Türkçe TTS"
+      },
+      {
+        "yol": "yerel",
+        "arac": "kokoro",
+        "ne": "İngilizce TTS"
+      },
+      {
+        "yol": "bedava-api",
+        "gorev": "tts",
+        "ne": "TTS",
+        "kosul": "veri genel",
+        "kisit": "Türkçe doğrulanmadı"
+      }
+    ],
+    "ses.muzik": [
+      {
+        "yol": "yerel",
+        "arac": "ace-step",
+        "ne": "müzik"
+      },
+      {
+        "yol": "gui-elle",
+        "arac": "flow-music",
+        "ne": "müzik",
+        "gizlilik": "dis"
+      }
+    ],
+    "gorsel_uretim.t2i": [
+      {
+        "yol": "sabit",
+        "rol": "sol",
+        "efor": "high",
+        "arac": "codex:image_gen",
+        "ne": "görsel üretim (kullanıcı sabit kuralı varsa önce o)"
+      },
+      {
+        "yol": "gui-elle",
+        "arac": "chatgpt-uygulamasi",
+        "ne": "Codex kotası doluyken aynı GPT görsel ailesi (sabit kural: GPT)",
+        "kisit": "uygulama sınırı ayrı sayılabilir [DY]",
+        "gizlilik": "ozel"
+      },
+      {
+        "yol": "gui-elle",
+        "arac": "gemini-uygulamasi",
+        "ne": "Codex kapalıyken, çok dilli metin, 4K",
+        "gizlilik": "dis"
+      },
+      {
+        "yol": "agy-elle",
+        "arac": "agy:generate_image",
+        "ne": "dosya gerekiyorsa",
+        "kisit": "model ve havuz doğrulanmadı; çıktı konuşma klasörüne düşer"
+      }
+    ],
+    "gorsel_uretim.duzenleme": [
+      {
+        "yol": "sabit",
+        "rol": "sol",
+        "efor": "high",
+        "arac": "codex:image_gen",
+        "ne": "görsel düzenleme",
+        "kisit": "girdi görselinde stdin kapatılır"
+      },
+      {
+        "yol": "gui-elle",
+        "arac": "chatgpt-uygulamasi",
+        "ne": "Codex kotası doluyken aynı GPT görsel ailesi (sabit kural: GPT)",
+        "kisit": "uygulama sınırı ayrı sayılabilir [DY]",
+        "gizlilik": "ozel"
+      },
+      {
+        "yol": "gui-elle",
+        "arac": "gemini-uygulamasi",
+        "ne": "Codex kapalıyken",
+        "gizlilik": "dis"
+      }
+    ],
+    "video_uretim.t2v": [
+      {
+        "yol": "gui-elle",
+        "arac": "gemini-omni-flash",
+        "ne": "video üretim",
+        "kisit": "Flow kredisi",
+        "gizlilik": "dis"
+      },
+      {
+        "yol": "otomatik",
+        "rol": "sonnet",
+        "efor": "high",
+        "ne": "kod olarak video (Remotion/HyperFrames)"
+      }
+    ],
+    "video_uretim.i2v": [
+      {
+        "yol": "gui-elle",
+        "arac": "gemini-omni-flash",
+        "ne": "görselden video",
+        "gizlilik": "dis"
+      }
+    ],
+    "gorsel_analiz.ocr_sayma": [
+      {
+        "yol": "bedava-api",
+        "gorev": "ocr",
+        "ne": "OCR (kamu verisi, ücretsiz)",
+        "kosul": "veri genel"
+      }
+    ],
+    "mekanik.toplu": [
+      {
+        "yol": "otomatik",
+        "arac": "deterministik",
+        "ne": "önce deterministik araç (rg, AST, codemod, jq, pdftotext, ffmpeg)"
+      }
+    ]
+  },
+  "gorsel_modeller": {
+    "codex:image_gen": {
+      "surum": null,
+      "surum_dogrulama": "DY",
+      "quality": [
+        "low",
+        "medium",
+        "high",
+        "auto"
+      ],
+      "not": "Codex belgesi bir sürüm, duyurular daha yenisini söylüyor; araçtaki model kullanıcıca seçilemiyor",
+      "kaynak": "https://developers.openai.com/codex",
+      "okuma": "2026-11-15",
+      "arena_t2i": [
+        {
+          "model": "gpt-image-2.5-sunburst",
+          "puan": 1429,
+          "ci": [
+            1424,
+            1434
+          ]
+        },
+        {
+          "model": "gpt-image-2.6-sunburst",
+          "puan": 1406,
+          "ci": [
+            1392,
+            1419
+          ]
+        },
+        {
+          "model": "gpt-image-2.5-flare",
+          "puan": 1398,
+          "ci": null
+        },
+        {
+          "model": "gpt-image-2",
+          "puan": 1382,
+          "ci": null
+        },
+        {
+          "model": "nano-banana-2.1",
+          "puan": 1327,
+          "ci": null
+        }
+      ],
+      "arena_duzenleme": [
+        {
+          "model": "gpt-image-2.5-sunburst",
+          "puan": 1519,
+          "ci": null
+        },
+        {
+          "model": "nano-banana-2.1",
+          "puan": 1427,
+          "ci": null
+        }
+      ],
+      "arena_kaynak": "https://arena.ai/leaderboard/text-to-image",
+      "arena_okuma": "2026-11-12",
+      "kalite_kollari": [
+        "görsel modeli sürümü",
+        "quality",
+        "size",
+        "prompt (konu, kompozisyon, tırnak içinde metin, korunacak/değişecek ayrımı)"
+      ],
+      "kota_notu": "görselli tur limiti 3-5x hızlı tüketir; oran quality/size'a bağlı"
+    },
+    "gemini-uygulamasi:nano-banana": {
+      "surum": "2.1",
+      "surum_dogrulama": "R",
+      "kaynak": "https://arena.ai/leaderboard/text-to-image",
+      "okuma": "2026-11-15"
+    },
+    "agy:generate_image": {
+      "surum": null,
+      "surum_dogrulama": "DY",
+      "kaynak": "gözlem: araç belgesiz (DY)",
+      "okuma": "2026-11-15"
+    },
+    "gemini-omni-flash": {
+      "surum": "1.2",
+      "surum_dogrulama": "R",
+      "arena_t2v": 1540,
+      "arena_i2v": 1503,
+      "kaynak": "https://arena.ai/leaderboard/text-to-video",
+      "okuma": "2026-11-08"
+    }
+  }
+}

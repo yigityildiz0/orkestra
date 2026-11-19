@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orkestra://sema/suru-plan.schema.json",
+  "title": "ork suru calistir planı",
+  "type": "object",
+  "required": [
+    "isler"
+  ],
+  "properties": {
+    "is_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sef": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "description": "şef (lider) model:efor tavanı (R16), ör. opus:high"
+    },
+    "tavan_yok": {
+      "type": "boolean",
+      "description": "kullanıcı bu iş için şef tavanını açıkça kaldırdı (uyarıyla)"
+    },
+    "isler": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "hedef"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "brief": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "cikti": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hedef": {
+            "type": "object",
+            "properties": {
+              "yol": {
+                "enum": [
+                  "bedava-api",
+                  "agy-oto",
+                  "codex-exec",
+                  "claude-agent",
+                  "elle",
+                  "agy-elle",
+                  "yerel"
+                ]
+              },
+              "platform": {
+                "type": "string"
+              },
+              "havuz": {
+                "type": "string"
+              },
+              "model": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kimlik": {
+                "type": "string"
+              },
+              "efor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kip": {
+                "type": "string"
+              },
+              "sec": {
+                "type": "object"
+              }
+            }
+          },
+          "veri": {
+            "enum": [
+              "genel",
+              "kisisel",
+              "gizli",
+              "saglik",
+              "bilinmiyor"
+            ]
+          },
+          "desen": {
+            "enum": [
+              "oy",
+              "aday_yargic",
+              "harita_indirgeme",
+              "toplu"
+            ]
+          },
+          "bagimli": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "max_tokens": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "zaman_asimi_sn": {
+            "type": "number"
+          },
+          "dogrulama": {
+            "type": "object",
+            "properties": {
+              "tur": {
+                "enum": [
+                  "test",
+                  "sema",
+                  "yok"
+                ]
+              },
+              "komut": {
+                "type": "array"
+              }
+            }
+          },
+          "boyut": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "k": {
+            "type": "integer",
+            "minimum": 2
+          },
+          "cevap_deseni": {
+            "type": "string"
+          },
+          "turkce": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}
