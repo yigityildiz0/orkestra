@@ -1,6 +1,6 @@
 # Karar algoritması
 
-Seçici (`scripts/ork/secici.py`) bu belgeyi uygular. Sayılar burada değil veri dosyalarındadır: eşikler ve bantlar `data/siniflar.json`, model zekâsı ve maliyeti `data/modeller.json`, havuzlar `data/platformlar.json`, kişisel tabanlar ve faz parametreleri `data/kullanici-kurallari.json`. Bir parametre değişecekse veri dosyası değişir, bu belge değil.
+Seçici (`scripts/ork/secici.py`) bu belgeyi uygular. Sayılar burada değil veri dosyalarındadır: eşikler ve bantlar `data/siniflar.json`, model zekâsı ve maliyeti `data/modeller.json`, havuzlar kişisel `platformlar.json`, kişisel tabanlar ve faz parametreleri `kullanici-kurallari.json` (ikisi de `~/.orkestra/` altındadır; örnekleri `data/*.ornek.json`). Bir parametre değişecekse veri dosyası değişir, bu belge değil.
 
 Etiketler: [R] resmî, [B] bağımsız ölçüm, [Y] yerel ölçüm, [T] türetilmiş, [DY] doğrulanamadı.
 

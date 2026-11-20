@@ -1,6 +1,6 @@
 # Platform notları
 
-Çağrı şablonlarının tek kaynağı `data/platformlar.json` `cagri` alanıdır; seçici (`ork sec`) satırı doldurur. Bu belge şablonların arkasındaki tuzakları ve hata davranışını anlatır. `{kimlik}` her zaman seçicinin verdiği kesin model kimliğidir; rol adı CLI'a verilmez.
+Çağrı şablonlarının tek kaynağı kişisel `platformlar.json` (`~/.orkestra/`; örnek: `data/platformlar.ornek.json`) `cagri` alanıdır; seçici (`ork sec`) satırı doldurur. Bu belge şablonların arkasındaki tuzakları ve hata davranışını anlatır. `{kimlik}` her zaman seçicinin verdiği kesin model kimliğidir; rol adı CLI'a verilmez.
 
 ## 1. Claude Code (lider ve Claude işçisi)
 

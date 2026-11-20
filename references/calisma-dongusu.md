@@ -1,6 +1,6 @@
 # Çalışma döngüsü
 
-Her işte geçerlidir; işin boyutuna göre ölçeklenir. Tek adımlık işte yalnız 3 (Uygula) ve 4 (Doğrula). Kişiye özgü yollar ve kapanış adımları `data/kullanici-kurallari.json` `kapanis_kancasi` alanındadır.
+Her işte geçerlidir; işin boyutuna göre ölçeklenir. Tek adımlık işte yalnız 3 (Uygula) ve 4 (Doğrula). Kişiye özgü yollar ve kapanış adımları kişisel `kullanici-kurallari.json` (`~/.orkestra/`) `kapanis_kancasi` alanındadır.
 
 0. **Sınıflandır:** küçük / çok adımlı / riskli. Sınıf plan derinliğini ve onay gereğini belirler. Riskli: geri alınamaz, dış sisteme yazan, çok dosyalı ya da olgu riski taşıyan iş (`siniflar.json` `zorluk_rubrigi`).
 1. **Anla:** kullanıcının bütün isteklerini numaralı listeye çıkar (sonradan eklenenler dahil), "bitti" ölçütünü yaz. Mevcut sistemi hedefli incele (büyük dosyayı gereksiz yere bütünüyle yükleme), varsayımı doğrula; not ile canlı dosya çelişirse canlıya güven. Sonucu değiştirmeyen belirsizlikte varsay ve belirt; değiştirende soruları tek mesajda topla, beklerken bağımsız kısmı ilerlet.
